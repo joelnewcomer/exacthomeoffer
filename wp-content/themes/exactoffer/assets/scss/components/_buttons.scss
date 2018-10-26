@@ -2,8 +2,8 @@
 	display: inline-block;
 	position: relative;
 	margin-bottom: 10px;
-	background: $primary-color;
-	border: solid $button-border-width $primary-color;
+	background: $secondary-color;
+	border: solid $button-border-width $secondary-color;
 	border-radius: $global-radius;
 	color: $white;
 	padding: 12px 30px;
@@ -13,7 +13,7 @@
 	transition: all .5s;
 	-webkit-transition: all .5s; /* Safari and Chrome */
 	-ms-transition: all .5s; /* Opera */
-	box-shadow: 0 6px 12px 0 rgba($primary-color,0.30);
+	box-shadow: 0 6px 12px 0 rgba($secondary-color,0.30);
 	text-shadow: 0 1px 4px rgba(0,0,0,0.20);
 	@include breakpoint(medium ) {
 	    margin-right: 15px;
@@ -23,8 +23,12 @@
 	}	
 	&:hover {
 		background: transparent;
-		color: $primary-color;
+		color: $secondary-color;
 	}
+}
+
+input.button.no-shadow {
+	box-shadow: none;
 }
 
 .button.small a, .faux-button.small, button.small {
@@ -32,8 +36,17 @@
 	font-size: 16px;
 }
 
+.button.arrow svg {
+	position: absolute;
+	right: 14px;
+	top: 50%;
+	margin-top: -8px;
+	width: 16px;
+	height: 16px;
+}
+
 .button.arrow a, .faux-button.arrow, button.arrow {
-	padding-right: 36px;
+	padding-right: 42px;
 }
 
 .faux-button.arrow.small {
@@ -67,9 +80,9 @@
 	}	
 	&:hover {
 		background: #fff;
-		color: $primary-color;
+		color: $secondary-color;
 		svg path {
-			fill: $primary-color;
+			fill: $secondary-color;
 		}		
 	}
 }

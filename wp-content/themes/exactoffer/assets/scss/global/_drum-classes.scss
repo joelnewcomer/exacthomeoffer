@@ -219,3 +219,16 @@ body.ie10 {
 		display: none;
 	}	
 }
+
+.magenta {
+	color: $secondary-color;
+}
+
+.teal {
+	color: $primary-color;
+}
+
+p {
+	font-size: 18px;
+	font-weight: 300;
+}

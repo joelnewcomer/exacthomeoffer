@@ -46,22 +46,6 @@ ul.post-meta {
 }
 
 .featured-container {
-	display: block;
-	float: left;
-	position: relative;
-	width: 100%;
-	overflow: hidden;
-	& > .grid-container {
-		@media only screen and (max-width: 1010px) {
-			padding: 0;
-		}
-	}
-	.row {
-		position: relative;
-	}
-	h1 {
-		color: #fff;
-	}
 	.blog-header {
 		@media only screen and (min-width: 40.063em) {
 			padding-top: 110px;
@@ -76,23 +60,6 @@ ul.post-meta {
 		height: 100%;
 		width: 100%;		
 	}	
-	.blog-landing-featured {
-		picture {
-			opacity: .7;
-		}
-		.overlay {
-			position: absolute;
-			@media print { 
-				position: relative;
-				margin-top: 20px;
-			}
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: rgba(0,0,0,.2);
-		}
-	}
 }
 
 .single .featured-container h1 {

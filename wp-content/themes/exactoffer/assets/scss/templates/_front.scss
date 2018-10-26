@@ -1,14 +1,148 @@
-.slider-container {
+.home-header {
+	height: 100%;
+	padding-left: 5%;
+	h1 {
+		font-size: 58px;
+		max-width: 420px;
+		margin-bottom: 16px;
+		text-shadow: 0 1px 4px rgba(0,0,0,0.20);
+	}
+	p {
+		font-weight: 700;
+		font-size: 18px;
+		max-width: 490px;
+		margin-bottom: 30px;
+		line-height: 1.6;
+		text-shadow: 0 1px 4px rgba(0,0,0,0.20);
+	}
+}
+
+form.request-offer {
+	background: #FFFFFF;
+	box-shadow: 0 6px 12px 0 rgba(85,155,181,0.20);
+	border-radius: 4px;
+	padding: 12px;
+	width: 100%;
+	max-width: 506px;
+	display: inline-block;
+	input.home-address {
+		font-weight: 700;
+		font-size: 15px;
+		max-width: 242px;
+		float: left;
+		background: transparent !important;
+		border: none !important;
+		box-shadow: none !important;
+		margin: 0;
+		height: 48px;
+	}
+	input.offer-submit {
+		float: right;
+		margin: 0;
+		font-size: 17px;
+		height: 48px;
+	}
+}
+
+#page > section {
 	display: block;
 	float: left;
 	width: 100%;
 }
 
-.slider-container li img {
-	width: 100%;
+section.benefits {
+	padding: 50px 0;
+	.grid-container {
+		max-width: 944px;
+	}
+	h2 + p {
+		display: inline-block;
+		max-width: 790px;
+		margin-bottom: 65px;
+	}
+	.benefit-block {
+		background: #F7FDFF;
+		border-radius: 12px;
+		padding: 0 20px 20px 20px;
+		margin-bottom: 32px;
+		position: relative;
+		z-index: 2;
+		p {
+			color: $primary-color;
+		}
+		&:after {
+			content: "";
+			display: block;
+			background: #F7FDFF;
+			width: 136px;
+			height: 136px;
+			border-radius: 68px;
+			position: absolute;
+			z-index: 1;
+			top: -35px;
+			left: 50%;
+			margin-left: -68px;
+		}
+		svg {
+			margin-top: -16px;
+			margin-bottom: 20px;
+		}
+		h3, p, svg {
+			position: relative;
+			z-index: 2;
+		}
+		h3 {
+			font-size: 20px;
+			font-weight: 700;
+			margin-bottom: 12px;
+			display: inline-block;
+			max-width: 215px;
+		}
+	}
 }
-section.intro {
-	display:block;
-	width:100%;
-	float:left;
+
+section.how-it-works {
+	padding: 60px 0 80px 0;
+	h2 + p {
+		margin-bottom: 60px;
+	}
+	.grid-container {
+		max-width: 944px;
+	}
+	.step-block {
+		margin-bottom: 40px;
+		position: relative;
+		p {
+			font-weight: 700;
+			display: inline-block;
+			max-width: 232px;
+		}
+		svg {
+			margin-bottom: 40px;
+			position: relative;
+			z-index: 1;
+		}
+		&:nth-child(1)::after {
+			content: "";
+			display: block;
+			top: 0;
+			left: 50%;
+			width: 100%;
+			position: absolute;
+			height: 150px;
+			background: url(../images/process-dots-left.svg) center center no-repeat;
+			background-size: 100% auto;
+		}
+		&:nth-child(2)::after {
+			content: "";
+			display: block;
+			top: -30px;
+			left: 50%;
+			width: 100%;
+			position: absolute;
+			height: 75px;
+			background: url(../images/process-dots-right.svg) center center no-repeat;
+			background-size: 100% auto;
+		}
+	}
 }
