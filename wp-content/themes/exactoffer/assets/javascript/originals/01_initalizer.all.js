@@ -30,20 +30,8 @@ jQuery( document ).ready(function() {
         collapseIcon: '<svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1683 1331l-166 165q-19 19-45 19t-45-19l-531-531-531 531q-19 19-45 19t-45-19l-166-165q-19-19-19-45.5t19-45.5l742-741q19-19 45-19t45 19l742 741q19 19 19 45.5t-19 45.5z"/></svg>',
     });
 
-    jQuery('.search-button').featherlight({
-        namespace: 'fl-modal',
-        variant: 'fl-search',
-        closeIcon: '&#10005;',
-        afterContent: function(event){
-            setTimeout(function() {
-                jQuery( 'input#s' ).focus();
-            }, 500);
-        },
-    });
-    
-    jQuery(window).paroller();
 	
-	var currentTime = new Date();
+	/* var currentTime = new Date();
 	jQuery("li.gfield.date input").each(function() {
 	   // Date Dropper
 	   // Set min year to current year.
@@ -57,5 +45,5 @@ jQuery( document ).ready(function() {
 	   // Don't set the date initially.
 	   jQuery(this).data('init-set', false);
 	   jQuery(this).dateDropper();
-	});		    
+	}); */		    
 });

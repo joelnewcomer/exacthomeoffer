@@ -6,27 +6,47 @@ get_header(); ?>
 
 <div id="page" role="main">
 
-	<?php // get_template_part('template-parts/video'); ?>
+<?php
+$title = get_the_title();
+$image_id = get_post_thumbnail_id();
 
-	<div class="slider-container">
-	    <ul class="bxslider">
-			<?php if( have_rows('slides') ):
-				while ( have_rows('slides') ) : the_row(); ?>
-	                <li>
-	                	<?php
-		                $link = get_sub_field('link_to');
-		                if ($link != '') : ?>
-		                    <a href="<?php echo get_sub_field('link_to'); ?>">
-			            <?php endif; ?>
-							<?php echo wp_get_attachment_image(get_sub_field('slide'), 'featured-home'); ?>
-						<?php if ($link != '') : ?>	
-	                    	</a>
-	                    <?php endif; ?>
-	                </li>
-				<?php endwhile;
-			endif; ?>
-	    </ul>
-	</div> <!-- slider-container -->
+// Default Featured Image
+if ($image_id == null || get_field('featured_not_in_header')) {
+	$image_id = get_theme_mod( 'default_featured' );
+}
+?>
+
+	<div class="featured-container">
+		<div class="featured-image home-featured">
+			<div class="show-for-large-up">
+				<?php echo wp_get_attachment_image($image_id, 'featured'); ?>
+			</div>
+			<div class="show-for-medium">
+				<?php if (kdmfi_has_featured_image( 'featured-image-tablet')) : ?>
+					<?php kdmfi_the_featured_image( 'featured-image-tablet', 'full'); ?>
+				<?php else : ?>
+					<?php echo wp_get_attachment_image($image_id, 'featured'); ?>
+				<?php endif; ?>				
+			</div>
+			<div class="show-for-small">
+				<?php if (kdmfi_has_featured_image( 'featured-image-mobile')) : ?>
+					<?php kdmfi_the_featured_image( 'featured-image-mobile', 'full'); ?>
+				<?php else : ?>
+					<?php echo wp_get_attachment_image($image_id, 'featured'); ?>
+				<?php endif; ?>
+			</div>
+			<div class="overlay">
+				<div class="home-header">
+					<div style="display:table;width:100%;height:100%;">
+						<div style="display:table-cell;vertical-align:middle;">
+						    <h1 class="entry-title"><?php echo get_field('header'); ?></h1>
+						    <p><?php echo get_field('subheader'); ?></p>
+						</div>
+					</div>
+				</div> <!-- home-header -->
+			</div> <!-- overlay -->
+		</div> <!-- home-featured -->
+	</div> <!-- featured-container -->
 	
 	<section class="intro" role="main">
 	   <div <?php post_class() ?> id="post-<?php the_ID(); ?>">
@@ -41,30 +61,5 @@ get_header(); ?>
 	</section>
 
 </div> <!-- #page -->
-
-<script>
-if (typeof bxSlider === "function") { 	
-    var slider = jQuery('.bxslider').bxSlider({
-        auto: true,
-        pager: false,
-        controls: true,
-        mode: 'fade',
-        speed: 1000,
-        pause: 7000
-    });	
-} else {
-	jQuery(window).load(function(){
-    	var slider = jQuery('.bxslider').bxSlider({
-    	    auto: true,
-    	    pager: false,
-    	    controls: true,
-    	    mode: 'fade',
-    	    speed: 1000,
-    	    pause: 7000
-    	});		
-	});
-}
-
-</script>
 
 <?php get_footer(); ?>

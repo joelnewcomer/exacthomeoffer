@@ -61,7 +61,6 @@
 		</div> <!-- sub-footer -->
 	</footer>
 	
-	<?php get_template_part( 'template-parts/search-modal' ); ?>
 	<?php get_template_part( 'template-parts/fullscreen-menu' ); ?>	
 	<a class="cd-top"><?php _e( 'Top', 'textdomain' ); ?></a>
 

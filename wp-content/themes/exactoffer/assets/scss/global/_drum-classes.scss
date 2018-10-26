@@ -201,3 +201,21 @@ body.ie10 {
 		padding-right: 20px !important;
 	}
 }
+
+@media only screen and (min-width: 64.063em) {
+	.show-for-medium {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 40em) {
+	.show-for-medium {
+		display: none;
+	}	
+}
+
+@media only screen and (max-width: 64em) {
+	.show-for-large-up {
+		display: none;
+	}	
+}

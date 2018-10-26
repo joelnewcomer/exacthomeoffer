@@ -99,7 +99,7 @@ ul.slimmenu li>ul {
     z-index: 999;
     display: none;
     width: auto;
-    background: #FAFAFA;
+    background: #F7FDFF;
     padding: 16px 0;
     border-bottom: solid 4px $primary-color;
 }
@@ -120,14 +120,49 @@ ul.slimmenu li>ul>li ul {
 ul.slimmenu li a {
     display: block;
     white-space: nowrap;
-    color: $dark-gray;
+    color: $primary-color;
     font-size: $menu-font-size;
-    font-weight: 400;
+    font-weight: 700;
     transition: all 0.5s ease-out;
 }
 
+ul.slimmenu li.active a {
+	color: $secondary-color;
+	&:after {
+		content: "";
+		display: block;
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		background: $secondary-color;
+	}
+}
+
+ul.slimmenu li.has-submenu > a {
+	padding-right: 36px;
+}
+
+ul.slimmenu li.has-submenu > a:after {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 12px;
+	height: 12px;
+	right: 12px;
+	top: 50%;
+	margin-top: -6px;
+	background: url(../images/menu-arrow.svg) center center no-repeat;
+	background-size: 100% auto;
+}
+
+ul.slimmenu li ul {
+	text-align: left;
+}
+
 ul.slimmenu li > a {
-    padding: 30px 20px 31px 20px;	
+    padding: 27px 20px 28px 20px;	
 }
 
 ul.slimmenu li > ul > li a {
@@ -150,14 +185,13 @@ body.home .header-wrapper.transparent {
 }
 
 ul.slimmenu > li a:hover {
-    color: $primary-color;
-	background-image: linear-gradient(-180deg, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.10) 100%);
+    color: $secondary-color;
+	background-image: linear-gradient(0deg, rgba(255,255,255,0.10) 0%, #F1FBFF 100%);
 }
 
 ul.slimmenu li ul li a:hover {
-	background: $primary-color;
-	color: #FFFFFF;
-	text-shadow: 0 1px 4px rgba(0,0,0,0.20);
+	background: #F0FBFF;
+	color: $secondary-color;
 }
 
 ul.slimmenu li .sub-toggle {

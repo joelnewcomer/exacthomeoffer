@@ -72,3 +72,36 @@ function my_acf_json_load_point( $paths ) {
     $paths[] = get_stylesheet_directory() . '/acf-json';
     return $paths;
 }
+
+
+// Add Tablet and Mobile Featured Images
+add_filter( 'kdmfi_featured_images', function( $featured_images ) {
+  // Add featured-image-tablet to pages and posts
+  $args_1 = array(
+    'id' => 'featured-image-tablet',
+    'desc' => 'This image will be used on tablets.',
+    'label_name' => 'Tablet Featured Image',
+    'label_set' => 'Set tablet featured image',
+    'label_remove' => 'Remove tablet featured image',
+    'label_use' => 'Set tablet featured image',
+    'post_type' => array( 'page' ),
+  );
+
+  // Add featured-image-2 to pages only
+  $args_2 = array(
+    'id' => 'featured-image-mobile',
+    'desc' => 'This image will be used on mobile devices.',
+    'label_name' => 'Mobile Featured Image',
+    'label_set' => 'Set mobile featured image',
+    'label_remove' => 'Remove mobile featured image',
+    'label_use' => 'Set mobile featured image',
+    'post_type' => array( 'page' ),
+  );
+
+  // Add the featured images to the array, so that you are not overwriting images that maybe are created in other filter calls
+  $featured_images[] = $args_1;
+  $featured_images[] = $args_2;
+
+  // Important! Return all featured images
+  return $featured_images;
+});
