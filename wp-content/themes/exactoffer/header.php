@@ -58,7 +58,7 @@
 						<?php foreach( $locations as $location ) : ?>
 							<p>Call Today <?php echo drum_smart_phone($location['loc_phone'], $location['loc_phone'], ''); ?></p>
 						<?php endforeach; ?>
-						<a href="#" class="menu hide-for-small" aria-controls="site-navigation"><?php get_template_part('assets/images/hamburger.svg'); ?> <?php _e( 'Menu', 'drumroll' ); ?></a>
+						<a href="#" class="menu show-for-medium-down" aria-controls="site-navigation"><?php get_template_part('assets/images/hamburger.svg'); ?> <?php _e( 'Menu', 'drumroll' ); ?></a>
 					</div> <!-- top-bar-right -->
 				</nav> <!-- #site-navigation -->
 			</header> <!-- #masthead -->

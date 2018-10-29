@@ -65,6 +65,7 @@ blockquote {
 	margin: $blockquote-margin;
 	p {
 		font-size: $blockquote-font-size;
+		font-weight: $blockquote-font-weight;
 	}
 }
 
@@ -90,11 +91,11 @@ blockquote {
 }
 
 .entry-content section.default-background {
-	background:$default-section;
+	/* background:$default-section; */
 }
 
 .entry-content section.default-background:nth-child(even) {
-	background:$primary-section;
+	/* background:$primary-section; */
 }
 
 .entry-content section.primary-background {
@@ -206,6 +207,9 @@ body.ie10 {
 	.show-for-medium {
 		display: none;
 	}
+	.show-for-medium-down {
+		display: none !important;
+	}
 }
 
 @media only screen and (max-width: 40em) {
@@ -231,4 +235,16 @@ body.ie10 {
 p {
 	font-size: 18px;
 	font-weight: 300;
+}
+
+h1 {
+	color: $magenta;
+}
+
+h2, h3, h4, h5, h6 {
+	color: $teal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 700;
 }

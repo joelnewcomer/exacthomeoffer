@@ -17,18 +17,12 @@ get_header(); ?>
 <div id="page" role="main">
 	<?php while ( have_posts() ) : the_post(); ?>
 		<article <?php post_class(array('main-content')) ?> id="post-<?php the_ID(); ?>">
-				<section class="breadcrumbs">
-					<div class="grid-container">
-						<div class="large-12 cell">
-							<?php
-							if ( function_exists('yoast_breadcrumb') ) {
-								yoast_breadcrumb('<p id="breadcrumbs">','</p>');
-							}
-							?>
-						</div>
-					</div>
-				</section>
 			<div class="entry-content">
+				<div class="grid-container">
+					<div class="large-12 cell">
+						<h1><?php the_title(); ?></h1>
+					</div>
+				</div>
 				<?php if ( post_password_required() ) : ?>
 					<div class="grid-container password-protected-row">
 						<div class="large-12 cell">
