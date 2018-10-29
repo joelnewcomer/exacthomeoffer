@@ -112,8 +112,8 @@ get_header(); ?>
 	<section class="reviews">
 		<div class="grid-container">
     	    <div class="grid-x grid-padding-x">
-				<div class="large-12 cell text-center">
-					
+				<div class="large-8 medium-8 cell small text-center">
+					<p><?php echo get_field('reviews_blurb'); ?></p>
 				</div>
     	    </div>
 		</div>

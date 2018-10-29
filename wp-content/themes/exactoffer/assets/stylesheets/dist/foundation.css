@@ -4298,6 +4298,9 @@ section.how-it-works {
       background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMzQiIGhlaWdodD0iNzIiIHZpZXdCb3g9IjAgMCAzMzQgNzIiPgogIDxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAxOUFCQyIgc3Ryb2tlLWRhc2hhcnJheT0iMiAxMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik04MzAuNDYyOTg3LDI4Mi40NjI5ODcgQzgzMC40NjI5ODcsMTUzLjIyODM1NSA3MjUuNjk3NjE4LDQ4LjQ2Mjk4NjggNTk2LjQ2Mjk4Nyw0OC40NjI5ODY4IiBvcGFjaXR5PSIuMyIgdHJhbnNmb3JtPSJyb3RhdGUoLTQ1IDMyNS4yODggNzc4LjI1KSIvPgo8L3N2Zz4K) center center no-repeat;
       background-size: 100% auto; }
 
+section.reviews {
+  background: #F0FBFF; }
+
 #single-post .single-title-ul {
   position: relative;
   margin-bottom: 60px;
