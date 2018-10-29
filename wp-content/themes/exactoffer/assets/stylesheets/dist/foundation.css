@@ -3396,30 +3396,37 @@ main.container > section > .grid-container {
 .sub-footer {
   padding: 24px 0 10px 0;
   background: #aa1766; }
+  .sub-footer .grid-container {
+    max-width: 860px; }
   .sub-footer p, .sub-footer a {
     font-size: 12px; }
 
-#menu-footer-menu li {
-  list-style: none; }
-
-#menu-footer-menu ul {
-  margin: 0; }
-
-#menu-footer-menu > li {
-  display: inline-block;
-  margin-right: 60px; }
-  #menu-footer-menu > li > a {
-    font-size: 18px;
-    font-weight: 700;
-    pointer-events: none;
-    cursor: default;
-    margin-bottom: 12px;
-    display: inline-block; }
-  #menu-footer-menu > li li a {
-    font-size: 15px;
-    opacity: .8;
+#menu-footer-menu {
+  margin: 0;
+  float: right; }
+  #menu-footer-menu li {
+    list-style: none; }
+  #menu-footer-menu ul {
+    margin: 0; }
+  #menu-footer-menu > li {
     display: inline-block;
-    margin-bottom: 8px; }
+    margin-right: 60px; }
+    #menu-footer-menu > li:last-child {
+      margin-right: 0; }
+    #menu-footer-menu > li > a {
+      font-size: 18px;
+      font-weight: 700;
+      pointer-events: none;
+      cursor: default;
+      margin-bottom: 12px;
+      display: inline-block; }
+    #menu-footer-menu > li li a {
+      font-size: 15px;
+      opacity: .8;
+      display: inline-block;
+      margin-bottom: 8px; }
+      #menu-footer-menu > li li a:hover {
+        opacity: 1; }
 
 .ie9 label.label-floatlabel {
   display: none !important; }

@@ -63,12 +63,17 @@
 .sub-footer {
 	padding: 24px 0 10px 0;
 	background: $secondary-dim;
+	.grid-container {
+		max-width: 860px;
+	}	
 	p, a {
 		font-size: 12px;
 	}
 }
 
 #menu-footer-menu {
+	margin: 0;
+	float: right;
 	li {
 		list-style: none;		
 	}
@@ -78,6 +83,9 @@
 	& > li {
 		display: inline-block;
 		margin-right: 60px;
+		&:last-child {
+			margin-right: 0;
+		}
 		> a {
 			font-size: 18px;
 			font-weight: 700;
@@ -91,6 +99,9 @@
 			opacity: .8;
 			display: inline-block;
 			margin-bottom: 8px;
+			&:hover {
+				opacity: 1;
+			}
 		}
 	}
 }
