@@ -112,12 +112,85 @@ get_header(); ?>
 	<section class="reviews">
 		<div class="grid-container">
     	    <div class="grid-x grid-padding-x">
-				<div class="large-8 medium-8 cell small text-center">
-					<p><?php echo get_field('reviews_blurb'); ?></p>
+				<div class="large-7 medium-7 cell small-text-center">
+					<p class="teal"><?php echo get_field('reviews_blurb'); ?></p>
+				</div>
+				<div class="large-5 medium-5 cell text-center">
+					<a href="<?php echo get_field('reviews_facebook_url'); ?>" target="_blank" class="reviews-wrapper">
+						<?php get_template_part('assets/images/facebook', 'logo.svg'); ?><br />
+						<?php
+						$has_half = false;
+						$facebook_stars = get_field('reviews_facebook_stars'); 
+						if (strpos($facebook_stars, '.5') !== false) {
+							$has_half = true;
+							$facebook_stars = str_replace ( '.5', '' , $facebook_stars );
+						}
+						?>
+						<?php
+						for ($i = 0 ; $i < 5; $i++){
+							if ($i >= $facebook_stars) {
+								if ($has_half) {
+									get_template_part('assets/images/half', 'star.svg');
+									$has_half = false;
+								} else {
+									get_template_part('assets/images/no', 'star.svg');
+								}
+							} else {
+								get_template_part('assets/images/star.svg');
+							}
+						} ?>
+					</a>
+					<a href="<?php echo get_field('reviews_google_url'); ?>" target="_blank" class="reviews-wrapper">
+						<?php get_template_part('assets/images/google', 'logo.svg'); ?><br />
+						<?php
+						$has_half = false;
+						$google_stars = get_field('reviews_google_stars'); 
+						if (strpos($google_stars, '.5') !== false) {
+							$has_half = true;
+							$google_stars = str_replace ( '.5', '' , $google_stars );
+						}
+						?>
+						<?php
+						for ($i = 0 ; $i < 5; $i++){
+							if ($i >= $google_stars) {
+								if ($has_half) {
+									get_template_part('assets/images/half', 'star.svg');
+									$has_half = false;
+								} else {
+									get_template_part('assets/images/no', 'star.svg');
+								}
+							} else {
+								get_template_part('assets/images/star.svg');
+							}
+						} ?>
+					</a>
 				</div>
     	    </div>
 		</div>
-	</section>	<!-- testimonial -->	
+	</section>	<!-- reviews -->
+
+	<section class="cta" role="main">
+		<div class="grid-container">
+    	    <div class="grid-x">
+	    	    <?php $url = wp_get_attachment_image_src(get_field('cta_before_image'), 'full'); ?>
+				<div class="large-6 cell text-center cta-image" style="background: url(<?php echo $url[0]; ?>);">
+					<?php echo get_field('cta_before_blurb'); ?>
+				</div>
+				<?php $url = wp_get_attachment_image_src(get_field('cta_after_image'), 'full'); ?>
+				<div class="large-6 cell text-center cta-image" style="background: url(<?php echo $url[0]; ?>);">
+					<?php echo get_field('cta_after_blurb'); ?>
+				</div>
+    	    </div>
+    	    <div class="grid-x grid-padding-x">
+				<div class="large-12 cell text-center">
+					<h2 class="magenta"><?php echo get_field('cta_header'); ?></h2>
+					<h3 class="teal"><?php echo get_field('cta_subheader'); ?></h3>
+					<p><?php echo get_field('cta_blurb'); ?></p>
+					<div class="button arrow"><a href="<?php echo get_field('cta_link'); ?>">Get Your ExactOffer<?php get_template_part('assets/images/button', 'arrow.svg'); ?></a></div>
+				</div>
+    	    </div>    	    
+		</div>		
+	</section>	<!-- cta -->	
 
 </div> <!-- #page -->
 

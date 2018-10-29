@@ -149,4 +149,47 @@ section.how-it-works {
 
 section.reviews {
 	background: #F0FBFF;
+	padding: 60px 0;
+	.grid-container {
+		max-width: 1100px;
+	}	
+	p {
+		font-weight: 600px;
+		font-size: 22px;
+	}
+	.reviews-wrapper {
+		display: inline-block;
+		margin: 0 30px 20px 30px;
+		& svg:nth-child(1) {
+			margin-bottom: 10px;
+		}
+	}
+}
+
+section.cta {
+	padding: 80px 0;
+	.grid-container {
+		max-width: 952px;
+	}
+	.cta-image {
+		padding: 120px 15px 130px 15px;
+		margin-bottom: 30px;
+		font-weight: 700;
+		font-size: 30px;
+		color: #fff;
+	}
+	h2, h3 {
+		font-weight: 700;
+	}
+	h2 {
+		font-size: 30px;
+		margin-bottom: 12px;
+	}
+	h3 {
+		font-size: 26px;
+		margin-bottom: 12px;
+	}
+	p {
+		margin-bottom: 24px;
+	}
 }

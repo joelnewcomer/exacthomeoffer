@@ -363,11 +363,49 @@
                     "placeholder": ""
                 },
                 {
+                    "key": "field_5bd72d245cdc9",
+                    "label": "Facebook Stars",
+                    "name": "facebook_stars",
+                    "type": "text",
+                    "instructions": "i.e. 4, 4.5, or 5",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_5bd320a74e595",
                     "label": "Google Reviews URL",
                     "name": "google_url",
                     "type": "text",
                     "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5bd72d5658b62",
+                    "label": "Google Stars",
+                    "name": "google_stars",
+                    "type": "text",
+                    "instructions": "i.e. 4, 4.5, or 5",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -625,7 +663,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 5,
     "position": "acf_after_title",
     "style": "seamless",
     "label_placement": "top",
@@ -635,5 +673,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1540563961
+    "modified": 1540828525
 }
