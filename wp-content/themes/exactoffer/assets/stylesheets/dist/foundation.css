@@ -3353,8 +3353,20 @@ main.container > section > .grid-container {
     color: #fff;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); }
 
+.footer-cta {
+  display: block;
+  float: left;
+  width: 100%;
+  padding: 32px 0;
+  background-image: radial-gradient(51% 0%, #FAFDFF 52%, #F0FBFF 81%, #E3F8FF 100%); }
+  .footer-cta .grid-container {
+    max-width: 860px; }
+  .footer-cta svg {
+    width: 240px;
+    height: 69px; }
+
 .main-footer {
-  background: #019ABC;
+  background: #BD1971;
   padding: 65px 0; }
   .main-footer a.logo {
     margin-bottom: 20px; }
@@ -3362,13 +3374,16 @@ main.container > section > .grid-container {
     margin-bottom: 10px; }
     .main-footer .social svg {
       fill: #fff; }
-  .main-footer .social-subscribe h3 {
-    font-size: 18px;
-    margin-bottom: 20px; }
+  .main-footer h2.phone {
+    font-size: 26px;
+    font-weight: 700; }
+    .main-footer h2.phone svg {
+      width: 15px;
+      height: 15px; }
 
 .sub-footer {
   padding: 24px 0 10px 0;
-  background: #018ba9; }
+  background: #aa1766; }
   .sub-footer p, .sub-footer a {
     font-size: 12px; }
 
@@ -4332,6 +4347,35 @@ section.cta {
     margin-bottom: 12px; }
   section.cta p {
     margin-bottom: 24px; }
+
+section.video {
+  background: #019ABC;
+  padding: 40px 0 60px 0; }
+  section.video h2 {
+    color: #fff;
+    margin-bottom: 20px; }
+  section.video img {
+    border: 1px solid #FAFAFA;
+    box-shadow: 0 5px 13px 0 rgba(0, 0, 0, 0.26);
+    background: rgba(0, 156, 192, 0.85); }
+  section.video a.video {
+    position: relative;
+    display: inline-block; }
+    section.video a.video .play-overlay {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0; }
+      section.video a.video .play-overlay svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -28px;
+        margin-top: -28px;
+        width: 56px;
+        height: 56px; }
 
 #single-post .single-title-ul {
   position: relative;

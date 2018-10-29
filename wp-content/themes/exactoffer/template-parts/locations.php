@@ -4,7 +4,8 @@
 		<?php if( $location['loc_title'] ): ?>
 			<!-- <span class="title"><?php echo $location['loc_title'];?></span> -->
 		<?php endif; ?>
-		<h2>
+		<h2 class="phone">
+			<?php get_template_part('assets/images/phone', 'icon.svg'); ?>
 			<?php // function drum_smart_phone($phone, $phone_text, $phone_label)
 			echo drum_smart_phone($location['loc_phone'], $location['loc_phone'], ''); ?>
 		</h2>

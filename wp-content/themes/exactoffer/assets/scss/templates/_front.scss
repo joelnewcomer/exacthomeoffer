@@ -193,3 +193,38 @@ section.cta {
 		margin-bottom: 24px;
 	}
 }
+
+section.video {
+	background: $teal;
+	padding: 40px 0 60px 0;
+	h2 {
+		color: #fff;
+		margin-bottom: 20px;
+	}
+	img {
+		border: 1px solid #FAFAFA;
+		box-shadow: 0 5px 13px 0 rgba(0,0,0,0.26);
+		background: rgba(0,156,192,0.85);
+	}
+	a.video {
+		position: relative;
+		display: inline-block;
+		.play-overlay {
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			svg {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -28px;
+				margin-top: -28px;
+				width: 56px;
+				height: 56px;
+			}
+		}
+	}
+}

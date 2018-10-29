@@ -68,14 +68,15 @@ $medium-gray: #cacaca;
 $dark-gray: #595959;
 $black: #0a0a0a;
 $white: #fff;
+$teal: #019ABC;
 
 
 $global-font-size: 100%;
 $global-width: rem-calc(1386);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #019ABC, // blue
-  secondary: #BD1971, // pink
+  primary: #019ABC, // teal
+  secondary: #BD1971, // magenta
   tertiary: #245CAD,
   quaternary: #DC8D29,
   success: #42A65E,

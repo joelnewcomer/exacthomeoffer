@@ -9,26 +9,33 @@
  */
 ?>
 	</main> <!-- .container -->
+	
+	<section class="footer-cta">
+		<div class="grid-container">
+    	    <div class="grid-x grid-padding-x">
+				<div class="large-4 medium-4 cell text-center">
+					<?php get_template_part('assets/images/exactoffer', 'logo-tagline.svg'); ?><br />
+				</div>
+				<div class="large-8 medium-8 cell text-center">
+					<?php get_template_part('template-parts/free', 'offer'); ?>
+				</div>				
+    	    </div>
+		</div>
+	</section>	<!-- footer-cta -->		
+		
 				
 	<footer id="footer" role="contentinfo">
 		<div class="main-footer">
 			<div class="grid-container">
 				<div class="grid-x">
 					<div class="large-4 medium-4 cell">
-						<div class="copyright small-text-center">						
-							<?php get_template_part('template-parts/site-logo','link'); ?>
-						</div>
 						<div class="address">
 							<?php get_template_part('template-parts/locations'); ?>
 						</div> <!-- address -->
+						<p><?php _e( 'Follow Us', 'drumroll' ); ?><?php get_template_part('template-parts/social'); ?></p>						
 					</div>
 					<div class="large-3 medium-3 cell hide-for-print small-text-center">
 						<?php drumroll_footer_menu(); ?>
-					</div>
-					<div class="large-5 medium-5 cell hide-for-print small-text-center social-subscribe">
-						<h3><?php _e( 'Follow Us', 'drumroll' ); ?></h3>
-						<?php get_template_part('template-parts/social'); ?>
-						<?php get_template_part('template-parts/subscribe-form'); ?>
 					</div>
 				</div> <!-- grid-x -->
 			</div> <!-- grid-container -->

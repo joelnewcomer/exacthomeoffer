@@ -8,8 +8,23 @@
 	}
 }
 
+.footer-cta {
+	display: block;
+	float: left;
+	width: 100%;
+	padding: 32px 0;
+	background-image: radial-gradient(51% 0%, #FAFDFF 52%, #F0FBFF 81%, #E3F8FF 100%);	
+	.grid-container {
+		max-width: 860px;
+	}
+	svg {
+		width: 240px;
+		height: 69px;
+	}
+}
+
 .main-footer {
-	background: $primary-color;
+	background: $secondary-color;
 	padding: 65px 0;
 	a.logo {
 		margin-bottom: 20px;
@@ -20,15 +35,19 @@
 			fill: #fff;
 		}
 	}
-	.social-subscribe h3 {
-		font-size: 18px;
-		margin-bottom: 20px;
+	h2.phone {
+		font-size: 26px;
+		font-weight: 700;
+		svg {
+			width: 15px;
+			height: 15px;
+		}	
 	}
 }
 
 .sub-footer {
 	padding: 24px 0 10px 0;
-	background: $primary-dim;
+	background: $secondary-dim;
 	p, a {
 		font-size: 12px;
 	}
