@@ -3371,6 +3371,7 @@ main.container > section > .grid-container {
   .main-footer a.logo {
     margin-bottom: 20px; }
   .main-footer .social {
+    display: inline-block;
     margin-bottom: 10px; }
     .main-footer .social svg {
       fill: #fff; }

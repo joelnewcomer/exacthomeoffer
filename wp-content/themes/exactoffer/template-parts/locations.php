@@ -11,7 +11,7 @@
 		</h2>
 		<p>
 			<?php if( $location['loc_email'] ): ?>
-				<a href="mailto:<?php echo $location['loc_email'];?>" class="email"><?php echo $location['loc_email'];?></a><br />
+				<a class="email" href="mailto:<?php echo $location['loc_email'];?>" class="email"><?php get_template_part('assets/images/email', 'icon.svg'); ?><?php echo $location['loc_email'];?></a><br />
 			<?php endif; ?>		
 		</p>
 	<?php endforeach; ?>
