@@ -220,8 +220,8 @@ body.ie10 {
 
 @media only screen and (max-width: 64em) {
 	.show-for-large-up {
-		display: none;
-	}	
+		display: none !important;
+	}
 }
 
 .magenta {

@@ -4,10 +4,7 @@
 			<div style="display:table;width:100%;height:100%;">
 				<div style="display:table-cell;vertical-align:middle;">
 				    <?php drumroll_fullscreen_menu(); ?>
-					<form role="search" method="get" id="blog-search" action="<?php echo home_url( '/' ); ?>">
-						<input type="text" value="" name="s" id="fmenu-s" placeholder="<?php esc_attr_e( 'Search', 'drumroll' ); ?>">
-						<input type="submit" class="search" id="fmenu-searchsubmit" value="Submit">
-					</form>
+
 			  	</div>
 			</div>
 		</div> <!-- menu-left -->
@@ -27,8 +24,7 @@
 					</div> <!-- address -->					
 					<h3><?php _e( 'Follow Us', 'drumroll' ); ?></h3>
 					<?php get_template_part('template-parts/social'); ?>
-					<!-- Commented out this form on 3/8/18 to prevent W3C Validator duplicate ID errors since this is in the footer -->
-					<?php // get_template_part('template-parts/subscribe-form'); ?>		    	
+	    	
 			  	</div>
 			</div>
 		</div> <!-- menu-right -->

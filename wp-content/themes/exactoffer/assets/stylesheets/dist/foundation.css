@@ -3194,7 +3194,7 @@ body.ie10 .cell {
 
 @media only screen and (max-width: 64em) {
   .show-for-large-up {
-    display: none; } }
+    display: none !important; } }
 
 .magenta {
   color: #BD1971; }
@@ -3229,7 +3229,7 @@ body.home .header-wrapper.transparent {
 
 header a.logo {
   float: left;
-  margin: 12px; }
+  margin: 8px; }
 
 a.logo {
   display: inline-block; }
@@ -3237,10 +3237,10 @@ a.logo {
     float: left;
     width: 161px;
     height: 56px; }
-    @media only screen and (max-width: 40.063em) {
+    @media only screen and (max-width: 64.063em) {
       a.logo svg {
-        width: 144px;
-        height: 50px; } }
+        width: 140px;
+        height: 40px; } }
 
 @media only screen and (max-width: 40.063em) {
   .top-bar-right, .top-bar-left {
@@ -3311,8 +3311,8 @@ header#masthead {
   .top-bar-right {
     position: absolute;
     top: 0;
-    z-index: 999;
-    width: 100%; }
+    right: 0;
+    z-index: 999; }
   .icon-wrapper {
     position: absolute;
     right: 0;
@@ -3351,9 +3351,21 @@ main.container > section > .grid-container {
         font-weight: 500; }
   .top-bar .top-bar-middle {
     display: inline-block; }
+  .top-bar .top-bar-middle.tablet p {
+    margin: 0;
+    font-weight: 700;
+    font-size: 17px; }
+    .top-bar .top-bar-middle.tablet p span {
+      color: #DCF0FA; }
+  .top-bar .top-bar-middle.tablet a {
+    display: inline-block;
+    padding: 16px 0 17px 0; }
   @media only screen and (max-width: 40.063em) {
     .top-bar {
-      padding: 0 !important; } }
+      padding: 0 !important; }
+      .top-bar .top-bar-left,
+      .top-bar .top-bar-right {
+        width: auto !important; } }
 
 .main-footer, .sub-footer {
   display: block;
@@ -3763,12 +3775,14 @@ a.menu {
   vertical-align: middle;
   font-size: 18px;
   margin: 0 20px;
+  padding: 14px 0 15px 0;
   text-transform: uppercase; }
   a.menu svg {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
     vertical-align: top;
-    margin-right: 12px; }
+    margin-right: 8px;
+    margin-top: 5px; }
     a.menu svg path {
       fill: #019ABC; }
 
@@ -4809,6 +4823,9 @@ ul.slimmenu li ul {
 
 ul.slimmenu li > a {
   padding: 27px 20px 28px 20px; }
+  @media only screen and (max-width: 1060px) {
+    ul.slimmenu li > a {
+      padding: 27px 12px 28px 12px; } }
 
 ul.slimmenu li > ul > li a {
   padding: 12px 20px; }

@@ -50,14 +50,29 @@
 					<div class="top-bar-left">
 						<?php get_template_part('template-parts/site-logo','link'); ?>
 					</div> <!-- top-bar-left -->
-					<div class="top-bar-middle hide-for-print">
+					<div class="top-bar-middle hide-for-print show-for-large-up">
 						<?php drumroll_main_menu(); ?>
 					</div>
-					<div class="top-bar-right hide-for-print">
+					<div class="top-bar-middle tablet hide-for-print show-for-medium-down">
 						<?php $locations = get_theme_mod( 'locations' ); ?>
+						<?php foreach( $locations as $location ) : ?>
+							<p>
+							<?php
+							$phone = $location['loc_phone'];	
+							$clean_phone = preg_replace("/[^0-9]/","",$phone);
+							echo '<a class="hide-for-print" href="tel:' . $clean_phone . '">Call Now</a>';
+							?>
+							&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;
+							<a class="magenta" href="<?php echo get_site_url(); ?>/request-an-offer">Request Offer</a>
+							</p>
+						<?php endforeach; ?>
+					</div>
+					<div class="top-bar-right hide-for-print show-for-large-up">
 						<?php foreach( $locations as $location ) : ?>
 							<p>Call Today <?php echo drum_smart_phone($location['loc_phone'], $location['loc_phone'], ''); ?></p>
 						<?php endforeach; ?>
+					</div>
+					<div class="top-bar-right hide-for-print show-for-medium-down">
 						<a href="#" class="menu show-for-medium-down" aria-controls="site-navigation"><?php get_template_part('assets/images/hamburger.svg'); ?> <?php _e( 'Menu', 'drumroll' ); ?></a>
 					</div> <!-- top-bar-right -->
 				</nav> <!-- #site-navigation -->

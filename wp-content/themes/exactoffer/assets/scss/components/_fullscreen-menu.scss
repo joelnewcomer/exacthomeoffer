@@ -3,12 +3,14 @@ a.menu {
 	vertical-align: middle;
 	font-size: $menu-font-size;
 	margin: 0 20px;
+	padding: 14px 0 15px 0;
 	text-transform: uppercase;
 	svg {
-		width: 24px;
-		height: 24px;
+		width: 16px;
+		height: 16px;
 		vertical-align: top;
-		margin-right: 12px;
+		margin-right: 8px;
+		margin-top: 5px;
 		path {
 			fill: $primary-color;
 		}

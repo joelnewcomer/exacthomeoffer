@@ -16,7 +16,7 @@ body.home .header-wrapper.transparent {
 
 header a.logo {
 	float: left;
-	margin: 12px;
+	margin: 8px;
 }
 
 a.logo {
@@ -25,9 +25,9 @@ a.logo {
 		float: left;
 		width: 161px;
 		height: 56px;
-		@media only screen and (max-width: 40.063em) {
-			width: 144px;
-			height: 50px;	
+		@media only screen and (max-width: 64.063em) {
+			width: 140px;
+			height: 40px;	
 		}
 	}
 }
@@ -121,8 +121,8 @@ header#masthead {
 	.top-bar-right {
 		position: absolute;
 		top: 0;
+		right: 0;
 		z-index: 999;
-		width: 100%;
 	}
 	.icon-wrapper {
 		position: absolute;
@@ -172,7 +172,24 @@ main.container > section > .grid-container {
 	.top-bar-middle {
 		display: inline-block;
 	}
+	.top-bar-middle.tablet {
+		p {
+			margin: 0;
+			font-weight: 700;
+			font-size: 17px;
+			span {
+				color: #DCF0FA;
+			}
+		}
+		a {
+			display: inline-block;
+			padding: 16px 0 17px 0;
+		}
+	}
 	@media only screen and (max-width: 40.063em) {
-		padding: 0 !important;	
+		padding: 0 !important;
+		.top-bar-left, .top-bar-right {
+			width: auto !important;
+		}
 	}
 }
