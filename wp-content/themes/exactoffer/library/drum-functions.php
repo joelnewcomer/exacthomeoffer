@@ -664,4 +664,7 @@ function woocommerce_body_class($classes){
     }
     return $classes;
 }
+
+// Custom Image Sizes
+add_image_size( 'testimonial', 476, 320, true );
 ?>

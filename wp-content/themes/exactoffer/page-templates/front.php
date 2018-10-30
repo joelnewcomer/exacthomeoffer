@@ -78,7 +78,47 @@ get_header(); ?>
 		<div class="grid-container">
     	    <div class="grid-x grid-padding-x">
 				<div class="large-12 cell text-center">
-					<h2>Don't forget to come back and add testimonial</h2>
+					<?php
+					$post_id = get_field('testimonials_page');
+					$rows = get_field('testimonials', $post_id);
+					$row_count = count($rows);
+					$featured_i = array_search(true, array_column($rows, 'featured'));
+					$featured = $rows[$featured_i]; 
+					?>
+					<?php if(get_field('testimonials', $post_id)): ?>
+						<div class="grid-container testimonials-container">
+							<div class="grid-x grid-padding-x testimonial-block">	
+								<?php
+								$name = $featured['name'];
+								$state = $featured['state'];
+								$testimonial = $featured['testimonial'];
+								$stars = $featured['stars'];
+								$blurb = $featured['photo_blurb'];
+								$photo_id = $featured['photo'];
+								$photo_url = wp_get_attachment_image_src($photo_id, 'testimonial');
+								?>
+								<div class="large-6 medium-6 cell text-center testimonial-photo" style="background-image: url(<?php echo $photo_url[0];?>);">
+									<div style="display:table;width:100%;height:100%;">
+										<div style="display:table-cell;vertical-align:middle;">
+									    	<div style="text-align:center;">
+										    	<?php echo $blurb; ?>
+										    </div>
+									  	</div>
+									</div>
+								</div> <!-- testimonial-photo -->
+								<div class="large-6 medium-6 cell text-center testimonial-content">
+									<div class="stars">
+										<?php echo get_stars($stars); ?>
+									</div>
+									<p><?php echo $testimonial; ?></p>
+									<p class="testimonial-name teal"><?php echo $name; ?> | <?php echo $state; ?></p>
+									<?php if ($row_count > 1) : ?>
+										<a class="testimonial-more" href="<?php echo get_permalink($post_id); ?>">See More</a>
+									<?php endif; ?>
+								</div> <!-- testimonial-content -->
+			    			</div> <!-- grid-padding-x testimonial-block -->
+						</div> <!-- grid-container testimonials-container -->
+					<?php endif; ?>					
 				</div>
     	    </div>
 		</div>
@@ -118,51 +158,11 @@ get_header(); ?>
 				<div class="large-5 medium-5 cell text-center">
 					<a href="<?php echo get_field('reviews_facebook_url'); ?>" target="_blank" class="reviews-wrapper">
 						<?php get_template_part('assets/images/facebook', 'logo.svg'); ?><br />
-						<?php
-						$has_half = false;
-						$facebook_stars = get_field('reviews_facebook_stars'); 
-						if (strpos($facebook_stars, '.5') !== false) {
-							$has_half = true;
-							$facebook_stars = str_replace ( '.5', '' , $facebook_stars );
-						}
-						?>
-						<?php
-						for ($i = 0 ; $i < 5; $i++){
-							if ($i >= $facebook_stars) {
-								if ($has_half) {
-									get_template_part('assets/images/half', 'star.svg');
-									$has_half = false;
-								} else {
-									get_template_part('assets/images/no', 'star.svg');
-								}
-							} else {
-								get_template_part('assets/images/star.svg');
-							}
-						} ?>
+						<?php echo get_stars(get_field('reviews_facebook_stars')); ?>
 					</a>
 					<a href="<?php echo get_field('reviews_google_url'); ?>" target="_blank" class="reviews-wrapper">
 						<?php get_template_part('assets/images/google', 'logo.svg'); ?><br />
-						<?php
-						$has_half = false;
-						$google_stars = get_field('reviews_google_stars'); 
-						if (strpos($google_stars, '.5') !== false) {
-							$has_half = true;
-							$google_stars = str_replace ( '.5', '' , $google_stars );
-						}
-						?>
-						<?php
-						for ($i = 0 ; $i < 5; $i++){
-							if ($i >= $google_stars) {
-								if ($has_half) {
-									get_template_part('assets/images/half', 'star.svg');
-									$has_half = false;
-								} else {
-									get_template_part('assets/images/no', 'star.svg');
-								}
-							} else {
-								get_template_part('assets/images/star.svg');
-							}
-						} ?>
+						<?php echo get_stars(get_field('reviews_google_stars')); ?>
 					</a>
 				</div>
     	    </div>

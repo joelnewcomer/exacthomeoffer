@@ -105,3 +105,28 @@ add_filter( 'kdmfi_featured_images', function( $featured_images ) {
   // Important! Return all featured images
   return $featured_images;
 });
+
+// Function to output x number of stars
+function get_stars( $stars ) {
+    ob_start();
+	$has_half = false;
+	if (strpos($stars, '.5') !== false) {
+		$has_half = true;
+		$stars = str_replace ( '.5', '' , $stars );
+	}
+	?>
+	<?php
+	for ($i = 0 ; $i < 5; $i++){
+		if ($i >= $stars) {
+			if ($has_half) {
+				get_template_part('assets/images/half', 'star.svg');
+				$has_half = false;
+			} else {
+				get_template_part('assets/images/no', 'star.svg');
+			}
+		} else {
+			get_template_part('assets/images/star.svg');
+		}
+	}
+    return ob_get_clean(); 
+}
