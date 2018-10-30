@@ -1,21 +1,12 @@
 <div id="fullscreen-menu-container" class="transition">
 	<div class="menu-left-container menu-container small-text-center transition">
+		<div class="menu-top-right">
+			<a href="#" class="close"><span>&times;</span> <?php _e( 'Close', 'drumroll' ); ?></a>
+		</div>
 		<div class="menu-left">
 			<div style="display:table;width:100%;height:100%;">
 				<div style="display:table-cell;vertical-align:middle;">
 				    <?php drumroll_fullscreen_menu(); ?>
-
-			  	</div>
-			</div>
-		</div> <!-- menu-left -->
-	</div> <!-- menu-left-container -->
-	<div class="menu-right-container menu-container transition">
-		<div class="menu-top-right">
-			<a href="#" class="close"><span>&times;</span> <?php _e( 'Close', 'drumroll' ); ?></a>
-		</div>
-		<div class="menu-right hide-for-small">
-			<div style="display:table;width:100%;height:100%;">
-				<div style="display:table-cell;vertical-align:middle;">
 					<div class="full-logo">
 						<?php get_template_part('template-parts/site-logo','link'); ?>
 					</div>
@@ -24,7 +15,6 @@
 					</div> <!-- address -->					
 					<h3><?php _e( 'Follow Us', 'drumroll' ); ?></h3>
 					<?php get_template_part('template-parts/social'); ?>
-	    	
 			  	</div>
 			</div>
 		</div> <!-- menu-right -->

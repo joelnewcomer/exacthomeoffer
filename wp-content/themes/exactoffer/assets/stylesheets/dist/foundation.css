@@ -3830,9 +3830,6 @@ a.menu {
   #fullscreen-menu-container .menu-left-container {
     float: left;
     margin-left: -50%; }
-  #fullscreen-menu-container .menu-right-container {
-    margin-right: -50%;
-    float: right; }
   #fullscreen-menu-container.active {
     z-index: 99999;
     opacity: 1; }
@@ -3840,13 +3837,10 @@ a.menu {
       margin: 0; }
   #fullscreen-menu-container .menu-container {
     display: block;
-    width: 50%;
+    width: 100%;
     height: 100vh;
     overflow-x: hidden;
     overflow-y: scroll; }
-    @media only screen and (max-width: 40.063em) {
-      #fullscreen-menu-container .menu-container {
-        width: 100%; } }
   #fullscreen-menu-container .menu-left, #fullscreen-menu-container .menu-right {
     padding-top: 55px;
     height: 100vh; }

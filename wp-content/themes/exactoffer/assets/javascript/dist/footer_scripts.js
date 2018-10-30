@@ -87,16 +87,16 @@ __webpack_provided_window_dot_jQuery = $;
 
 __webpack_require__(3);
 // require('./originals/background-blur.min'); // Remove if you don't have and background blurs.
-__webpack_require__(5);
+__webpack_require__(4);
 // require('./originals/jquery.bxslider.min'); // Remove if you don't have a slider.
-__webpack_require__(7); 
-__webpack_require__(8); // Remove if you use a full-screen menu.
+__webpack_require__(5); 
+__webpack_require__(6); // Remove if you use a full-screen menu.
 // require('./originals/paroller'); // Remove if you don't use parallax.
-__webpack_require__(10);
-__webpack_require__(11); // Remove if there is no blog.
-__webpack_require__(12);
+__webpack_require__(7);
+__webpack_require__(8); // Remove if there is no blog.
+__webpack_require__(9);
 // require('./originals/datedropper.min'); // Remove if there are no forms with date fields.
-__webpack_require__(14);
+__webpack_require__(10);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
@@ -111,8 +111,7 @@ jQuery(document).ready(function($){var offset=300,offset_opacity=1200,scroll_top
 
 
 /***/ }),
-/* 4 */,
-/* 5 */
+/* 4 */
 /***/ (function(module, exports) {
 
 // Easy Responsive Tabs Plugin
@@ -342,8 +341,7 @@ jQuery(document).ready(function($){var offset=300,offset_opacity=1200,scroll_top
 
 
 /***/ }),
-/* 6 */,
-/* 7 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -363,7 +361,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 }n?o===-1&&(o=setTimeout(function(){s(a),o=-1},r._throttle)):s(a)},t(r._applyDataApi);var h=t.fn.on?"on":"bind";t(window)[h]("load",function(t){r._update(!1,t)}),t(window)[h]("resize orientationchange",function(t){r._update(!0,t)})});
 
 /***/ }),
-/* 8 */
+/* 6 */
 /***/ (function(module, exports) {
 
 /**
@@ -377,8 +375,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 9 */,
-/* 10 */
+/* 7 */
 /***/ (function(module, exports) {
 
 /* Preloader
@@ -400,7 +397,7 @@ var drumPreloader = function() {
 })();
 
 /***/ }),
-/* 11 */
+/* 8 */
 /***/ (function(module, exports) {
 
 /*
@@ -418,7 +415,7 @@ if(jQuery("#estimated-time").length != 0) {
 
 
 /***/ }),
-/* 12 */
+/* 9 */
 /***/ (function(module, exports) {
 
 /*!
@@ -439,8 +436,7 @@ jQuery( document ).ready(function() {
 });
 
 /***/ }),
-/* 13 */,
-/* 14 */
+/* 10 */
 /***/ (function(module, exports) {
 
  /**
