@@ -6,15 +6,16 @@
 		<div class="menu-left">
 			<div style="display:table;width:100%;height:100%;">
 				<div style="display:table-cell;vertical-align:middle;">
-				    <?php drumroll_fullscreen_menu(); ?>
-					<div class="full-logo">
-						<?php get_template_part('template-parts/site-logo','link'); ?>
-					</div>
-					<div class="address">
-						<?php get_template_part('template-parts/locations'); ?>
-					</div> <!-- address -->					
-					<h3><?php _e( 'Follow Us', 'drumroll' ); ?></h3>
-					<?php get_template_part('template-parts/social'); ?>
+					<div class="fs-menu-inner">
+				    	<?php drumroll_fullscreen_menu(); ?>
+						<div class="full-logo">
+							<?php get_template_part('template-parts/site-logo','link'); ?>
+						</div>
+						<div class="address">
+							<?php get_template_part('template-parts/locations'); ?>
+						</div> <!-- address -->					
+						<p class="social-p"><?php _e( 'Follow Us:', 'drumroll' ); ?><?php get_template_part('template-parts/social'); ?></p>
+					</div> <!-- fs-menu-inner -->
 			  	</div>
 			</div>
 		</div> <!-- menu-right -->
@@ -28,7 +29,11 @@ var focusableEls = Array.prototype.slice.call(focusableEls);
 var firstFocusableEl = focusableEls[0];
 var lastFocusableEl = focusableEls[ focusableEls.length - 1 ];
 var lastFocusableElFocus = false;
-	
+
+jQuery(document).on( "click", ".fullscreen-menu li.menu-item-has-children a", function(e) {
+	jQuery(this).parent().toggleClass('expanded');	
+});
+
 jQuery( "a.menu" ).on( "click", function(e) {
 	e.preventDefault();
 	// Get currently focused element and save it so we can return to it when the menu closes

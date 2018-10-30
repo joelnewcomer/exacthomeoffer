@@ -3421,11 +3421,6 @@ body.admin-bar .top-bar .top-bar-middle.tablet.sticky {
     max-width: 860px; }
   .main-footer a.logo {
     margin-bottom: 20px; }
-  .main-footer p.social-p {
-    display: inline-block;
-    font-weight: 700;
-    margin-right: 16px;
-    vertical-align: top; }
   .main-footer a.email {
     display: inline-block;
     font-weight: 700;
@@ -3441,6 +3436,12 @@ body.admin-bar .top-bar .top-bar-middle.tablet.sticky {
     .main-footer h2.phone svg {
       width: 15px;
       height: 15px; }
+
+p.social-p {
+  display: inline-block;
+  font-weight: 700;
+  margin-right: 16px;
+  vertical-align: top; }
 
 .sub-footer {
   padding: 24px 0 10px 0;
@@ -3840,14 +3841,28 @@ a.menu {
     width: 100%;
     height: 100vh;
     overflow-x: hidden;
-    overflow-y: scroll; }
+    overflow-y: scroll;
+    text-align: center; }
   #fullscreen-menu-container .menu-left, #fullscreen-menu-container .menu-right {
     padding-top: 55px;
     height: 100vh; }
   #fullscreen-menu-container .menu-left {
     max-width: 232px;
     margin-right: 38px;
-    float: right; }
+    display: inline-block;
+    text-align: left;
+    position: relative; }
+    #fullscreen-menu-container .menu-left .fs-menu-inner {
+      position: relative; }
+      #fullscreen-menu-container .menu-left .fs-menu-inner:before {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 2px;
+        left: -80px;
+        top: 0;
+        background: rgba(255, 255, 255, 0.2); }
     @media only screen and (max-width: 40.063em) {
       #fullscreen-menu-container .menu-left {
         float: none;
@@ -3859,33 +3874,36 @@ a.menu {
       margin-bottom: 8px;
       text-align: left; }
       #fullscreen-menu-container .menu-left li a {
-        font-size: 30px;
-        color: #fff; }
+        font-size: 18px;
+        color: #fff;
+        font-weight: 700;
+        display: inline-block;
+        margin-bottom: 10px; }
       #fullscreen-menu-container .menu-left li .sub-menu {
         margin-bottom: 20px; }
         #fullscreen-menu-container .menu-left li .sub-menu li {
           margin-top: 8px; }
           #fullscreen-menu-container .menu-left li .sub-menu li a {
-            font-size: 18px; }
+            font-size: 16px;
+            opacity: .8; }
   #fullscreen-menu-container .menu-top-right {
     position: absolute;
     top: 20px;
-    right: 20px; }
+    right: 20px;
+    z-index: 2; }
     #fullscreen-menu-container .menu-top-right .close, #fullscreen-menu-container .menu-top-right .button {
       display: inline-block; }
     #fullscreen-menu-container .menu-top-right .close {
       color: #fff;
-      font-size: 18px;
-      margin-right: 30px;
+      font-size: 16px;
       text-transform: uppercase; }
       #fullscreen-menu-container .menu-top-right .close span {
-        font-size: 36px;
         display: inline-block;
         line-height: 22px;
         vertical-align: top;
-        font-size: 52px;
-        margin-right: 16px;
-        padding-top: 2px; }
+        font-size: 28px;
+        margin-right: 12px;
+        margin-top: -1px; }
     #fullscreen-menu-container .menu-top-right .button a {
       font-size: 17px;
       padding: 3px 12px;
@@ -3912,23 +3930,50 @@ a.menu {
         margin-left: 20px; } }
     #fullscreen-menu-container .menu-right .button a {
       margin-bottom: 8px; }
-  #fullscreen-menu-container .full-logo a {
-    margin-bottom: 30px; }
-    #fullscreen-menu-container .full-logo a svg {
-      width: 224px;
-      height: 78px; }
-      #fullscreen-menu-container .full-logo a svg path:not(.never-white), #fullscreen-menu-container .full-logo a svg rect:not(.never-white), #fullscreen-menu-container .full-logo a svg polygon:not(.never-white) {
-        fill: #fff; }
+  #fullscreen-menu-container .full-logo a svg {
+    width: 224px;
+    height: 78px; }
+    #fullscreen-menu-container .full-logo a svg path:not(.never-white), #fullscreen-menu-container .full-logo a svg rect:not(.never-white), #fullscreen-menu-container .full-logo a svg polygon:not(.never-white) {
+      fill: #fff; }
   #fullscreen-menu-container .menu-right-container {
     background: rgba(0, 0, 0, 0.3);
     overflow-y: scroll; }
   #fullscreen-menu-container .address {
     margin-bottom: 40px; }
-  #fullscreen-menu-container h2, #fullscreen-menu-container h3, #fullscreen-menu-container p {
+  #fullscreen-menu-container a.email {
+    white-space: nowrap; }
+  #fullscreen-menu-container h2, #fullscreen-menu-container h3, #fullscreen-menu-container p, #fullscreen-menu-container a {
     color: #fff; }
   #fullscreen-menu-container .social a {
     margin-bottom: 8px;
     display: inline-block; }
+  #fullscreen-menu-container li.menu-item-has-children > a {
+    position: relative;
+    padding-right: 25px; }
+  #fullscreen-menu-container li.menu-item-has-children > a:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSI4IiB2aWV3Qm94PSIwIDAgMTMgOCI+CiAgPHBhdGggZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMC4zNTUzOTM4MjQsNy41MTI2NDA2OCBDLTAuMDU3ODU4NTQ3Myw3LjkzMDY2NTA4IC0wLjA1Nzg1ODU0NzMsOC43MjQ5MTE0MyAwLjM1NTM5MzgyNCw5LjE4NDczODI3IEMwLjgwOTk3MTQzMiw5LjY0NDU2NTExIDEuNDI5ODQ5OTksOS42ODYzNjc1NSAyLjAwODQwMzMxLDkuMTg0NzM4MjcgTDYuMDU4Mjc2NTQsNS4yOTcxMTEzNyBMMTAuMDY2ODI0NSw5LjE4NDczODI3IEMxMC42NDUzNzc5LDkuNjg2MzY3NTUgMTEuMjY1MjU2NCw5LjY0NDU2NTExIDExLjcxOTgzNCw5LjE4NDczODI3IEMxMi4xNzQ0MTE2LDguNzI0OTExNDMgMTIuMTMzMDg2NCw3LjkzMDY2NTA4IDExLjcxOTgzNCw3LjUxMjY0MDY4IEMxMS4yNjUyNTY0LDcuMDUyODEzODQgNi44NDM0NTYwNSwyLjc4ODk2NDk3IDYuODQzNDU2MDUsMi43ODg5NjQ5NyBDNi42MzY4Mjk4NiwyLjU3OTk1Mjc3IDYuMzQ3NTUzMiwyLjQ1NDU0NTQ1IDYuMDU4Mjc2NTQsMi40NTQ1NDU0NSBDNS43Mjc2NzQ2NSwyLjQ1NDU0NTQ1IDUuNDM4Mzk3OTksMi41Nzk5NTI3NyA1LjIzMTc3MTgsMi43ODg5NjQ5NyBDNS4yMzE3NzE4LDIuNzg4OTY0OTcgMC44MDk5NzE0MzIsNy4wNTI4MTM4NCAwLjM1NTM5MzgyNCw3LjUxMjY0MDY4IFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTIpIi8+Cjwvc3ZnPgo=) center center no-repeat;
+    width: 14px;
+    height: 12px;
+    right: 0;
+    top: 28%;
+    transition: all .5s;
+    transform: rotate(180deg); }
+  #fullscreen-menu-container li.menu-item-has-children.expanded > a:after {
+    transform: rotate(0deg); }
+  #fullscreen-menu-container ul.sub-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: all .5s; }
+  #fullscreen-menu-container li.expanded ul.sub-menu {
+    max-height: 500px; }
+  #fullscreen-menu-container a.email svg {
+    margin-right: 8px; }
+
+body.admin-bar #fullscreen-menu-container .menu-top-right {
+  top: 50px; }
 
 ul.pagination svg {
   width: 9px;

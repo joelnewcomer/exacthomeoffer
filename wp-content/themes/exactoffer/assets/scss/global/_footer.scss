@@ -32,12 +32,6 @@
 	a.logo {
 		margin-bottom: 20px;
 	}
-	p.social-p {
-		display: inline-block;
-		font-weight: 700;
-		margin-right: 16px;
-		vertical-align: top;
-	}
 	a.email {
 		display: inline-block;
 		font-weight: 700;
@@ -58,6 +52,13 @@
 			height: 15px;
 		}	
 	}
+}
+
+p.social-p {
+	display: inline-block;
+	font-weight: 700;
+	margin-right: 16px;
+	vertical-align: top;
 }
 
 .sub-footer {
