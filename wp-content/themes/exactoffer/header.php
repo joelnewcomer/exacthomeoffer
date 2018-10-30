@@ -47,7 +47,7 @@
 		<div class="header-wrapper">
 			<header id="masthead" class="site-header"  role="banner">
 				<nav id="site-navigation" class="main-navigation top-bar grid-container" role="navigation">
-					<div class="top-bar-left">
+					<div class="top-bar-left small-text-center">
 						<?php get_template_part('template-parts/site-logo','link'); ?>
 					</div> <!-- top-bar-left -->
 					<div class="top-bar-middle hide-for-print show-for-large-up">
@@ -60,9 +60,9 @@
 							<?php
 							$phone = $location['loc_phone'];	
 							$clean_phone = preg_replace("/[^0-9]/","",$phone);
-							echo '<a class="hide-for-print" href="tel:' . $clean_phone . '">Call Now</a>';
+							echo '<a class="hide-for-print call-now" href="tel:' . $clean_phone . '">Call Now</a>';
 							?>
-							&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;
+							<span class="hide-for-small">&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;</span>
 							<a class="magenta" href="<?php echo get_site_url(); ?>/request-an-offer">Request Offer</a>
 							</p>
 						<?php endforeach; ?>
@@ -73,10 +73,24 @@
 						<?php endforeach; ?>
 					</div>
 					<div class="top-bar-right hide-for-print show-for-medium-down">
-						<a href="#" class="menu show-for-medium-down" aria-controls="site-navigation"><?php get_template_part('assets/images/hamburger.svg'); ?> <?php _e( 'Menu', 'drumroll' ); ?></a>
+						<a href="#" class="menu show-for-medium-down" aria-controls="site-navigation"><?php get_template_part('assets/images/hamburger.svg'); ?> <span class="hide-for-small"><?php _e( 'Menu', 'drumroll' ); ?></span></a>
 					</div> <!-- top-bar-right -->
 				</nav> <!-- #site-navigation -->
 			</header> <!-- #masthead -->
 		</div> <!-- header-wrapper -->
+		
+		<script>
+			jQuery(window).scroll(function (event) {
+				if(jQuery(window).width()<641) {
+					var scroll = jQuery(window).scrollTop();
+					var headerSize = 47;
+					if (scroll > headerSize) {
+						jQuery('.top-bar-middle').addClass('sticky');
+					} else {
+						jQuery('.top-bar-middle').removeClass('sticky');
+					}
+				}
+			});
+		</script>
 		
 		<main id="content" class="container" tabindex="-1">

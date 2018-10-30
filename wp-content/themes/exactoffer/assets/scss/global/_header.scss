@@ -1,6 +1,6 @@
 .header-wrapper {
 	z-index: 11;
-	min-height: 80px;
+	/* min-height: 80px; */
 }
 
 body.home .header-wrapper.transparent {
@@ -29,13 +29,11 @@ a.logo {
 			width: 140px;
 			height: 40px;	
 		}
+		@media only screen and (max-width: 40.063em) {
+			width: 116px;
+			height: 33px;	
+		}
 	}
-}
-
-@media only screen and (max-width: 40.063em) {
-	.top-bar-right, .top-bar-left {
-		height: $topbar-mobile-height;
-	}	
 }
 
 .header-container {
@@ -82,6 +80,9 @@ header#masthead {
 			}
 	    }
     }
+    @media only screen and (max-width: 40.063em) {
+	 	height: 87px;   
+	}
 }
 
 .admin-bar header#masthead.headroom--pinned:not(.headroom--top) {
@@ -111,18 +112,19 @@ header#masthead {
 		a.logo {
 			z-index: 9999;
 			position: relative;
-			margin: 7px;
-			height: 50px;
+			margin: 7px 7px 7px 28px;
 			img {
 				max-height: 100%;
 			}
 		}
 	}
+	.top-bar-left, .top-bar-middle {
+		width: 100%;
+	}
 	.top-bar-right {
 		position: absolute;
 		top: 0;
 		right: 0;
-		z-index: 999;
 	}
 	.icon-wrapper {
 		position: absolute;
@@ -153,6 +155,10 @@ main.container > section > .grid-container {
 	text-align: center;
 	.top-bar-left {
 		text-align: left;
+		@media only screen and (max-width: 40.063em) {
+			text-align: center;
+			border-bottom: solid 1px #DCF0FA;
+		}
 	}
 	.top-bar-right {
 		text-align: right;
@@ -172,7 +178,16 @@ main.container > section > .grid-container {
 	.top-bar-middle {
 		display: inline-block;
 	}
+	@media only screen and (max-width: 40.063em) {
+		.call-now {
+			border-right: solid 1px #DCF0FA;
+		}	
+	}
 	.top-bar-middle.tablet {
+		background: #fff;
+		@media only screen and (max-width: 40.063em) {
+			box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+		}
 		p {
 			margin: 0;
 			font-weight: 700;
@@ -184,12 +199,25 @@ main.container > section > .grid-container {
 		a {
 			display: inline-block;
 			padding: 16px 0 17px 0;
+			@media only screen and (max-width: 40.063em) {
+				width: 49%;
+				padding: 8px 0;	
+			}
+		}
+		&.sticky {
+			display: block;
+			z-index: 9999;
+			position: fixed;
+			top: 0;
 		}
 	}
 	@media only screen and (max-width: 40.063em) {
 		padding: 0 !important;
-		.top-bar-left, .top-bar-right {
-			width: auto !important;
-		}
+	}
+}
+
+body.admin-bar {
+	.top-bar .top-bar-middle.tablet.sticky {
+		top: 46px;
 	}
 }
