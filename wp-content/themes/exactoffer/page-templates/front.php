@@ -188,7 +188,7 @@ get_header(); ?>
 				</div>
     	    </div>
 		</div>
-	</section>	<!-- testimonial -->
+	</section>	<!-- video -->
 
 </div> <!-- #page -->
 

@@ -149,69 +149,6 @@ get_header(); ?>
 		</div>
 	</section>	<!-- how-it-works -->
 	
-	<section class="reviews">
-		<div class="grid-container">
-    	    <div class="grid-x grid-padding-x">
-				<div class="large-7 medium-7 cell small-text-center">
-					<p class="teal"><?php echo get_field('reviews_blurb'); ?></p>
-				</div>
-				<div class="large-5 medium-5 cell text-center">
-					<a href="<?php echo get_field('reviews_facebook_url'); ?>" target="_blank" class="reviews-wrapper">
-						<?php get_template_part('assets/images/facebook', 'logo.svg'); ?><br />
-						<?php echo get_stars(get_field('reviews_facebook_stars')); ?>
-					</a>
-					<a href="<?php echo get_field('reviews_google_url'); ?>" target="_blank" class="reviews-wrapper">
-						<?php get_template_part('assets/images/google', 'logo.svg'); ?><br />
-						<?php echo get_stars(get_field('reviews_google_stars')); ?>
-					</a>
-				</div>
-    	    </div>
-		</div>
-	</section>	<!-- reviews -->
-
-	<section class="cta">
-		<div class="grid-container">
-    	    <div class="grid-x">
-	    	    <?php $url = wp_get_attachment_image_src(get_field('cta_before_image'), 'full'); ?>
-				<div class="large-6 cell text-center cta-image" style="background: url(<?php echo $url[0]; ?>);">
-					<?php echo get_field('cta_before_blurb'); ?>
-				</div>
-				<?php $url = wp_get_attachment_image_src(get_field('cta_after_image'), 'full'); ?>
-				<div class="large-6 cell text-center cta-image" style="background: url(<?php echo $url[0]; ?>);">
-					<?php echo get_field('cta_after_blurb'); ?>
-				</div>
-    	    </div>
-    	    <div class="grid-x grid-padding-x">
-				<div class="large-12 cell text-center">
-					<h2 class="magenta"><?php echo get_field('cta_header'); ?></h2>
-					<h3 class="teal"><?php echo get_field('cta_subheader'); ?></h3>
-					<p><?php echo get_field('cta_blurb'); ?></p>
-					<div class="button arrow"><a href="<?php echo get_field('cta_link'); ?>">Get Your ExactOffer<?php get_template_part('assets/images/button', 'arrow.svg'); ?></a></div>
-				</div>
-    	    </div>    	    
-		</div>		
-	</section>	<!-- cta -->	
-
-	<section class="video">
-		<div class="grid-container">
-    	    <div class="grid-x grid-padding-x">
-				<div class="large-12 cell text-center">
-					<h2>Learn More</h2>
-					<?php
-					$video = get_field('learn_more_video_video'); // OEmbed Code
-					$video_url = get_field('learn_more_video_video', FALSE, FALSE); // URL
-					?>
-					<a class="video" href="<?php echo $video_url; ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540">
-					    <?php echo wp_get_attachment_image(get_field('learn_more_video_video_poster_image'), 'full'); ?>
-					    <div class="play-overlay">
-					        <?php get_template_part('assets/images/play', 'button.svg'); ?><br />
-					    </div>
-					</a>
-				
-				</div>
-    	    </div>
-		</div>
-	</section>	<!-- testimonial -->
 
 </div> <!-- #page -->
 

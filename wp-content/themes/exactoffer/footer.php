@@ -10,6 +10,7 @@
 ?>
 	</main> <!-- .container -->
 	
+	<?php if (get_field('hide_cta') != true) : ?>
 	<section class="footer-cta">
 		<div class="grid-container">
     	    <div class="grid-x grid-padding-x">
@@ -21,7 +22,8 @@
 				</div>				
     	    </div>
 		</div>
-	</section>	<!-- footer-cta -->		
+	</section>	<!-- footer-cta -->
+	<?php endif; ?>
 		
 				
 	<footer id="footer" role="contentinfo">
