@@ -51,80 +51,10 @@ get_header(); ?>
 	
 	<?php get_template_part('template-parts/benefits'); ?>
 	
-	<section class="testimonial" role="main">
-		<div class="grid-container">
-    	    <div class="grid-x grid-padding-x">
-				<div class="large-12 cell text-center">
-					<?php
-					$post_id = get_field('testimonials_page');
-					$rows = get_field('testimonials', $post_id);
-					$row_count = count($rows);
-					$featured_i = array_search(true, array_column($rows, 'featured'));
-					$featured = $rows[$featured_i]; 
-					?>
-					<?php if(get_field('testimonials', $post_id)): ?>
-						<div class="grid-container testimonials-container">
-							<div class="grid-x grid-padding-x testimonial-block">	
-								<?php
-								$name = $featured['name'];
-								$state = $featured['state'];
-								$testimonial = $featured['testimonial'];
-								$stars = $featured['stars'];
-								$blurb = $featured['photo_blurb'];
-								$photo_id = $featured['photo'];
-								$photo_url = wp_get_attachment_image_src($photo_id, 'testimonial');
-								?>
-								<div class="large-6 medium-6 cell text-center testimonial-photo" style="background-image: url(<?php echo $photo_url[0];?>);">
-									<div style="display:table;width:100%;height:100%;">
-										<div style="display:table-cell;vertical-align:middle;">
-									    	<div style="text-align:center;">
-										    	<?php echo $blurb; ?>
-										    </div>
-									  	</div>
-									</div>
-								</div> <!-- testimonial-photo -->
-								<div class="large-6 medium-6 cell text-center testimonial-content">
-									<div class="stars">
-										<?php echo get_stars($stars); ?>
-									</div>
-									<p><?php echo $testimonial; ?></p>
-									<p class="testimonial-name teal"><?php echo $name; ?> | <?php echo $state; ?></p>
-									<?php if ($row_count > 1) : ?>
-										<a class="testimonial-more" href="<?php echo get_permalink($post_id); ?>">See More</a>
-									<?php endif; ?>
-								</div> <!-- testimonial-content -->
-			    			</div> <!-- grid-padding-x testimonial-block -->
-						</div> <!-- grid-container testimonials-container -->
-					<?php endif; ?>					
-				</div>
-    	    </div>
-		</div>
-	</section>	<!-- testimonial -->
+	<?php get_template_part('template-parts/testimonial','section'); ?>
 
-
-	<section class="how-it-works" role="main">
-		<div class="grid-container">
-    	    <div class="grid-x grid-padding-x">
-				<div class="large-12 cell text-center">
-					<h2 class="teal"><?php echo get_field('how_it_works_header'); ?></h2>
-					<p><?php echo get_field('how_it_works_blurb'); ?></p>
-				</div>
-    	    </div>
-    	    <div class="grid-x grid-margin-x">
-				<?php if(get_field('how_it_works_steps')): ?>
-					<?php while(has_sub_field('how_it_works_steps')): ?>
-						<div class="large-4 medium-4 cell text-center step-block">
-							<?php echo file_get_contents(get_sub_field('step_icon')); ?><br />
-							<p class="teal"><?php echo get_sub_field('step_blurb'); ?></p>
-						</div>
-					<?php endwhile; ?>
-				<?php endif; ?>
-				<div class="large-12 cell text-center">	
-					<?php get_template_part('template-parts/free', 'offer'); ?>
-				</div>
-    	    </div>														
-		</div>
-	</section>	<!-- how-it-works -->
+	<?php get_template_part('template-parts/how-it-works'); ?>
+	
 	
 	<section class="reviews">
 		<div class="grid-container">

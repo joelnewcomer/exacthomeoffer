@@ -3489,6 +3489,7 @@ p.social-p {
     margin: 0; }
   #menu-footer-menu > li {
     display: inline-block;
+    vertical-align: top;
     margin-right: 60px; }
     @media only screen and (max-width: 64.063em) {
       #menu-footer-menu > li {
@@ -4702,6 +4703,35 @@ body.home .testimonials-container {
     margin-bottom: 28px; }
     body.home .testimonials-container a.testimonial-more:hover {
       color: #BD1971; }
+
+.offer-header {
+  height: 100%; }
+  @media only screen and (max-width: 64.063em) {
+    .offer-header {
+      text-align: center; } }
+  .offer-header h1 {
+    font-size: 58px;
+    max-width: 420px;
+    margin-bottom: 16px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); }
+    @media only screen and (max-width: 64.063em) {
+      .offer-header h1 {
+        max-width: none;
+        font-size: 28px; } }
+  .offer-header p {
+    font-weight: 700;
+    font-size: 18px;
+    max-width: 490px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); }
+    @media only screen and (max-width: 64.063em) {
+      .offer-header p {
+        max-width: none;
+        font-size: 16px; } }
+    @media only screen and (max-width: 40.063em) {
+      .offer-header p {
+        margin-bottom: 20px; } }
 
 ul.resp-tabs-list {
   margin: 0px;
