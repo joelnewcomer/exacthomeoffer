@@ -35,6 +35,7 @@ get_header(); ?>
 					<?php echo wp_get_attachment_image($image_id, 'home-featured'); ?>
 				<?php endif; ?>
 			</div>
+			<div class="landing-bar"></div>
 			<div class="overlay overlay-left">
 				<div class="offer-header">
 					<div style="display:table;width:100%;height:100%;float:left;">

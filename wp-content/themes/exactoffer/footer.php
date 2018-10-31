@@ -27,6 +27,7 @@
 		
 				
 	<footer id="footer" role="contentinfo">
+		<?php if (!is_page_template( 'page-templates/landing-page.php' )) : ?>
 		<div class="main-footer">
 			<div class="grid-container">
 				<div class="grid-x">
@@ -42,6 +43,7 @@
 				</div> <!-- grid-x -->
 			</div> <!-- grid-container -->
 		</div> <!-- main-footer -->
+		<?php endif; ?>
 		<div class="sub-footer">
 			<div class="grid-container">
 				<div class="grid-x">
