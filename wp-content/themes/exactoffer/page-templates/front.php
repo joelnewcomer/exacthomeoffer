@@ -49,7 +49,7 @@ get_header(); ?>
 		</div> <!-- home-featured -->
 	</div> <!-- featured-container -->
 	
-	<?php get_template_part('template-parts/benefits');
+	<?php get_template_part('template-parts/benefits'); ?>
 	
 	<section class="testimonial" role="main">
 		<div class="grid-container">
