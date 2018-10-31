@@ -39,14 +39,16 @@ get_header(); ?>
 				<div class="offer-header">
 					<div style="display:table;width:50%;height:100%;float:left;">
 						<div style="display:table-cell;vertical-align:middle;">
-						    <h1 class="entry-title"><?php echo get_field('header'); ?></h1>
-						    <p><?php echo get_field('subheader'); ?></p>
+							<div class="offer-header-left">
+							    <h1 class="entry-title"><?php echo str_replace( 'guaranteed.' , '<span>guaranteed.</span>' , get_field('header') ); ?></h1>
+								<p><?php echo get_field('subheader'); ?></p>
+							</div>
 						</div>
 					</div>
 					<div style="display:table;width:50%;height:100%;float:left;">
-						<div style="display:table-cell;vertical-align:middle;">
+						<div style="display:table-cell;vertical-align:middle;padding-right: 20px;">
 						    <div class="offer-box">
-							    <h2>Start Your ExactOffer</h2>
+							    <h2 class="magenta">Start Your ExactOffer</h2>
 								<p>We'll get started serving you right away!</p>
 								Form goes here!
 							</div> <!-- offer-box -->
