@@ -173,11 +173,11 @@ get_header(); ?>
 		<div class="grid-container">
     	    <div class="grid-x">
 	    	    <?php $url = wp_get_attachment_image_src(get_field('cta_before_image'), 'full'); ?>
-				<div class="large-6 cell text-center cta-image" style="background: url(<?php echo $url[0]; ?>);">
+				<div class="large-6 cell text-center cta-image" style="background-image: url(<?php echo $url[0]; ?>);">
 					<?php echo get_field('cta_before_blurb'); ?>
 				</div>
 				<?php $url = wp_get_attachment_image_src(get_field('cta_after_image'), 'full'); ?>
-				<div class="large-6 cell text-center cta-image" style="background: url(<?php echo $url[0]; ?>);">
+				<div class="large-6 cell text-center cta-image" style="background-image: url(<?php echo $url[0]; ?>);">
 					<?php echo get_field('cta_after_blurb'); ?>
 				</div>
     	    </div>

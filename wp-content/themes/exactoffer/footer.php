@@ -28,13 +28,13 @@
 		<div class="main-footer">
 			<div class="grid-container">
 				<div class="grid-x">
-					<div class="large-4 medium-4 cell">
+					<div class="large-4 medium-4 cell small-text-center">
 						<div class="address">
 							<?php get_template_part('template-parts/locations'); ?>
 						</div> <!-- address -->
 						<p class="social-p"><?php _e( 'Follow Us:', 'drumroll' ); ?><?php get_template_part('template-parts/social'); ?></p>						
 					</div>
-					<div class="large-8 medium-8 cell hide-for-print small-text-center">
+					<div class="large-8 medium-8 cell hide-for-print hide-for-small">
 						<?php drumroll_footer_menu(); ?>
 					</div>
 				</div> <!-- grid-x -->
@@ -44,7 +44,7 @@
 			<div class="grid-container">
 				<div class="grid-x">
 					<div class="large-7 medium-7 cell drum hide-on-print small-text-center">
-						<p>&copy;<?php echo date('Y'); ?> <?php bloginfo('name'); ?>.  <span class="no-break"><?php _e( 'All rights reserved.', 'textdomain' ); ?></span>
+						<p>&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>.  <span class="no-break"><?php _e( 'All rights reserved.', 'textdomain' ); ?>
 							<?php
 							$terms_page = get_theme_mod( 'terms_page' );
 							$privacy_page = get_theme_mod( 'privacy_page' );
@@ -58,6 +58,7 @@
 							<?php endif; ?>
 							&nbsp;&nbsp;|&nbsp;&nbsp;<a href="<?php echo get_site_url(); ?>/sitemap"><?php _e( 'Sitemap', 'drumroll' ); ?></a>
 							</span> <!-- hide-for-print -->
+							</span>
 						</p>
 					</div>
 					<div class="large-5 medium-5 cell drum hide-on-print text-right small-text-center">

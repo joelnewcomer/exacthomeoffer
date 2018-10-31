@@ -16,26 +16,54 @@
 	background-image: radial-gradient(51% 0%, #FAFDFF 52%, #F0FBFF 81%, #E3F8FF 100%);	
 	.grid-container {
 		max-width: 860px;
+		@media only screen and (max-width: 64.063em) {
+			padding: 0 20px;
+		}
 	}
 	svg {
 		width: 240px;
 		height: 69px;
+		@media only screen and (max-width: 64.063em) {
+			width: 200px;
+			height: 57px;	
+		}
 	}
 }
 
 .main-footer {
+	.button a {
+		background: #A31561;
+		color: #fff !important;
+		&:hover {
+			border-color: #fff;
+		}
+	}
 	.grid-container {
 		max-width: 860px;
+		@media only screen and (max-width: 64.063em) {
+			padding: 0 20px;
+		}		
 	}
 	background: $secondary-color;
 	padding: 65px 0;
+	@media only screen and (max-width: 64.063em) {
+		padding: 30px 0 24px 0;	
+	}
+	@media only screen and (max-width: 40.063em) {
+		padding: 30px 0 0 0;	
+	}
 	a.logo {
 		margin-bottom: 20px;
 	}
 	a.email {
 		display: inline-block;
 		font-weight: 700;
-		margin-bottom: 20px;
+		@media only screen and (min-width: 40em) {
+			margin-bottom: 20px;
+		}
+		@media only screen and (max-width: 64.063em) {
+			font-size: 14px;	
+		}
 	}
 	.social {
 		display: inline-block;
@@ -84,6 +112,9 @@ p.social-p {
 	& > li {
 		display: inline-block;
 		margin-right: 60px;
+		@media only screen and (max-width: 64.063em) {
+			margin-right: 24px;	
+		}
 		&:last-child {
 			margin-right: 0;
 		}
