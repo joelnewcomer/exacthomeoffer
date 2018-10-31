@@ -342,6 +342,13 @@
                 "operator": "==",
                 "value": "page-templates\/request-an-offer.php"
             }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates\/landing-page.php"
+            }
         ]
     ],
     "menu_order": 5,
@@ -354,5 +361,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1540999057
+    "modified": 1541014559
 }

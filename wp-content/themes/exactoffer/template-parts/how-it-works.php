@@ -15,9 +15,11 @@
 						</div>
 					<?php endwhile; ?>
 				<?php endif; ?>
+				<?php if (is_front_page()) : ?>
 				<div class="large-12 cell text-center">	
 					<?php get_template_part('template-parts/free', 'offer'); ?>
 				</div>
+				<?php endif; ?>
     	    </div>														
 		</div>
 	</section>	<!-- how-it-works -->

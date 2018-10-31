@@ -44,6 +44,7 @@
 		<?php // get_template_part('template-parts/preloader'); ?>
 		<a class="skip-link sr-only" href="#content"><?php _e( 'Skip to content', 'drumroll' ); ?></a>
 		<!-- NOTE: Remove "transparent" class for white relative header (rather than semi-transparent absolute header) -->
+		<?php if (!is_page_template( 'page-templates/landing-page.php' )) : ?>
 		<div class="header-wrapper">
 			<header id="masthead" class="site-header"  role="banner">
 				<nav id="site-navigation" class="main-navigation top-bar grid-container" role="navigation">
@@ -79,6 +80,7 @@
 			</header> <!-- #masthead -->
 		</div> <!-- header-wrapper -->
 		
+		
 		<script>
 			jQuery(window).scroll(function (event) {
 				if(jQuery(window).width()<641) {
@@ -92,5 +94,7 @@
 				}
 			});
 		</script>
+		
+		<?php endif; ?>
 		
 		<main id="content" class="container" tabindex="-1">

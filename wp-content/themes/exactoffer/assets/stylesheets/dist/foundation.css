@@ -4704,6 +4704,19 @@ body.home .testimonials-container {
     body.home .testimonials-container a.testimonial-more:hover {
       color: #BD1971; }
 
+.request-offer-featured .overlay-left, .request-offer-featured .overlay-right {
+  width: 50% !important; }
+  @media only screen and (max-width: 760px) {
+    .request-offer-featured .overlay-left, .request-offer-featured .overlay-right {
+      width: 100% !important; } }
+
+.request-offer-featured .overlay-right {
+  right: 0;
+  left: auto !important; }
+  @media only screen and (max-width: 760px) {
+    .request-offer-featured .overlay-right {
+      position: relative !important; } }
+
 .offer-header {
   height: 100%; }
   @media only screen and (max-width: 64.063em) {
@@ -4714,6 +4727,10 @@ body.home .testimonials-container {
     max-width: 500px;
     padding-right: 20px;
     float: right; }
+    @media only screen and (max-width: 760px) {
+      .offer-header .offer-header-left {
+        float: none;
+        display: inline-block; } }
     .offer-header .offer-header-left p {
       font-weight: 700;
       font-size: 18px;
@@ -4728,6 +4745,9 @@ body.home .testimonials-container {
       @media only screen and (max-width: 40.063em) {
         .offer-header .offer-header-left p {
           margin-bottom: 20px; } }
+      @media only screen and (max-width: 470px) {
+        .offer-header .offer-header-left p {
+          display: none; } }
   .offer-header h1 {
     font-size: 48px;
     margin-bottom: 16px;
@@ -4751,18 +4771,62 @@ body.home .testimonials-container {
       .offer-header h1 {
         max-width: none;
         font-size: 28px; } }
+  @media only screen and (max-width: 760px) {
+    .offer-header {
+      max-height: none; }
+      .offer-header .offer-table-cell {
+        padding-bottom: 20px; } }
+  @media only screen and (max-width: 470px) {
+    .offer-header .left-table-cell {
+      padding-top: 20px; } }
   .offer-header .offer-box {
-    margin-left: 30px;
+    margin-left: 0px;
     max-width: 392px;
     text-align: center;
     background: #FFFFFF;
     box-shadow: 0 6px 12px 0 rgba(85, 155, 181, 0.2);
     border-radius: 8px;
-    padding: 28px 30px 40px 30px; }
+    padding: 28px 30px 20px 30px;
+    max-height: 100%;
+    overflow: scroll; }
+    @media only screen and (max-width: 760px) {
+      .offer-header .offer-box {
+        display: block;
+        margin: -60px auto 0 auto; } }
+    @media only screen and (max-width: 600px) {
+      .offer-header .offer-box {
+        margin: -30px auto 0 auto; } }
+    @media only screen and (max-width: 470px) {
+      .offer-header .offer-box {
+        margin: -10px auto 0 auto; } }
+    @media only screen and (max-width: 870px) {
+      .offer-header .offer-box {
+        padding: 14px 16px 10px 16px; } }
+    @media only screen and (max-width: 760px) {
+      .offer-header .offer-box {
+        max-height: none; } }
     .offer-header .offer-box p {
       color: #595959; }
+      @media only screen and (max-width: 870px) {
+        .offer-header .offer-box p {
+          font-size: 16px; } }
     .offer-header .offer-box h2 {
       margin-bottom: 8px; }
+      @media only screen and (max-width: 870px) {
+        .offer-header .offer-box h2 {
+          font-size: 20px;
+          margin-bottom: 0; } }
+    .offer-header .offer-box #gform_submit_button_5 {
+      width: 100%; }
+    .offer-header .offer-box .gform_wrapper ul.gform_fields li.gfield {
+      padding-right: 0 !important;
+      margin: 0; }
+    .offer-header .offer-box .gform_footer {
+      padding: 0; }
+    .offer-header .offer-box li.gfield input {
+      margin-bottom: 8px; }
+    .offer-header .offer-box img {
+      width: auto !important; }
 
 ul.resp-tabs-list {
   margin: 0px;

@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Request an Offer
+Template Name: Landing Page
 */
 get_header(); ?>
 

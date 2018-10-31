@@ -1,3 +1,19 @@
+.request-offer-featured {
+	.overlay-left, .overlay-right {
+		width: 50% !important;
+		@media only screen and (max-width: 760px) {
+			width: 100% !important;	
+		}
+	}
+	.overlay-right {
+		right: 0;
+		left: auto !important;
+		@media only screen and (max-width: 760px) {
+			position: relative !important;
+		}
+	}
+}
+
 .offer-header {
 	height: 100%;
 	@media only screen and (max-width: 64.063em) {
@@ -8,6 +24,10 @@
 		max-width: 500px;
 		padding-right: 20px;
 		float: right;
+		@media only screen and (max-width: 760px) {
+			float: none;
+			display: inline-block;	
+		}
 		p {
 			font-weight: 700;
 			font-size: 18px;
@@ -21,7 +41,10 @@
 			}
 			@media only screen and (max-width: 40.063em) {
 				margin-bottom: 20px;			
-			}	
+			}
+			@media only screen and (max-width: 470px) {
+				display: none;	
+			}
 		}
 	}
 	h1 {
@@ -50,19 +73,71 @@
 			font-size: 28px;
 		}
 	}
+	@media only screen and (max-width: 760px) {
+		max-height: none;
+		.offer-table-cell {
+			padding-bottom: 20px;
+		}	
+	}
+	@media only screen and (max-width: 470px) {
+		.left-table-cell {
+			padding-top: 20px;
+		}	
+	}
 	.offer-box {
-		margin-left: 30px;
+		@media only screen and (max-width: 760px) {
+			display: block;
+			margin: -60px auto 0 auto;	
+		}
+		@media only screen and (max-width: 600px) {
+			margin: -30px auto 0 auto;
+		}
+		@media only screen and (max-width: 470px) {
+			margin: -10px auto 0 auto;
+		}
+		margin-left: 0px;
 		max-width: 392px;
 		text-align: center;
 		background: #FFFFFF;
 		box-shadow: 0 6px 12px 0 rgba(85,155,181,0.20);
 		border-radius: 8px;
-		padding: 28px 30px 40px 30px;
+		padding: 28px 30px 20px 30px;
+		@media only screen and (max-width: 870px) {
+			padding: 14px 16px 10px 16px;
+		}
+		max-height: 100%;
+		@media only screen and (max-width: 760px) {
+			max-height: none;
+		}
+		overflow: scroll;
 		p {
 			color: #595959;
+			@media only screen and (max-width: 870px) {
+				font-size: 16px;	
+			}
 		}
 		h2 {
 			margin-bottom: 8px;
+			@media only screen and (max-width: 870px) {
+				font-size: 20px;	
+				margin-bottom: 0;
+			}
+		}
+		#gform_submit_button_5 {
+			width: 100%;
+		}
+		.gform_wrapper ul.gform_fields li.gfield {
+			padding-right: 0 !important;
+			margin: 0;
+		}
+		.gform_footer {
+			padding: 0;
+		}
+		li.gfield input {
+			margin-bottom: 8px;
+		}
+		img {
+			width: auto !important;
 		}
 	}
 
