@@ -7,6 +7,7 @@
         <meta name="description" content="<?php echo esc_attr($description); ?>" />
         <meta name="keywords" content="<?php echo esc_attr($keywords); ?>" />
         <meta name="robots" content="<?php echo esc_attr($robots); ?>" />
+        <link rel="stylesheet" href="https://use.typekit.net/rgc3nrt.css">
 		<?php
 		if (!empty($styles) && is_array($styles)) {
 			foreach ($styles as $src) {

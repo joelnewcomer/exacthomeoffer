@@ -76,13 +76,23 @@ body {
 }
 .wrap {
     width: 605px;
-    margin: 100px auto 0;
+    margin: 60px auto 0;
     text-align: left;
 }
+.wrap h1, .wrap h2 {
+	font-family: museo-sans-rounded, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.wrap p {
+	line-height: 1.4;
+	max-width: 440px;
+}
+
 .wrap h1 {
     font-size: 30px;
     font-weight: 700;
-    margin: 0 0 90px;
+    margin: 20px 0 40px 0;
 }
 .wrap h2 {
     font-size: 24px;
@@ -482,7 +492,7 @@ body {
         margin: 50px auto 0;
     }
     .wrap h1 {
-        margin: 0 0 50px;
+        margin: 20px 0 40px 0;
     }
     .wrap h2, .wrap h3 {
         font-size: 18px;
