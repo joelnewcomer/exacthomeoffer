@@ -3,7 +3,8 @@
     	    <div class="grid-x grid-padding-x">
 				<div class="large-12 cell text-center">
 					<?php
-					$post_id = get_field('testimonials_page');
+					$frontpage_id = get_option( 'page_on_front' );	
+					$post_id = get_field('testimonials_page', $frontpage_id);
 					$rows = get_field('testimonials', $post_id);
 					$row_count = count($rows);
 					$featured_i = array_search(true, array_column($rows, 'featured'));
