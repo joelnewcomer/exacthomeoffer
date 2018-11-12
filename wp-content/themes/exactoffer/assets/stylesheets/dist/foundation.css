@@ -4458,6 +4458,9 @@ section.benefits {
     margin-bottom: 32px;
     position: relative;
     z-index: 2; }
+    section.benefits .benefit-block svg {
+      width: 104px;
+      height: 104px; }
     section.benefits .benefit-block p {
       color: #019ABC; }
     section.benefits .benefit-block:after {
@@ -4928,6 +4931,21 @@ a.arrow {
     width: 16px;
     height: 16px; }
 
+.cta.benefits-cta {
+  background: url(../../images/benefits-cta.jpg) center center no-repeat;
+  background-size: cover !important; }
+  .cta.benefits-cta h2, .cta.benefits-cta p {
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); }
+  .cta.benefits-cta h2 {
+    font-size: 48px; }
+  .cta.benefits-cta p {
+    font-size: 20px; }
+
+.benefits-page section.benefits {
+  padding-bottom: 8px; }
+
 ul.resp-tabs-list {
   margin: 0px;
   padding: 0px;
@@ -5204,9 +5222,9 @@ ul.slimmenu li a {
   font-weight: 700;
   transition: all 0.5s ease-out; }
 
-ul.slimmenu li.active a {
+ul.slimmenu li.active > a {
   color: #BD1971; }
-  ul.slimmenu li.active a:after {
+  ul.slimmenu li.active > a:after {
     content: "";
     display: block;
     position: absolute;
@@ -5226,6 +5244,7 @@ ul.slimmenu li.has-submenu > a:after {
   width: 12px;
   height: 12px;
   right: 12px;
+  left: auto;
   top: 50%;
   margin-top: -6px;
   background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgMTMgOSI+CiAgPHBhdGggZmlsbD0iI0QxRDFEMSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMC4zNTUzOTM4MjQsNC45ODczNTkzMiBDLTAuMDU3ODU4NTQ3Myw0LjU2OTMzNDkyIC0wLjA1Nzg1ODU0NzMsMy43NzUwODg1NyAwLjM1NTM5MzgyNCwzLjMxNTI2MTczIEMwLjgwOTk3MTQzMiwyLjg1NTQzNDg5IDEuNDI5ODQ5OTksMi44MTM2MzI0NSAyLjAwODQwMzMxLDMuMzE1MjYxNzMgTDYuMDU4Mjc2NTQsNy4yMDI4ODg2MyBMMTAuMDY2ODI0NSwzLjMxNTI2MTczIEMxMC42NDUzNzc5LDIuODEzNjMyNDUgMTEuMjY1MjU2NCwyLjg1NTQzNDg5IDExLjcxOTgzNCwzLjMxNTI2MTczIEMxMi4xNzQ0MTE2LDMuNzc1MDg4NTcgMTIuMTMzMDg2NCw0LjU2OTMzNDkyIDExLjcxOTgzNCw0Ljk4NzM1OTMyIEMxMS4yNjUyNTY0LDUuNDQ3MTg2MTYgNi44NDM0NTYwNSw5LjcxMTAzNTAzIDYuODQzNDU2MDUsOS43MTEwMzUwMyBDNi42MzY4Mjk4Niw5LjkyMDA0NzIzIDYuMzQ3NTUzMiwxMC4wNDU0NTQ1IDYuMDU4Mjc2NTQsMTAuMDQ1NDU0NSBDNS43Mjc2NzQ2NSwxMC4wNDU0NTQ1IDUuNDM4Mzk3OTksOS45MjAwNDcyMyA1LjIzMTc3MTgsOS43MTEwMzUwMyBDNS4yMzE3NzE4LDkuNzExMDM1MDMgMC44MDk5NzE0MzIsNS40NDcxODYxNiAwLjM1NTM5MzgyNCw0Ljk4NzM1OTMyIFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTIpIi8+Cjwvc3ZnPgo=) center center no-repeat;

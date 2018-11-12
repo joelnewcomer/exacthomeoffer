@@ -1,0 +1,21 @@
+.cta.benefits-cta {
+	background: url(../images/benefits-cta.jpg) center center no-repeat;
+	background-size: cover !important;
+	h2, p {
+		color: #fff;
+		font-weight: 700;
+		text-shadow: 0 1px 4px rgba(0,0,0,0.20);
+	}
+	h2 {
+		font-size: 48px;
+	}
+	p {
+		font-size: 20px;
+	}
+}
+
+.benefits-page {
+	section.benefits {
+		padding-bottom: 8px;
+	}
+}

@@ -106,6 +106,10 @@ section.benefits {
 		margin-bottom: 32px;
 		position: relative;
 		z-index: 2;
+		svg {
+			width: 104px;
+			height: 104px;
+		}
 		p {
 			color: $primary-color;
 		}
