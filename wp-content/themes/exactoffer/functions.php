@@ -130,3 +130,12 @@ function get_stars( $stars ) {
 	}
     return ob_get_clean(); 
 }
+
+// Determine if number is even or not
+function is_even($number) {
+    if ($number % 2 == 0) {
+        return true;
+    } else {
+        return false;
+    }   
+}

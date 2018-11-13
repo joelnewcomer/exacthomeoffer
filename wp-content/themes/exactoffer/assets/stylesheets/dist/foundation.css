@@ -5077,6 +5077,28 @@ section.offer-pricing .grid-container.no-padding {
   padding-left: 0 !important;
   padding-right: 0 !important; }
 
+section.locations {
+  padding-top: 50px; }
+  section.locations p {
+    display: inline-block;
+    max-width: 790px;
+    margin-bottom: 40px; }
+  section.locations .location-block {
+    padding: 130px 20px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    background-size: cover !important;
+    background-position: center center;
+    background-repeat: no-repeat; }
+
+section.locations-cta h2 {
+  color: #BD1971; }
+
+section.locations-cta a {
+  text-decoration: underline; }
+
 ul.resp-tabs-list {
   margin: 0px;
   padding: 0px;
