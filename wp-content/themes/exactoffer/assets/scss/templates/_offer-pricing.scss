@@ -1,0 +1,159 @@
+.pricing-table {
+	max-width: 950px;
+	margin: 0 auto;
+}
+
+.table-logo {
+	@media only screen and (max-width: 40.063em) {
+		text-align: center;	
+	}
+}
+
+.pricing-row.table-header {
+	align-items: center;
+	@media only screen and (max-width: 40.063em) {
+		margin-bottom: 20px;	
+	}
+	svg {
+		width: 216px;
+		height: 62px;
+		margin-top: -10px;
+		@media only screen and (max-width: 930px) {
+			width: 168px;
+			height: 48px;	
+		}
+		@media only screen and (max-width: 780px) {
+			width: 123px;
+			height: 35px;	
+		}
+		@media only screen and (max-width: 40.063em) {
+			path {
+				fill: #BD1971;
+			}	
+		}
+	}
+	.pricing-value {
+		padding: 20px 24px 0 24px;
+	}
+	.pricing-title, .pricing-value {
+		font-size: 20px;
+		font-weight: 700;
+		@media only screen and (max-width: 40.063em) {
+			font-size: 17px;	
+		}
+	}
+}
+
+.pricing-table, .pricing-row {
+	display: flex;
+	flex-flow: row wrap;
+	.pricing-row, .pricing-title, .pricing-value {
+		flex-basis: auto;
+		flex: 0 0 auto;
+		min-height: 0;
+		min-width: 0;
+		color: #595959;
+		font-size: 14px;
+	}
+	.pricing-title {
+		font-weight: 700;
+	}
+	.pricing-title, .pricing-value {
+		padding: 10px 24px;
+	}
+	.pricing-row {
+		width: 100%;
+		@media only screen and (max-width: 40.063em) {
+			margin-bottom: 14px;	
+		}
+	}
+	.pricing-title {
+		width: 40%;
+		@media only screen and (max-width: 40.063em) {
+			width: 100%;
+			text-align: center;
+			background: #fff;	
+		}
+	}
+	.pricing-value {
+		width: 30%;
+		text-align: center;
+		@media only screen and (max-width: 40.063em) {
+			width: 50%;
+			background: #F7FDFF;
+		}
+	}
+}
+
+.table-header .pricing-value {
+	@media only screen and (max-width: 40.063em) {
+		background: none !important;	
+	}
+}
+
+.pricing-title + .pricing-value {
+	@media only screen and (min-width: 40em) {
+		background: #C91A78;
+		color: #fff;
+	}
+	@media only screen and (max-width: 40.063em) {
+		color: #BD1971;
+		font-weight: 700;
+		border-right: solid 1px #DCF0FA;
+	}
+}
+
+.pricing-row:nth-child(odd):not(.table-header) {
+	background: #F7FDFF;
+}
+
+.pricing-row:nth-child(odd):not(.table-header) .pricing-title + .pricing-value {
+	@media only screen and (min-width: 40em) {
+		background: #BD1971
+	}
+}
+
+section.offer-pricing {
+	padding: 50px 0;
+	.pricing-page-header {
+		@media only screen and (min-width: 40.063em) {
+			margin-bottom: 40px;
+		}
+	}
+}
+
+.pricing-header .pricing-title {
+	color: #019ABC;
+	font-size: 20px;
+	@media only screen and (max-width: 40.063em) {
+		color: #fff;
+		background: #019ABC;
+	}
+}
+
+@media only screen and (max-width: 40.063em) {
+	.pricing-header .pricing-value {
+		display: none;
+	}	
+}
+
+@media only screen and (min-width: 40.063em) {
+	.pricing-header .pricing-title {
+		padding-top: 30px;	
+	}
+
+	.table-header + .pricing-header .pricing-title {
+		padding-top: 0;
+	}
+}
+
+p.pricing-note {
+	font-size: 12px;
+	margin-top: 16px;
+	margin-left: 24px;
+}
+
+section.offer-pricing .grid-container.no-padding {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}

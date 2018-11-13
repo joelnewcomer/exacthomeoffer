@@ -4946,6 +4946,137 @@ a.arrow {
 .benefits-page section.benefits {
   padding-bottom: 8px; }
 
+.pricing-table {
+  max-width: 950px;
+  margin: 0 auto; }
+
+@media only screen and (max-width: 40.063em) {
+  .table-logo {
+    text-align: center; } }
+
+.pricing-row.table-header {
+  -ms-flex-align: center;
+      align-items: center; }
+  @media only screen and (max-width: 40.063em) {
+    .pricing-row.table-header {
+      margin-bottom: 20px; } }
+  .pricing-row.table-header svg {
+    width: 216px;
+    height: 62px;
+    margin-top: -10px; }
+    @media only screen and (max-width: 930px) {
+      .pricing-row.table-header svg {
+        width: 168px;
+        height: 48px; } }
+    @media only screen and (max-width: 780px) {
+      .pricing-row.table-header svg {
+        width: 123px;
+        height: 35px; } }
+    @media only screen and (max-width: 40.063em) {
+      .pricing-row.table-header svg path {
+        fill: #BD1971; } }
+  .pricing-row.table-header .pricing-value {
+    padding: 20px 24px 0 24px; }
+  .pricing-row.table-header .pricing-title, .pricing-row.table-header .pricing-value {
+    font-size: 20px;
+    font-weight: 700; }
+    @media only screen and (max-width: 40.063em) {
+      .pricing-row.table-header .pricing-title, .pricing-row.table-header .pricing-value {
+        font-size: 17px; } }
+
+.pricing-table, .pricing-row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap; }
+  .pricing-table .pricing-row, .pricing-table .pricing-title, .pricing-table .pricing-value, .pricing-row .pricing-row, .pricing-row .pricing-title, .pricing-row .pricing-value {
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+    -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+    min-height: 0;
+    min-width: 0;
+    color: #595959;
+    font-size: 14px; }
+  .pricing-table .pricing-title, .pricing-row .pricing-title {
+    font-weight: 700; }
+  .pricing-table .pricing-title, .pricing-table .pricing-value, .pricing-row .pricing-title, .pricing-row .pricing-value {
+    padding: 10px 24px; }
+  .pricing-table .pricing-row, .pricing-row .pricing-row {
+    width: 100%; }
+    @media only screen and (max-width: 40.063em) {
+      .pricing-table .pricing-row, .pricing-row .pricing-row {
+        margin-bottom: 14px; } }
+  .pricing-table .pricing-title, .pricing-row .pricing-title {
+    width: 40%; }
+    @media only screen and (max-width: 40.063em) {
+      .pricing-table .pricing-title, .pricing-row .pricing-title {
+        width: 100%;
+        text-align: center;
+        background: #fff; } }
+  .pricing-table .pricing-value, .pricing-row .pricing-value {
+    width: 30%;
+    text-align: center; }
+    @media only screen and (max-width: 40.063em) {
+      .pricing-table .pricing-value, .pricing-row .pricing-value {
+        width: 50%;
+        background: #F7FDFF; } }
+
+@media only screen and (max-width: 40.063em) {
+  .table-header .pricing-value {
+    background: none !important; } }
+
+@media only screen and (min-width: 40em) {
+  .pricing-title + .pricing-value {
+    background: #C91A78;
+    color: #fff; } }
+
+@media only screen and (max-width: 40.063em) {
+  .pricing-title + .pricing-value {
+    color: #BD1971;
+    font-weight: 700;
+    border-right: solid 1px #DCF0FA; } }
+
+.pricing-row:nth-child(odd):not(.table-header) {
+  background: #F7FDFF; }
+
+@media only screen and (min-width: 40em) {
+  .pricing-row:nth-child(odd):not(.table-header) .pricing-title + .pricing-value {
+    background: #BD1971; } }
+
+section.offer-pricing {
+  padding: 50px 0; }
+  @media only screen and (min-width: 40.063em) {
+    section.offer-pricing .pricing-page-header {
+      margin-bottom: 40px; } }
+
+.pricing-header .pricing-title {
+  color: #019ABC;
+  font-size: 20px; }
+  @media only screen and (max-width: 40.063em) {
+    .pricing-header .pricing-title {
+      color: #fff;
+      background: #019ABC; } }
+
+@media only screen and (max-width: 40.063em) {
+  .pricing-header .pricing-value {
+    display: none; } }
+
+@media only screen and (min-width: 40.063em) {
+  .pricing-header .pricing-title {
+    padding-top: 30px; }
+  .table-header + .pricing-header .pricing-title {
+    padding-top: 0; } }
+
+p.pricing-note {
+  font-size: 12px;
+  margin-top: 16px;
+  margin-left: 24px; }
+
+section.offer-pricing .grid-container.no-padding {
+  padding-left: 0 !important;
+  padding-right: 0 !important; }
+
 ul.resp-tabs-list {
   margin: 0px;
   padding: 0px;
