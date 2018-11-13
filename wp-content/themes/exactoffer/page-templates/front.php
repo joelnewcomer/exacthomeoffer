@@ -19,20 +19,20 @@ get_header(); ?>
 	<div class="featured-container">
 		<div class="featured-image home-featured">
 			<div class="show-for-large-up">
-				<?php echo wp_get_attachment_image($image_id, 'home-featured'); ?>
+				<?php echo wp_get_attachment_image($image_id, 'featured-home'); ?>
 			</div>
 			<div class="show-for-medium">
 				<?php if (kdmfi_has_featured_image( 'featured-image-tablet')) : ?>
 					<?php kdmfi_the_featured_image( 'featured-image-tablet', 'full'); ?>
 				<?php else : ?>
-					<?php echo wp_get_attachment_image($image_id, 'home-featured'); ?>
+					<?php echo wp_get_attachment_image($image_id, 'featured-home'); ?>
 				<?php endif; ?>				
 			</div>
 			<div class="show-for-small">
 				<?php if (kdmfi_has_featured_image( 'featured-image-mobile')) : ?>
 					<?php kdmfi_the_featured_image( 'featured-image-mobile', 'full'); ?>
 				<?php else : ?>
-					<?php echo wp_get_attachment_image($image_id, 'home-featured'); ?>
+					<?php echo wp_get_attachment_image($image_id, 'featured-home'); ?>
 				<?php endif; ?>
 			</div>
 			<div class="overlay">
