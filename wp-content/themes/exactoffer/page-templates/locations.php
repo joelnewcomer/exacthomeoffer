@@ -13,6 +13,8 @@ get_header(); ?>
 					<h2 class="magenta"><?php echo get_field('header'); ?></h2>
 					<p><?php echo get_field('subheader'); ?></p>
 				</div>
+    	    </div>
+    	    <div class="grid-x">
 				<?php if(get_field('locations')): ?>
 					<?php
 					$count = count(get_field('locations'));
@@ -29,7 +31,9 @@ get_header(); ?>
 						}
 						?>
 						<a class="<?php echo $class; ?> cell text-center location-block" href="<?php echo get_permalink($post_id); ?>" style="background-image:url(<?php echo $img_url; ?>);">
-							<?php echo $title; ?>
+							<div class="location-overlay">
+								<?php echo $title; ?>
+							</div>
 						</a>
 						<?php $i++; ?>
 					<?php endwhile; ?>

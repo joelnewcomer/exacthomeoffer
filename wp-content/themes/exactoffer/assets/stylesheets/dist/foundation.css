@@ -4361,7 +4361,8 @@ h1.entry-title-ul {
 
 .home-header {
   height: 100%;
-  padding-left: 5%; }
+  padding-left: 5%;
+  position: relative; }
   @media only screen and (max-width: 64.063em) {
     .home-header {
       text-align: center;
@@ -4592,6 +4593,15 @@ section.video {
         margin-top: -28px;
         width: 56px;
         height: 56px; }
+
+.overlay-gradient {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  background-image: linear-gradient(-89deg, rgba(1, 154, 188, 0) 11%, rgba(1, 154, 188, 0.8) 53%, rgba(1, 154, 188, 0.8) 99%); }
 
 #single-post .single-title-ul {
   position: relative;
@@ -5084,7 +5094,6 @@ section.locations {
     max-width: 790px;
     margin-bottom: 40px; }
   section.locations .location-block {
-    padding: 130px 20px;
     color: #fff;
     font-size: 30px;
     font-weight: 700;
@@ -5092,6 +5101,9 @@ section.locations {
     background-size: cover !important;
     background-position: center center;
     background-repeat: no-repeat; }
+    section.locations .location-block .location-overlay {
+      background: rgba(0, 0, 0, 0.25);
+      padding: 130px 20px; }
 
 section.locations-cta h2 {
   color: #BD1971; }

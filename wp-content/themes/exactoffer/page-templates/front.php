@@ -36,6 +36,9 @@ get_header(); ?>
 				<?php endif; ?>
 			</div>
 			<div class="overlay">
+				<?php if (!is_front_page()) : ?>
+					<div class="overlay-gradient"></div>
+				<?php endif; ?>
 				<div class="home-header">
 					<div style="display:table;width:100%;height:100%;">
 						<div style="display:table-cell;vertical-align:middle;">
