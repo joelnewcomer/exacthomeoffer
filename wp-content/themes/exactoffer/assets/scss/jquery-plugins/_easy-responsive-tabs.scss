@@ -75,10 +75,10 @@ h2.resp-accordion {
     padding: 14px 15px;
     position: relative;
     transition: all .5s;
-    background: rgba($secondary-color, .15) !important;
+    background: $secondary-color !important;
     -webkit-transition: all .5s; /* Safari and Chrome */
     -ms-transition: all .5s; /* Opera */
-    color: $paragraph-color;
+    color: #fff;
 }
 
 div.resp-easy-accordion {
@@ -158,7 +158,7 @@ h2.resp-accordion {
 	    top: 20px;
 		transform: rotate(180deg);
 		.acc-arrow-1 {
-			fill: $secondary-color;
+			// fill: $secondary-color;
 		}
     }
     &.resp-tab-active svg {
@@ -197,7 +197,7 @@ h2.resp-accordion {
 // Accordion Styling
 .resp-easy-accordion {
 	.resp-tab-content {
-		background: rgba($secondary-color, .05);
+		background: rgba($primary-color, .05);
 	}
 }
 

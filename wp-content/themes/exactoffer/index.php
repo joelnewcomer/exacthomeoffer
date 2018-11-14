@@ -38,9 +38,6 @@ if ($image_id == null) {
 						</div> <!-- grid-container -->
 					</div>
 				</section>
-				<?php // get_template_part('template-parts/blog', 'header-1'); ?>
-				<!-- Header Version 2 has featured article and featured categories -->
-				<?php get_template_part('template-parts/blog', 'header-2'); ?>
 			</div> <!-- overlay -->
 		</div> <!-- blog-landing-featured -->
 	</div> <!-- grid-container -->

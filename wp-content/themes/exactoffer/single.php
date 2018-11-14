@@ -27,31 +27,6 @@ $blur_size = 'width=' . $width . '&height=' . $height . '&crop=1';
 		<div class="grid-container no-padding">
 			<div class="featured-image blog-landing-featured">
 				<?php echo wp_get_attachment_image($image_id,'featured'); ?>
-				<div class="overlay">
-					<div class="grid-container">
-						<section class="breadcrumbs grid-x">
-							<div class="large-12 cell">
-								<?php
-								if ( function_exists('yoast_breadcrumb') ) {
-									yoast_breadcrumb('<p id="breadcrumbs">','</p>');
-								}
-								?>
-							</div>
-						</section>
-					</div>
-					<div class="blog-header single-header text-center">
-						<div style="display:table;width:100%;height:100%;">
-							<div style="display:table-cell;vertical-align:middle;">
-						    	<div style="text-align:center;">
-							    	<header>
-							    		<h1 class="entry-title single-title-ul"><?php the_title(); ?></h1>
-										<?php get_template_part('template-parts/single','cats'); ?>
-							    	</header>
-						    	</div>
-							</div>
-						</div>
-					</div> <!-- blog-header -->
-				</div> <!-- overlay -->
 			</div> <!-- blog-landing-featured -->
 		</div> <!-- grid-container -->
 	</div> <!-- featured-container -->
@@ -61,9 +36,7 @@ $blur_size = 'width=' . $width . '&height=' . $height . '&crop=1';
 		<?php while ( have_posts() ) : the_post(); ?>
 			<article class="main-content large-12 cell" <?php post_class() ?> id="post-<?php the_ID(); ?>">
 				<header>
-					<?php if (!has_post_thumbnail()) : ?>
-						<h1 class="entry-title"><?php the_title(); ?></h1>
-					<?php endif; ?>	
+					<h1 class="entry-title"><?php the_title(); ?></h1>
 					<?php drum_entry_meta(); ?>
 					<?php get_template_part('template-parts/single','cats'); ?>
 				</header>
