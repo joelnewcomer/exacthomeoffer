@@ -3,14 +3,26 @@
     	    <div class="grid-x grid-padding-x">
 				<div class="large-12 cell text-center">
 					<?php
+					global $post;
 					$frontpage_id = get_option( 'page_on_front' );	
 					$post_id = get_field('testimonials_page', $frontpage_id);
 					$rows = get_field('testimonials', $post_id);
+					// echo '<pre>';
+					// print_r($rows);
 					$row_count = count($rows);
-					$featured_i = array_search(true, array_column($rows, 'featured'));
-					$featured = $rows[$featured_i]; 
+					$i = 0;
+					foreach ($rows as $row) {
+						$show_on = $row['show_on'];
+						// print_r($show_on);
+						if (in_array($post->ID, $show_on)) {
+							$featured_i = $i;
+						}
+						$i++;
+					}
+					// echo '</pre>';
+					$featured = $rows[$featured_i];
 					?>
-					<?php if(get_field('testimonials', $post_id)): ?>
+					<?php if(get_field('testimonials', $post_id) && isset($featured_i)): ?>
 						<div class="grid-container testimonials-container">
 							<div class="grid-x grid-padding-x testimonial-block">	
 								<?php

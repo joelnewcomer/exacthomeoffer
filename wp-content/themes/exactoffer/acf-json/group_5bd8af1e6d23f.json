@@ -141,10 +141,10 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_5bd8b173507e4",
-                    "label": "Featured on Homepage",
-                    "name": "featured",
-                    "type": "true_false",
+                    "key": "field_5bef11f5ff2b1",
+                    "label": "Select page(s) to display this testimonial on",
+                    "name": "show_on",
+                    "type": "post_object",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -153,11 +153,14 @@
                         "class": "",
                         "id": ""
                     },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
+                    "post_type": [
+                        "page"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 1,
+                    "return_format": "id",
+                    "ui": 1
                 }
             ]
         }
@@ -181,5 +184,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1540927890
+    "modified": 1542394775
 }
