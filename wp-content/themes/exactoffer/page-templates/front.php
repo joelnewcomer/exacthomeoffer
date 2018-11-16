@@ -110,12 +110,22 @@ get_header(); ?>
 					<?php
 					$video = get_field('learn_more_video_video'); // OEmbed Code
 					$video_url = get_field('learn_more_video_video', FALSE, FALSE); // URL
+					$video = true;
+					if ($video_url == '') {
+						$video = false;
+					}
 					?>
-					<a class="video" href="<?php echo $video_url; ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540">
+					<?php if ($video) : ?>
+						<a class="video" href="<?php echo $video_url; ?>?autoplay=1&modestbranding=1&showinfo=0&rel=0" data-featherlight="iframe" data-featherlight-iframe-width="960" data-featherlight-iframe-height="540">
+					<?php else : ?>
+						<a class="video no-video" href="#">
+					<?php endif; ?>
 					    <?php echo wp_get_attachment_image(get_field('learn_more_video_video_poster_image'), 'full'); ?>
+					    <?php if ($video): ?>
 					    <div class="play-overlay">
 					        <?php get_template_part('assets/images/play', 'button.svg'); ?><br />
 					    </div>
+					    <?php endif; ?>
 					</a>
 				
 				</div>

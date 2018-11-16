@@ -284,6 +284,10 @@ section.video {
 				height: 56px;
 			}
 		}
+		&.no-video {
+			pointer-events: none;
+			cursor: default;
+		}
 	}
 }
 

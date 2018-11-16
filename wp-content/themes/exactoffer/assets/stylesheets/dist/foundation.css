@@ -4511,6 +4511,9 @@ section.video {
         margin-top: -28px;
         width: 56px;
         height: 56px; }
+    section.video a.video.no-video {
+      pointer-events: none;
+      cursor: default; }
 
 .overlay-gradient {
   display: block;
