@@ -4405,7 +4405,7 @@ section.how-it-works {
   section.how-it-works h2 + p {
     margin-bottom: 60px; }
   section.how-it-works .grid-container {
-    max-width: 1040px; }
+    /* max-width: 944px */ }
   section.how-it-works .step-block {
     margin-bottom: 40px;
     position: relative; }
@@ -4456,7 +4456,7 @@ section.reviews {
 section.cta {
   padding: 80px 0; }
   section.cta .grid-container {
-    max-width: 952px; }
+    /* max-width: 952px; */ }
   section.cta .cta-image {
     padding: 120px 15px 130px 15px;
     margin-bottom: 30px;
