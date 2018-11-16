@@ -4358,7 +4358,7 @@ form.request-offer {
 section.benefits {
   padding: 50px 0; }
   section.benefits .grid-container {
-    max-width: 1040px; }
+    /* max-width: /* 944px */ }
   section.benefits h2 + p {
     display: inline-block;
     max-width: 790px;
@@ -4405,7 +4405,7 @@ section.how-it-works {
   section.how-it-works h2 + p {
     margin-bottom: 60px; }
   section.how-it-works .grid-container {
-    /* max-width: 944px */ }
+    max-width: 944px; }
   section.how-it-works .step-block {
     margin-bottom: 40px;
     position: relative; }
