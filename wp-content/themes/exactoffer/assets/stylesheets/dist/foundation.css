@@ -4875,6 +4875,9 @@ a.arrow {
     height: 16px; }
 
 .cta.benefits-cta {
+  display: block;
+  float: left;
+  width: 100%;
   background: url(../../images/benefits-cta.jpg) center center no-repeat;
   background-size: cover !important; }
   .cta.benefits-cta h2, .cta.benefits-cta p {

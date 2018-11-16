@@ -10,6 +10,20 @@
 ?>
 	</main> <!-- .container -->
 	
+	<?php if (get_field('time_factor') == true) : ?>
+	<?php $benefits_page_id = 663; ?>
+	<section class="cta benefits-cta">
+		<div class="grid-container">
+    	    <div class="grid-x grid-padding-x">
+				<div class="large-12 cell text-center">
+					<h2 class="white"><?php echo get_field('cta_header', $benefits_page_id); ?></h2>
+					<p><?php echo get_field('cta_blurb', $benefits_page_id); ?></p>
+				</div>
+    	    </div>    	    
+		</div>		
+	</section>	<!-- cta -->
+	<?php endif; ?>	
+	
 	<?php if (get_field('hide_cta') != true) : ?>
 	<section class="footer-cta">
 		<div class="grid-container">
