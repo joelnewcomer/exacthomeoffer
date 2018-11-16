@@ -60,7 +60,7 @@ get_header(); ?>
 									$message .= '<p><strong>If they don\'t complete the form, send them snail mail.</strong></p>';
 									$message .= '<p>You can send them mail at: <strong>' . $_GET["home-address"] . '</strong></p>';
 									$headers = 'From: <info@exacthomeoffer.com>' . "\r\n";
-									wp_mail( 'joel@drumcreative.com', $subject, $message, $headers );
+									wp_mail( 'ewtsuccess@gmail.com', $subject, $message, $headers );
 									?>
 								<?php else : ?>							    
  							    	<h2 class="magenta">Start your ExactOffer</h2>
