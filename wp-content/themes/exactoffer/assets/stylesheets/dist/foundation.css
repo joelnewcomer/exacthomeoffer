@@ -4602,8 +4602,18 @@ body.error404 .entry-content h2 {
     background: #FFFFFF;
     border: 1px solid #E3F3FC;
     box-shadow: 0 4px 10px 0 rgba(1, 154, 188, 0.1);
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    position: relative; }
+    .testimonials-container .testimonial-block .testimonial-overlay {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.2); }
     .testimonials-container .testimonial-block .testimonial-photo {
+      position: relative;
       background-size: cover !important;
       background-position: center center;
       font-size: 30px;
@@ -4613,6 +4623,8 @@ body.error404 .entry-content h2 {
       font-weight: 700;
       padding: 20px;
       min-height: 250px; }
+    .testimonials-container .testimonial-block .testimonial-blurb {
+      position: relative; }
     .testimonials-container .testimonial-block .testimonial-content {
       padding: 60px 24px 28px 24px; }
       .testimonials-container .testimonial-block .testimonial-content .stars {

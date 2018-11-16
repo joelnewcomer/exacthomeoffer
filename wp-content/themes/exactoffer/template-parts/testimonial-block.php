@@ -9,7 +9,8 @@
 					$photo_url = wp_get_attachment_image_src($photo_id, 'testimonial');
 					?>
 					<div class="large-6 medium-6 cell text-center testimonial-photo" style="background-image: url(<?php echo $photo_url[0];?>);">
-						<div style="display:table;width:100%;height:100%;">
+						<div class="testimonial-overlay"></div>
+						<div class="testimonial-blurb" style="display:table;width:100%;height:100%;">
 							<div style="display:table-cell;vertical-align:middle;">
 						    	<div style="text-align:center;">
 							    	<?php echo $blurb; ?>
