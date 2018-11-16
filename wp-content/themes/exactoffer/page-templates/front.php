@@ -66,13 +66,13 @@ get_header(); ?>
 					<p class="teal"><?php echo get_field('reviews_blurb'); ?></p>
 				</div>
 				<div class="large-5 medium-5 cell text-center">
-					<a href="<?php echo get_field('reviews_facebook_url'); ?>" target="_blank" class="reviews-wrapper">
-						<?php get_template_part('assets/images/facebook', 'logo.svg'); ?><br />
-						<?php echo get_stars(get_field('reviews_facebook_stars')); ?>
+					<a href="<?php echo get_field('reviews_facebook_url'); ?>" target="_blank" class="reviews-wrapper facebook-reviews">
+						<?php echo get_stars(get_field('reviews_facebook_stars')); ?><br />
+						<?php get_template_part('assets/images/facebook', 'logo.svg'); ?>
 					</a>
-					<a href="<?php echo get_field('reviews_google_url'); ?>" target="_blank" class="reviews-wrapper">
-						<?php get_template_part('assets/images/google', 'logo.svg'); ?><br />
-						<?php echo get_stars(get_field('reviews_google_stars')); ?>
+					<a href="<?php echo get_field('reviews_google_url'); ?>" target="_blank" class="reviews-wrapper google-reviews">
+						<?php echo get_stars(get_field('reviews_google_stars')); ?><br />
+						<?php get_template_part('assets/images/google', 'logo.svg'); ?>
 					</a>
 				</div>
     	    </div>

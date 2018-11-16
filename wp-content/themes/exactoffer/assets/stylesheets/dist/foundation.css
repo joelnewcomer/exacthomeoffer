@@ -4307,6 +4307,7 @@ form.request-offer {
   box-shadow: 0 6px 12px 0 rgba(85, 155, 181, 0.2);
   border-radius: 4px;
   padding: 12px;
+  border: 1px solid #E3F3FC;
   width: 100%;
   max-width: 506px;
   display: inline-block; }
@@ -4449,9 +4450,15 @@ section.reviews {
     font-size: 22px; }
   section.reviews .reviews-wrapper {
     display: inline-block;
-    margin: 0 30px 20px 30px; }
-    section.reviews .reviews-wrapper svg:nth-child(1) {
-      margin-bottom: 10px; }
+    vertical-align: middle; }
+    section.reviews .reviews-wrapper.google-reviews {
+      margin: 0 30px 11px 30px; }
+      section.reviews .reviews-wrapper.google-reviews svg:last-child {
+        margin-top: 8px; }
+    section.reviews .reviews-wrapper.facebook-reviews {
+      margin: 0 30px 20px 30px; }
+      section.reviews .reviews-wrapper.facebook-reviews svg:last-child {
+        margin-top: 10px; }
 
 section.cta {
   padding: 80px 0; }

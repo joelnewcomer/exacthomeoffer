@@ -38,6 +38,7 @@ form.request-offer {
 	box-shadow: 0 6px 12px 0 rgba(85,155,181,0.20);
 	border-radius: 4px;
 	padding: 12px;
+	border: 1px solid #E3F3FC;
 	@media only screen and (max-width: 40.063em) {
 		padding: 8px;	
 	}
@@ -205,9 +206,18 @@ section.reviews {
 	}
 	.reviews-wrapper {
 		display: inline-block;
-		margin: 0 30px 20px 30px;
-		& svg:nth-child(1) {
-			margin-bottom: 10px;
+		vertical-align: middle;
+		&.google-reviews {
+			margin: 0 30px 11px 30px;
+			& svg:last-child {
+				margin-top: 8px;
+			}
+		}
+		&.facebook-reviews {
+			margin: 0 30px 20px 30px;
+			& svg:last-child {
+				margin-top: 10px;
+			}			
 		}
 	}
 }
