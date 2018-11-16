@@ -52,7 +52,18 @@ get_header(); ?>
 					<div style="display:table;width:100%;height:100%;float:left;">
 						<div class="offer-table-cell" style="display:table-cell;vertical-align:middle;padding-right: 20px;padding-left: 20px;">
 						    <div class="offer-box">
-							    <h2 class="magenta">Start your ExactOffer</h2>
+							    <?php if (isset($_GET["home-address"])) : ?>
+									<h2 class="magenta">Finish your Offer Request</h2>
+									<?php
+									$subject = 'Someone at ' . $_GET["home-address"] . ' clicked on "Get Your Free Offer"';
+									$message = '<h1>Someone on the ExactOffer website took the first step.</h1>';
+									$message .= '<p><strong>If they don\'t complete the form, send them snail mail.</strong></p>';
+									$headers = 'From: <info@exacthomeoffer.com>' . "\r\n";
+									wp_mail( 'joel@drumcreative.com', $subject, $message, $headers );
+									?>
+								<?php else : ?>							    
+ 							    	<h2 class="magenta">Start your ExactOffer</h2>
+ 							    <?php endif; ?>
 								<p>We'll get started serving you right away!</p>								
 								<?php gravity_form(5, false, false, false, '', true, 12); ?>
 							</div> <!-- offer-box -->

@@ -4747,6 +4747,7 @@ body.home .testimonials-container {
         .offer-header .offer-box p {
           font-size: 16px; } }
     .offer-header .offer-box h2 {
+      font-size: 28px;
       margin-bottom: 8px; }
       @media only screen and (max-width: 870px) {
         .offer-header .offer-box h2 {
