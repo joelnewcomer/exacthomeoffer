@@ -4456,7 +4456,7 @@ section.reviews {
 section.cta {
   padding: 80px 0; }
   section.cta .grid-container {
-    /* max-width: 952px; */ }
+    max-width: 952px; }
   section.cta .cta-image {
     padding: 120px 15px 130px 15px;
     margin-bottom: 30px;
