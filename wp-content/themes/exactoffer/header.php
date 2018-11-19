@@ -38,6 +38,9 @@
 				});
 			})
 		</script>
+		
+		<!-- Tidio Chat embed code -->
+		<script src="//code.tidio.co/0qcvlpswfjd9eytoo07rurwrhcxbki8c.js"></script>
 
 	</head>
 	<body <?php body_class(); ?>>
