@@ -58,7 +58,7 @@ get_header(); ?>
 									$subject = 'Someone at ' . $_GET["home-address"] . ' clicked on "Get Your Free Offer"';
 									$message = '<h1>Someone on the ExactOffer website took the first step.</h1>';
 									$message .= '<p><strong>If they don\'t complete the form, send them snail mail.</strong></p>';
-									$message .= '<p>You can send them mail at: <strong>' . $_GET["home-address"] . '</strong></p>';
+									$message .= '<p>Property address entered: <strong>' . $_GET["home-address"] . '</strong></p>';
 									$headers = 'From: <info@exacthomeoffer.com>' . "\r\n";
 									wp_mail( 'ewtsuccess@gmail.com', $subject, $message, $headers );
 									?>
