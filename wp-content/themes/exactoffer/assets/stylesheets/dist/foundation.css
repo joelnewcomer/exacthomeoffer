@@ -3684,6 +3684,10 @@ input.button.no-shadow {
   visibility: hidden;
   opacity: 0;
   transition: opacity .3s 0s, visibility 0s .3s; }
+  @media only screen and (max-width: 40.063em) {
+    .cd-top {
+      right: auto;
+      left: 10px; } }
   .cd-top.cd-is-visible, .cd-top.cd-fade-out {
     transition: opacity .3s 0s, visibility 0s 0s; }
 

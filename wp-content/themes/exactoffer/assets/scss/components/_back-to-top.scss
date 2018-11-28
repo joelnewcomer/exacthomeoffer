@@ -11,6 +11,10 @@
   z-index: 9999;
   bottom: 40px;
   right: 10px;
+  @media only screen and (max-width: 40.063em) {
+		right: auto;
+		left: 10px;  
+  }
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   /* image replacement properties */
   overflow: hidden;
