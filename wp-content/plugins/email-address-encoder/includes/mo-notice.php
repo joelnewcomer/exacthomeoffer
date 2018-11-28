@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 if ( ! class_exists( 'MO_Admin_Notice' ) ) :
 
 class MO_Admin_Notice
@@ -134,7 +136,7 @@ class MO_Admin_Notice
                 float: left;
                 width: 66%;
                 display: block;
-                margin: 0 0 10px 0;
+                margin: 20px 0 10px 0;
             }
             .mo-notice-other-half {
                 float: right;

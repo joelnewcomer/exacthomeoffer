@@ -2,7 +2,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-if ( ! defined( 'EAE_DISABLE_NOTICES' ) ) {
+if ( ! defined( 'EAE_DISABLE_NOTICES' ) && time() < 1543622400 ) {
     include __DIR__ . '/mo-notice.php';
 }
 
@@ -60,7 +60,7 @@ function eae_load_textdomain() {
  * @return void
  */
 function eae_register_ui() {
-	add_options_page(
+    add_options_page(
         __( 'Email Address Encoder', 'email-address-encoder' ),
         __( 'Email Encoder', 'email-address-encoder' ),
         'manage_options',
@@ -75,9 +75,51 @@ function eae_register_ui() {
  * @return void
  */
 function eae_register_settings() {
-    register_setting( 'email-address-encoder', 'eae_search_in' );
-    register_setting( 'email-address-encoder', 'eae_technique' );
-    register_setting( 'email-address-encoder', 'eae_filter_priority' );
+    register_setting( 'email-address-encoder', 'eae_search_in', array(
+        'type' => 'string',
+        'default' => 'filters',
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+
+    register_setting( 'email-address-encoder', 'eae_technique', array(
+        'type' => 'string',
+        'default' => 'entities',
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+
+    register_setting( 'email-address-encoder', 'eae_filter_priority', array(
+        'type' => 'integer',
+        'default' => 1000,
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+
+    register_setting( 'email-address-encoder', 'eae_notices', array(
+        'type' => 'integer',
+        'default' => 0,
+        'sanitize_callback' => 'intval',
+    ) );
+}
+
+/**
+ * Callback that runs when the plugin is uninstalled.
+ *
+ * @return void
+ */
+function eae_uninstall_hook() {
+    delete_option( 'eae_search_in' );
+    delete_option( 'eae_technique' );
+    delete_option( 'eae_filter_priority' );
+}
+
+/**
+ * Callback that runs when the plugin is activated.
+ *
+ * @return void
+ */
+function eae_activation_hook() {
+    update_option( 'eae_search_in', 'filters' );
+    update_option( 'eae_technique', 'entities' );
+    update_option( 'eae_filter_priority', (integer) EAE_FILTER_PRIORITY );
 }
 
 /**
@@ -154,14 +196,12 @@ function eae_dismiss_notice() {
 function eae_page_scanner_notice() {
     $screen = get_current_screen();
 
-    if ( isset( $screen->id ) ) {
-        if ( $screen->id === 'settings_page_email-address-encoder' ) {
-            return;
-        }
+    if ( ! isset( $screen->id ) ) {
+        return;
+    }
 
-        if ( $screen->id !== 'dashboard' ) {
-            return;
-        }
+    if ( $screen->id !== 'dashboard' && $screen->id !== 'edit-page' ) {
+        return;
     }
 
     if ( ! current_user_can( 'manage_options' ) ) {
@@ -169,6 +209,10 @@ function eae_page_scanner_notice() {
     }
 
     if ( defined( 'EAE_DISABLE_NOTICES' ) ) {
+        return;
+    }
+
+    if ( get_option( 'eae_notices', '0' ) === '1' ) {
         return;
     }
 
