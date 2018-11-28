@@ -4371,6 +4371,11 @@ section.benefits {
     margin-bottom: 32px;
     position: relative;
     z-index: 2; }
+    @media only screen and (max-width: 40.063em) {
+      section.benefits .benefit-block {
+        margin-bottom: 60px; }
+        section.benefits .benefit-block:nth-child(3) {
+          margin-bottom: 30px; } }
     section.benefits .benefit-block svg {
       width: 104px;
       height: 104px; }
@@ -4453,10 +4458,16 @@ section.reviews {
     vertical-align: middle; }
     section.reviews .reviews-wrapper.google-reviews {
       margin: 0 30px 11px 30px; }
+      @media only screen and (max-width: 40.063em) {
+        section.reviews .reviews-wrapper.google-reviews {
+          margin: 0 15px 11px 15px; } }
       section.reviews .reviews-wrapper.google-reviews svg:last-child {
         margin-top: 8px; }
     section.reviews .reviews-wrapper.facebook-reviews {
       margin: 0 30px 20px 30px; }
+      @media only screen and (max-width: 40.063em) {
+        section.reviews .reviews-wrapper.facebook-reviews {
+          margin: 0 15px 20px 15px; } }
       section.reviews .reviews-wrapper.facebook-reviews svg:last-child {
         margin-top: 10px; }
 
