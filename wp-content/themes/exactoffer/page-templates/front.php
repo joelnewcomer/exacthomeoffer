@@ -106,7 +106,7 @@ get_header(); ?>
 		<div class="grid-container">
     	    <div class="grid-x grid-padding-x">
 				<div class="large-12 cell text-center">
-					<h2>Learn More</h2>
+					<h2><?php echo get_field('learn_more_video_title'); ?></h2>
 					<?php
 					$video = get_field('learn_more_video_video'); // OEmbed Code
 					$video_url = get_field('learn_more_video_video', FALSE, FALSE); // URL
