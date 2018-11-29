@@ -41,6 +41,9 @@ get_header(); ?>
 					<div style="display:table;width:100%;height:100%;float:left;">
 						<div class="left-table-cell" style="display:table-cell;vertical-align:middle;">
 							<div class="offer-header-left">
+								<div class="logo-block">
+									<?php get_template_part('assets/images/exactoffer', 'logo-tagline.svg'); ?>
+								</div>
 							    <h1 class="entry-title"><?php echo str_replace( 'guaranteed.' , '<span>guaranteed.</span>' , get_field('header') ); ?></h1>
 								<p><?php echo get_field('subheader'); ?></p>
 							</div>

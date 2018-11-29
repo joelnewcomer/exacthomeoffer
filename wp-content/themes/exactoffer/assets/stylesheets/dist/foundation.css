@@ -4773,7 +4773,7 @@ body.home .testimonials-container {
         padding-bottom: 20px; } }
   @media only screen and (max-width: 470px) {
     .offer-header .left-table-cell {
-      padding-top: 20px; } }
+      padding-top: 8px; } }
   .offer-header .offer-box {
     margin-left: 0px;
     max-width: 392px;
@@ -4788,10 +4788,10 @@ body.home .testimonials-container {
       .offer-header .offer-box {
         display: block;
         margin: -60px auto 0 auto; } }
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 690px) {
       .offer-header .offer-box {
         margin: -30px auto 0 auto; } }
-    @media only screen and (max-width: 470px) {
+    @media only screen and (max-width: 580px) {
       .offer-header .offer-box {
         margin: -10px auto 0 auto; } }
     @media only screen and (max-width: 870px) {
@@ -4823,6 +4823,36 @@ body.home .testimonials-container {
       margin-bottom: 8px; }
     .offer-header .offer-box img {
       width: auto !important; }
+
+.logo-block {
+  background: rgba(214, 28, 127, 0.8);
+  padding: 12px 18px 8px 18px;
+  display: inline-block;
+  margin-bottom: 80px;
+  position: relative; }
+  @media only screen and (max-width: 64.063em) {
+    .logo-block {
+      margin-bottom: 30px; } }
+  @media only screen and (max-width: 760px) {
+    .logo-block {
+      margin-bottom: 4px;
+      padding: 8px 12px 0px 12px; } }
+  @media only screen and (max-width: 760px) {
+    .logo-block svg {
+      width: 200px;
+      height: 42px; } }
+  .logo-block svg path, .logo-block svg polygon, .logo-block svg polyline {
+    fill: #fff; }
+  @media only screen and (min-width: 64.063em) {
+    .logo-block:after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: calc(100% + 40px);
+      width: 112px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.2); } }
 
 section.how-it-works-page {
   padding: 60px 0 80px 0; }
