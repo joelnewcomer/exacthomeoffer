@@ -4553,6 +4553,10 @@ section.video {
   width: 60%;
   height: 100%;
   background-image: linear-gradient(-89deg, rgba(1, 154, 188, 0) 11%, rgba(1, 154, 188, 0.8) 53%, rgba(1, 154, 188, 0.8) 99%); }
+  @media only screen and (max-width: 64.063em) {
+    .overlay-gradient {
+      width: 100%;
+      background: rgba(1, 154, 188, 0.6); } }
 
 #single-post .single-title-ul {
   position: relative;

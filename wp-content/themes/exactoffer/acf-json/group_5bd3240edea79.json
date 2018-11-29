@@ -1,6 +1,6 @@
 {
     "key": "group_5bd3240edea79",
-    "title": "Footer Call to Action",
+    "title": "Footer Blocks Toggles",
     "fields": [
         {
             "key": "field_5bd3242314d31",
@@ -39,6 +39,25 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_5bffed0cb8a1d",
+            "label": "Show Video on this page",
+            "name": "show_video",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -60,5 +79,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1542396686
+    "modified": 1543499509
 }

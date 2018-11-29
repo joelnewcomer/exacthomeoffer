@@ -9,6 +9,10 @@
  */
 ?>
 	</main> <!-- .container -->
+
+	<?php if (get_field('show_video')) : ?>
+		<?php get_template_part('template-parts/video', 'section'); ?>
+	<?php endif; ?>
 	
 	<?php if (get_field('time_factor') == true) : ?>
 	<?php $benefits_page_id = 663; ?>
