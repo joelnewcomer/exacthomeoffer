@@ -3392,7 +3392,7 @@ main.container > section > .grid-container {
       @media only screen and (max-width: 40.063em) {
         .top-bar .top-bar-middle.tablet a {
           width: 49%;
-          padding: 8px 0; } }
+          padding: 12px 0; } }
     @media only screen and (max-width: 40.063em) {
       .top-bar .top-bar-middle.tablet.sticky {
         display: block;
