@@ -44,7 +44,9 @@ get_header(); ?>
 						<div style="display:table-cell;vertical-align:middle;">
 						    <h1 class="entry-title"><?php echo get_field('header'); ?></h1>
 						    <p><?php echo get_field('subheader'); ?></p>
-							<?php get_template_part('template-parts/free', 'offer'); ?>					    
+						    <div class="small-text-center">
+								<?php get_template_part('template-parts/free', 'offer'); ?>
+						    </div>
 						</div>
 					</div>
 				</div> <!-- home-header -->
