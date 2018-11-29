@@ -4514,6 +4514,9 @@ section.cta {
     margin-bottom: 24px; }
 
 section.video {
+  display: block;
+  float: left;
+  width: 100%;
   background: #019ABC;
   padding: 40px 0 60px 0; }
   section.video h2 {

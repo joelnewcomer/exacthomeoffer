@@ -281,6 +281,9 @@ section.cta {
 }
 
 section.video {
+	display: block;
+	float: left;
+	width: 100%;
 	background: $teal;
 	padding: 40px 0 60px 0;
 	h2 {
