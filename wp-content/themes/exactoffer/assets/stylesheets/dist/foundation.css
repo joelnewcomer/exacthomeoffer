@@ -4906,6 +4906,9 @@ a.arrow {
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); }
   .cta.benefits-cta h2 {
     font-size: 48px; }
+    @media only screen and (max-width: 40.063em) {
+      .cta.benefits-cta h2 {
+        font-size: 38px; } }
   .cta.benefits-cta p {
     font-size: 20px; }
 
