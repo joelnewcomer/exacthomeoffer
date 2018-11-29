@@ -137,5 +137,13 @@ function is_even($number) {
         return true;
     } else {
         return false;
-    }   
+    }  
 }
+
+// Add request-an-offer shortcode
+function rao_shortcode( $atts, $content = null ) {
+    ob_start();
+    get_template_part('template-parts/free', 'offer');
+    return ob_get_clean(); 
+}
+add_shortcode ('request-an-offer', 'rao_shortcode');

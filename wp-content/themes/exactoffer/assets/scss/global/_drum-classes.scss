@@ -71,7 +71,6 @@ blockquote {
 
 .entry-content .grid-container {
 	padding-top: 30px;
-	padding-bottom: 15px;
 }
 
 .entry-content section, .parallax-container, main.container, .grid-wrapper {
@@ -263,4 +262,8 @@ main#content {
 		top: 0;
 		left: 0;
 	}
+}
+
+.entry-content h1 {
+	text-align: center;
 }

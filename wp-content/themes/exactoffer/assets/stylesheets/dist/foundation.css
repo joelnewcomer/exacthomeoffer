@@ -3083,8 +3083,7 @@ blockquote {
     font-weight: 700; }
 
 .entry-content .grid-container {
-  padding-top: 30px;
-  padding-bottom: 15px; }
+  padding-top: 30px; }
 
 .entry-content section, .parallax-container, main.container, .grid-wrapper {
   display: block;
@@ -3227,6 +3226,9 @@ main#content {
     height: 80px;
     top: 0;
     left: 0; } }
+
+.entry-content h1 {
+  text-align: center; }
 
 .header-wrapper {
   z-index: 11;
@@ -4304,6 +4306,14 @@ ul.pagination a.next, ul.pagination a.prev {
     @media only screen and (max-width: 40.063em) {
       .home-header p {
         margin-bottom: 20px; } }
+
+.entry-content > .request-offer-wrapper {
+  margin: 20px 0;
+  display: inline-block;
+  width: 100%; }
+
+p[style="text-align: center;"] + .request-offer-wrapper {
+  text-align: center; }
 
 form.request-offer {
   background: #FFFFFF;
