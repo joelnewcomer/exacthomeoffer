@@ -115,6 +115,9 @@
 
 section.offer-pricing {
 	padding: 50px 0;
+	@media only screen and (max-width: 40.063em) {
+		padding: 50px 0 0 0;	
+	}
 	.pricing-page-header {
 		@media only screen and (min-width: 40.063em) {
 			margin-bottom: 40px;

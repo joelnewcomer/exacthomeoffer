@@ -1,28 +1,26 @@
+<?php
+global $post;
+$frontpage_id = get_option( 'page_on_front' );	
+$post_id = get_field('testimonials_page', $frontpage_id);
+$rows = get_field('testimonials', $post_id);
+$row_count = count($rows);
+$i = 0;
+foreach ($rows as $row) {
+	$show_on = $row['show_on'];
+	if (in_array($post->ID, $show_on)) {
+		$featured_i = $i;
+	}
+	$i++;
+}
+$featured = $rows[$featured_i];
+?>
+<?php if(get_field('testimonials', $post_id) && isset($featured_i)): ?>
 	<section class="testimonial" role="main">
 		<div class="grid-container">
     	    <div class="grid-x grid-padding-x">
 				<div class="large-12 cell text-center">
-					<?php
-					global $post;
-					$frontpage_id = get_option( 'page_on_front' );	
-					$post_id = get_field('testimonials_page', $frontpage_id);
-					$rows = get_field('testimonials', $post_id);
-					// echo '<pre>';
-					// print_r($rows);
-					$row_count = count($rows);
-					$i = 0;
-					foreach ($rows as $row) {
-						$show_on = $row['show_on'];
-						// print_r($show_on);
-						if (in_array($post->ID, $show_on)) {
-							$featured_i = $i;
-						}
-						$i++;
-					}
-					// echo '</pre>';
-					$featured = $rows[$featured_i];
-					?>
-					<?php if(get_field('testimonials', $post_id) && isset($featured_i)): ?>
+
+					
 						<div class="grid-container testimonials-container">
 							<div class="grid-x grid-padding-x testimonial-block">	
 								<?php
@@ -56,8 +54,10 @@
 								</div> <!-- testimonial-content -->
 			    			</div> <!-- grid-padding-x testimonial-block -->
 						</div> <!-- grid-container testimonials-container -->
-					<?php endif; ?>					
+									
 				</div>
     	    </div>
 		</div>
 	</section>	<!-- testimonial -->
+	
+<?php endif; ?>		

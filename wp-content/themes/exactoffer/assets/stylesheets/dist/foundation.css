@@ -4476,6 +4476,9 @@ section.reviews {
 
 section.cta {
   padding: 80px 0; }
+  @media only screen and (max-width: 40.063em) {
+    section.cta {
+      padding: 40px 0; } }
   section.cta .grid-container {
     max-width: 952px; }
   section.cta .cta-image {
@@ -4808,7 +4811,7 @@ section.how-it-works-page {
   padding: 60px 0 80px 0; }
   @media only screen and (max-width: 40.063em) {
     section.how-it-works-page {
-      padding: 20px 0 40px 0; } }
+      padding: 20px 0 20px 0; } }
   section.how-it-works-page .grid-container {
     max-width: 1040px; }
   section.how-it-works-page .how-it-works-intro {
@@ -5015,6 +5018,9 @@ a.arrow {
 
 section.offer-pricing {
   padding: 50px 0; }
+  @media only screen and (max-width: 40.063em) {
+    section.offer-pricing {
+      padding: 50px 0 0 0; } }
   @media only screen and (min-width: 40.063em) {
     section.offer-pricing .pricing-page-header {
       margin-bottom: 40px; } }
