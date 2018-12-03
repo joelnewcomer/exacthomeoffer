@@ -16,7 +16,7 @@
 						</div>
 					<?php endwhile; ?>
 				<?php endif; ?>
-				<?php if (!is_page_template('page-templates/landing-page.php')) : ?>
+				<?php if (!is_page_template('page-templates/landing-page.php') && !is_page_template('page-templates/benefits.php')) : ?>
 				<div class="large-12 cell text-center">
 					<div class="button arrow"><a href="<?php echo get_field('benefits_link'); ?>">Even More Benefits<?php get_template_part('assets/images/button', 'arrow.svg'); ?></a></div>
 				</div>
