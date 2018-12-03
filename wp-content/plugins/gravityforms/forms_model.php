@@ -5427,7 +5427,7 @@ class GFFormsModel {
 	 *
 	 * @since 1.0
 	 *
-	 * @param $new_key Gravity Forms license key to be saved.
+	 * @param string $new_key Gravity Forms license key to be saved.
 	 */
 	public static function save_key( $new_key ) {
 

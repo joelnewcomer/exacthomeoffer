@@ -187,6 +187,9 @@ class GFSettings {
 			delete_option( 'gform_recaptcha_keys_status' );
 			delete_option( 'gform_upload_page_slug' );
 
+			delete_option( 'gravityformsaddon_gravityformswebapi_version' );
+			delete_option( 'gravityformsaddon_gravityformswebapi_settings' );
+
 			// Removes license key
 			GFFormsModel::save_key( '' );
 

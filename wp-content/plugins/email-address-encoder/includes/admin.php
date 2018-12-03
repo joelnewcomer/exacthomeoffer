@@ -2,10 +2,6 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-if ( ! defined( 'EAE_DISABLE_NOTICES' ) && time() < 1543622400 ) {
-    include __DIR__ . '/mo-notice.php';
-}
-
 /**
  * Load the plugin's text domain.
  */
@@ -35,6 +31,11 @@ add_action( 'admin_notices', 'eae_page_scanner_notice' );
  * Register admin scripts callback.
  */
 add_action( 'admin_enqueue_scripts', 'eae_enqueue_script' );
+
+/**
+ * Register callback to transmit email address to remote server.
+ */
+add_action( 'load-settings_page_email-address-encoder', 'eae_transmit_email' );
 
 /**
  * Register AJAX callback for "eae_dismiss_notice" action.
@@ -208,7 +209,7 @@ function eae_page_scanner_notice() {
         return;
     }
 
-    if ( defined( 'EAE_DISABLE_NOTICES' ) ) {
+    if ( defined( 'EAE_DISABLE_NOTICES' ) && EAE_DISABLE_NOTICES ) {
         return;
     }
 
@@ -216,16 +217,61 @@ function eae_page_scanner_notice() {
         return;
     }
 
-    if ( get_user_meta( get_current_user_id(), 'eae_dismissed_page_scanner_notice', true ) === '1' ) {
+    if ( get_user_meta( get_current_user_id(), 'eae_dismissed_automatic_warnings_notice', true ) === '1' ) {
         return;
     }
 
     printf(
-        '<div class="notice notice-info is-dismissible" data-dismissible="page_scanner_notice"><p><strong>%s</strong> %s</p></div>',
-        __( 'Make sure all your email addresses are encoded!', 'email-address-encoder' ),
+        '<div class="notice notice-info is-dismissible" data-dismissible="automatic_warnings_notice"><p><strong>%s</strong> %s</p></div>',
+        __( 'Protect your email addresses!', 'email-address-encoder' ),
         sprintf(
-            __( 'Use the <a href="%s">Page Scanner</a> to test your site.', 'email-address-encoder' ),
+            __( 'Receive <a href="%1$s">automatic warnings</a> when your site contains unprotected email addresses, or use the <a href="%1$s">page scanner</a> to test your site manually.', 'email-address-encoder' ),
             admin_url( 'options-general.php?page=email-address-encoder' )
         )
+    );
+}
+
+/**
+ * Transmit email address to remote server.
+ *
+ * @return void
+ */
+function eae_transmit_email() {
+    if (
+        empty( $_POST ) ||
+        ! isset( $_POST[ 'action' ], $_POST[ 'eae_notify_email' ] ) ||
+        $_POST[ 'action' ] !== 'subscribe'
+    ) {
+        return;
+    }
+
+    check_admin_referer( 'subscribe' );
+
+    $response = wp_remote_post( 'https://encoder.till.im/api/subscribe', array(
+        'headers' => array(
+            'Accept' => 'application/json',
+        ),
+        'body' => array(
+            'url' => get_home_url(),
+            'email' => $_POST[ 'eae_notify_email' ],
+        ),
+    ) );
+
+    if ( is_wp_error( $response ) || $response[ 'response' ][ 'code' ] !== 200 ) {
+        add_settings_error(
+            'eae_notify_email',
+            'invalid',
+            __( 'Whoops, something went wrong. Please try again.', 'email-address-encoder' ),
+            'error'
+        );
+
+        return;
+    }
+
+    add_settings_error(
+        'eae_notify_email',
+        'subscribed',
+        __( 'You’ll receive a notification should your site contain unprotected email addresses.', 'email-address-encoder' ),
+        'updated'
     );
 }

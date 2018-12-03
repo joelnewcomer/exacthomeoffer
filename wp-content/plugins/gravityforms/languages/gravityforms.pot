@@ -1,9 +1,9 @@
 # Copyright 2009-2018 Rocketgenius, Inc.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gravity Forms 2.4\n"
+"Project-Id-Version: Gravity Forms 2.4.1\n"
 "Report-Msgid-Bugs-To: https://www.gravtiyforms.com\n"
-"POT-Creation-Date: 2018-11-28 17:41:27+00:00\n"
+"POT-Creation-Date: 2018-11-30 17:48:12+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2876,7 +2876,7 @@ msgstr ""
 
 #: form_detail.php:1612 includes/system-status/class-gf-system-report.php:893
 #: includes/wizard/steps/class-gf-installation-wizard-step-settings.php:20
-#: settings.php:461 tooltips.php:163
+#: settings.php:464 tooltips.php:163
 msgid "Currency"
 msgstr ""
 
@@ -4310,7 +4310,7 @@ msgstr ""
 msgid "View System Status"
 msgstr ""
 
-#: gravityforms.php:1248 settings.php:129 settings.php:217 settings.php:229
+#: gravityforms.php:1248 settings.php:129 settings.php:220 settings.php:232
 msgid "Uninstall Gravity Forms"
 msgstr ""
 
@@ -4328,7 +4328,7 @@ msgstr ""
 #: gravityforms.php:4467 includes/addon/class-gf-addon.php:4599
 #: includes/addon/class-gf-addon.php:4822
 #: includes/addon/class-gf-addon.php:4988
-#: includes/system-status/class-gf-update.php:73 settings.php:735
+#: includes/system-status/class-gf-update.php:73 settings.php:738
 msgid "Settings"
 msgstr ""
 
@@ -4720,7 +4720,7 @@ msgid "GF Add-Ons"
 msgstr ""
 
 #: includes/addon/class-gf-addon.php:1275
-#: includes/addon/class-gf-addon.php:5000 settings.php:754
+#: includes/addon/class-gf-addon.php:5000 settings.php:757
 msgid "Uninstall"
 msgstr ""
 
@@ -4912,7 +4912,7 @@ msgstr ""
 msgid "Invalid value"
 msgstr ""
 
-#: includes/addon/class-gf-addon.php:3945 settings.php:393
+#: includes/addon/class-gf-addon.php:3945 settings.php:396
 msgid "Validation Error"
 msgstr ""
 
@@ -4955,7 +4955,7 @@ msgid "Uninstall %s"
 msgstr ""
 
 #: includes/addon/class-gf-addon.php:5035
-#: includes/addon/class-gf-addon.php:5308 settings.php:222
+#: includes/addon/class-gf-addon.php:5308 settings.php:225
 msgid "Warning"
 msgstr ""
 
@@ -5903,7 +5903,7 @@ msgid ""
 "Gravity Forms. See the plugins list for further details."
 msgstr ""
 
-#: includes/class-personal-data.php:74 settings.php:378 settings.php:382
+#: includes/class-personal-data.php:74 settings.php:381 settings.php:385
 msgid "General Settings"
 msgstr ""
 
@@ -9063,7 +9063,7 @@ msgstr ""
 #: includes/system-status/class-gf-system-report.php:889
 #: includes/system-status/class-gf-system-report.php:900
 #: includes/wizard/steps/class-gf-installation-wizard-step-settings.php:71
-#: settings.php:411 settings.php:422 settings.php:451
+#: settings.php:414 settings.php:425 settings.php:454
 msgid "Yes"
 msgstr ""
 
@@ -9083,7 +9083,7 @@ msgstr ""
 #: includes/system-status/class-gf-system-report.php:889
 #: includes/system-status/class-gf-system-report.php:900
 #: includes/wizard/steps/class-gf-installation-wizard-step-settings.php:72
-#: settings.php:412 settings.php:423 settings.php:452
+#: settings.php:415 settings.php:426 settings.php:455
 msgid "No"
 msgstr ""
 
@@ -9246,7 +9246,7 @@ msgid "Site registered "
 msgstr ""
 
 #: includes/system-status/class-gf-system-report.php:857
-#: includes/system-status/class-gf-system-report.php:1209
+#: includes/system-status/class-gf-system-report.php:1214
 msgid "New version %s available."
 msgstr ""
 
@@ -9270,23 +9270,23 @@ msgstr ""
 msgid "File uploads, entry exports, and logging will not function properly."
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:875 settings.php:408
+#: includes/system-status/class-gf-system-report.php:875 settings.php:411
 #: tooltips.php:158
 msgid "Output CSS"
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:881 settings.php:419
+#: includes/system-status/class-gf-system-report.php:881 settings.php:422
 #: tooltips.php:159
 msgid "Output HTML5"
 msgstr ""
 
 #: includes/system-status/class-gf-system-report.php:887
 #: includes/wizard/steps/class-gf-installation-wizard-step-settings.php:44
-#: settings.php:431 tooltips.php:160
+#: settings.php:434 tooltips.php:160
 msgid "No-Conflict Mode"
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:898 settings.php:486
+#: includes/system-status/class-gf-system-report.php:898 settings.php:489
 msgid "Background updates"
 msgstr ""
 
@@ -9295,97 +9295,97 @@ msgid "Locale"
 msgstr ""
 
 #: includes/system-status/class-gf-system-report.php:941
-#: includes/system-status/class-gf-system-report.php:1028
+#: includes/system-status/class-gf-system-report.php:1033
 msgid "Database Version"
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:980
+#: includes/system-status/class-gf-system-report.php:985
 msgid "Table does not exist"
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:987
+#: includes/system-status/class-gf-system-report.php:992
 msgid "Table has not been upgraded successfully."
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1003
+#: includes/system-status/class-gf-system-report.php:1008
 msgid ""
 "WARNING! Re-running the upgrade process is only recommended if you are "
 "currently experiencing issues with your database. This process may take "
 "several minutes to complete. 'OK' to upgrade. 'Cancel' to abort."
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1010
+#: includes/system-status/class-gf-system-report.php:1015
 msgid "Current Status: %s"
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1012
+#: includes/system-status/class-gf-system-report.php:1017
 msgid "%s%% complete."
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1015
+#: includes/system-status/class-gf-system-report.php:1020
 msgid ""
 "Automatic background migration is disabled but the database needs to be "
 "upgraded to version %s. %s"
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1016
+#: includes/system-status/class-gf-system-report.php:1021
 msgid "Force the migration manually"
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1018
+#: includes/system-status/class-gf-system-report.php:1023
 msgid "The database is currently being upgraded to version %s. %s"
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1020
+#: includes/system-status/class-gf-system-report.php:1025
 msgid ""
 "As this site doesn't support background tasks the upgrade process will take "
 "longer than usual and the status will change infrequently."
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1022
+#: includes/system-status/class-gf-system-report.php:1027
 msgid "Force the upgrade"
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1044
+#: includes/system-status/class-gf-system-report.php:1049
 msgid "Upgrade database"
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1049
+#: includes/system-status/class-gf-system-report.php:1054
 msgid "Your database version is out of date."
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1061
-#: includes/system-status/class-gf-system-report.php:1077
+#: includes/system-status/class-gf-system-report.php:1066
+#: includes/system-status/class-gf-system-report.php:1082
 msgid "Re-run database upgrade"
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1066
+#: includes/system-status/class-gf-system-report.php:1071
 msgid "Database upgrade failed."
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1066
+#: includes/system-status/class-gf-system-report.php:1071
 msgid "There are issues with your database."
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1082
+#: includes/system-status/class-gf-system-report.php:1087
 msgid "Database upgraded successfully."
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1082
+#: includes/system-status/class-gf-system-report.php:1087
 msgid "Your database is up-to-date."
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1082
+#: includes/system-status/class-gf-system-report.php:1087
 msgid "Warning: downgrading Gravity Forms is not recommended."
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1215
+#: includes/system-status/class-gf-system-report.php:1220
 msgid ""
 "Your system does not meet the minimum requirements for this Add-On (%d "
 "errors)."
 msgstr ""
 
-#: includes/system-status/class-gf-system-report.php:1486
+#: includes/system-status/class-gf-system-report.php:1491
 msgid "Parent"
 msgstr ""
 
@@ -10063,7 +10063,7 @@ msgid "Please enter a valid license key."
 msgstr ""
 
 #: includes/wizard/steps/class-gf-installation-wizard-step-license-key.php:68
-#: settings.php:397
+#: settings.php:400
 msgid ""
 "Invalid or Expired Key : Please make sure you have entered the correct "
 "value and that your key is not expired."
@@ -10074,24 +10074,24 @@ msgid "Please accept the terms"
 msgstr ""
 
 #: includes/wizard/steps/class-gf-installation-wizard-step-settings.php:28
-#: settings.php:469
+#: settings.php:472
 msgid "Select a Currency"
 msgstr ""
 
 #: includes/wizard/steps/class-gf-installation-wizard-step-settings.php:47
 #: includes/wizard/steps/class-gf-installation-wizard-step-settings.php:58
-#: settings.php:434 settings.php:489 settings.php:500 settings.php:515
+#: settings.php:437 settings.php:492 settings.php:503 settings.php:518
 msgid "On"
 msgstr ""
 
 #: includes/wizard/steps/class-gf-installation-wizard-step-settings.php:48
 #: includes/wizard/steps/class-gf-installation-wizard-step-settings.php:59
-#: settings.php:435 settings.php:490 settings.php:501 settings.php:516
+#: settings.php:438 settings.php:493 settings.php:504 settings.php:519
 msgid "Off"
 msgstr ""
 
 #: includes/wizard/steps/class-gf-installation-wizard-step-settings.php:50
-#: settings.php:437
+#: settings.php:440
 msgid ""
 "Set this to ON to prevent extraneous scripts and styles from being printed "
 "on Gravity Forms admin pages, reducing conflicts with other plugins and "
@@ -10099,12 +10099,12 @@ msgid ""
 msgstr ""
 
 #: includes/wizard/steps/class-gf-installation-wizard-step-settings.php:55
-#: settings.php:497
+#: settings.php:500
 msgid "Toolbar Menu"
 msgstr ""
 
 #: includes/wizard/steps/class-gf-installation-wizard-step-settings.php:61
-#: settings.php:503
+#: settings.php:506
 msgid ""
 "Set this to ON to display the Forms menu in the WordPress top toolbar. The "
 "Forms menu will display the latest ten forms recently opened in the form "
@@ -10112,12 +10112,12 @@ msgid ""
 msgstr ""
 
 #: includes/wizard/steps/class-gf-installation-wizard-step-settings.php:68
-#: settings.php:444 tooltips.php:164
+#: settings.php:447 tooltips.php:164
 msgid "Akismet Integration"
 msgstr ""
 
 #: includes/wizard/steps/class-gf-installation-wizard-step-settings.php:74
-#: settings.php:454 tooltips.php:164
+#: settings.php:457 tooltips.php:164
 msgid "Protect your form entries from spam using Akismet."
 msgstr ""
 
@@ -10674,121 +10674,121 @@ msgstr ""
 msgid "You don't have adequate permission to uninstall Gravity Forms."
 msgstr ""
 
-#: settings.php:206
+#: settings.php:209
 msgid ""
 "Gravity Forms has been successfully uninstalled. It can be re-activated "
 "from the %splugins page%s."
 msgstr ""
 
-#: settings.php:225
+#: settings.php:228
 msgid "This operation deletes ALL Gravity Forms data."
 msgstr ""
 
-#: settings.php:225
+#: settings.php:228
 msgid ""
 "If you continue, you will not be able to retrieve or restore your forms or "
 "entries."
 msgstr ""
 
-#: settings.php:229
+#: settings.php:232
 msgid ""
 "Warning! ALL Gravity Forms data, including form entries will be deleted. "
 "This cannot be undone. 'OK' to delete, 'Cancel' to stop"
 msgstr ""
 
-#: settings.php:290
+#: settings.php:293
 msgid "You don't have adequate permission to edit settings."
 msgstr ""
 
-#: settings.php:370
+#: settings.php:373
 msgid "Settings Updated"
 msgstr ""
 
-#: settings.php:386
+#: settings.php:389
 msgid "Support License Key"
 msgstr ""
 
-#: settings.php:393
+#: settings.php:396
 msgid ""
 "There was an error while validating your license key. Gravity Forms will "
 "continue to work, but automatic upgrades will not be available. Please "
 "contact support to resolve this issue."
 msgstr ""
 
-#: settings.php:395
+#: settings.php:398
 msgid "Valid Key : Your license key has been successfully validated."
 msgstr ""
 
-#: settings.php:403
+#: settings.php:406
 msgid "The license key is used for access to automatic upgrades and support."
 msgstr ""
 
-#: settings.php:414
+#: settings.php:417
 msgid ""
 "Set this to No if you would like to disable the plugin from outputting the "
 "form CSS."
 msgstr ""
 
-#: settings.php:425
+#: settings.php:428
 msgid ""
 "Set this to No if you would like to disable the plugin from outputting "
 "HTML5 form fields."
 msgstr ""
 
-#: settings.php:492
+#: settings.php:495
 msgid ""
 "Set this to ON to allow Gravity Forms to download and install bug fixes and "
 "security updates automatically in the background. Requires a valid license "
 "key."
 msgstr ""
 
-#: settings.php:512
+#: settings.php:515
 msgid "Logging"
 msgstr ""
 
-#: settings.php:518
+#: settings.php:521
 msgid ""
 "Set this to ON to enable logging within Gravity Forms. Logging allows you "
 "to easily debug the inner workings of Gravity Forms."
 msgstr ""
 
-#: settings.php:529
+#: settings.php:532
 msgid "reCAPTCHA Settings"
 msgstr ""
 
-#: settings.php:532
+#: settings.php:535
 msgid ""
 "Gravity Forms integrates with reCAPTCHA, a free CAPTCHA service that helps "
 "to digitize books while protecting your forms from spam bots. "
 msgstr ""
 
-#: settings.php:533
+#: settings.php:536
 msgid ""
 "%sPlease note%s, these settings are required only if you decide to use the "
 "reCAPTCHA field."
 msgstr ""
 
-#: settings.php:534
+#: settings.php:537
 msgid "Read more about reCAPTCHA."
 msgstr ""
 
-#: settings.php:543
+#: settings.php:546
 msgid "Site Key"
 msgstr ""
 
-#: settings.php:560
+#: settings.php:563
 msgid "Secret Key"
 msgstr ""
 
-#: settings.php:577
+#: settings.php:580
 msgid "Validate Keys"
 msgstr ""
 
-#: settings.php:581
+#: settings.php:584
 msgid "Please complete the reCAPTCHA widget to validate your reCAPTCHA keys:"
 msgstr ""
 
-#: settings.php:635
+#: settings.php:638
 msgid "Save Settings"
 msgstr ""
 

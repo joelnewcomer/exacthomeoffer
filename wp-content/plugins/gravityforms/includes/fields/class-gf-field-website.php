@@ -88,11 +88,13 @@ class GF_Field_Website extends GF_Field {
 
 	public function get_value_save_entry( $value, $form, $input_name, $lead_id, $lead ) {
 
-		if ( $value == 'http://' ) {
-			$value = '';
+		if ( empty( $value ) || in_array( $value, array( 'http://', 'https://' ) ) ) {
+			return '';
 		}
 
-		return filter_var( $value, FILTER_VALIDATE_URL );
+		$value = filter_var( $value, FILTER_VALIDATE_URL );
+
+		return $value ? $value : '';
 	}
 
 	// # FIELD FILTER UI HELPERS ---------------------------------------------------------------------------------------
