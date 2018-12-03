@@ -98,6 +98,16 @@
 			});
 		</script>
 		
+		<?php else : ?>
+		
+			<div class="grid-container show-for-small landing-logo">
+    	    	<div class="grid-x grid-padding-x">
+					<div class="large-12 cell text-center">	
+						<?php get_template_part('template-parts/site-logo','link'); ?>
+					</div>
+    	    	</div>
+			</div>
+		
 		<?php endif; ?>
 		
 		<main id="content" class="container" tabindex="-1">

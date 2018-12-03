@@ -4563,6 +4563,10 @@ section.video {
       width: 100%;
       background: rgba(1, 154, 188, 0.6); } }
 
+.landing-logo a.logo {
+  vertical-align: middle;
+  margin: 10px 0; }
+
 #single-post .single-title-ul {
   position: relative;
   margin-bottom: 60px;
