@@ -54,13 +54,21 @@ get_header(); ?>
 		</div> <!-- home-featured -->
 	</div> <!-- featured-container -->
 	
-	<?php get_template_part('template-parts/benefits'); ?>
+	<?php get_template_part('template-parts/content', 'columns'); ?>
 	
-	<?php get_template_part('template-parts/testimonial','section'); ?>
-
-	<?php get_template_part('template-parts/how-it-works'); ?>
+	<?php if (get_field('benefits_toggle')) : ?>
+		<?php get_template_part('template-parts/benefits'); ?>
+	<?php endif; ?>
 	
+	<?php if (get_field('testimonials_toggle')) : ?>
+		<?php get_template_part('template-parts/testimonial','section'); ?>
+	<?php endif; ?>
 	
+	<?php if (get_field('how_it_works_toggle')) : ?>
+		<?php get_template_part('template-parts/how-it-works'); ?>
+	<?php endif; ?>
+	
+	<?php if (get_field('reviews_toggle')) : ?>
 	<section class="reviews">
 		<div class="grid-container">
     	    <div class="grid-x grid-padding-x">
@@ -80,7 +88,9 @@ get_header(); ?>
     	    </div>
 		</div>
 	</section>	<!-- reviews -->
-
+	<?php endif; ?>
+	
+	<?php if (get_field('cta_toggle')) : ?>
 	<section class="cta">
 		<div class="grid-container">
     	    <div class="grid-x">
@@ -102,7 +112,8 @@ get_header(); ?>
 				</div>
     	    </div>    	    
 		</div>		
-	</section>	<!-- cta -->	
+	</section>	<!-- cta -->
+	<?php endif; ?>
 	
 </div> <!-- #page -->
 

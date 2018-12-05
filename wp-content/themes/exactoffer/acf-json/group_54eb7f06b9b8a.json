@@ -41,6 +41,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_5c08375486d18",
+            "label": "Toggle Benefits On\/Off",
+            "name": "benefits_toggle",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "On",
+            "ui_off_text": "Off"
+        },
+        {
             "key": "field_5bd320da54fad",
             "label": "Benefits",
             "name": "benefits",
@@ -194,13 +213,40 @@
             ]
         },
         {
+            "key": "field_5c08378a86d19",
+            "label": "Toggle Testimonials On\/Off",
+            "name": "testimonials_toggle",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "On",
+            "ui_off_text": "Off"
+        },
+        {
             "key": "field_5bd8bb4aec792",
-            "label": "Testimonials Page",
+            "label": "Testimonials",
             "name": "testimonials_page",
             "type": "post_object",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5c08378a86d19",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -214,6 +260,25 @@
             "multiple": 0,
             "return_format": "id",
             "ui": 1
+        },
+        {
+            "key": "field_5c0837c086d1a",
+            "label": "Toggle How it Works On\/Off",
+            "name": "how_it_works_toggle",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "On",
+            "ui_off_text": "Off"
         },
         {
             "key": "field_5bd3213650fd9",
@@ -335,6 +400,25 @@
             ]
         },
         {
+            "key": "field_5c083dc6422f8",
+            "label": "Reviews Toggle",
+            "name": "reviews_toggle",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "On",
+            "ui_off_text": "Off"
+        },
+        {
             "key": "field_5bd320774e592",
             "label": "Reviews",
             "name": "reviews",
@@ -440,8 +524,46 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
+                },
+                {
+                    "key": "field_5c0837ec86d1b",
+                    "label": "Toggle Reviews On\/Off",
+                    "name": "toggle",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 1,
+                    "ui_on_text": "On",
+                    "ui_off_text": "Off"
                 }
             ]
+        },
+        {
+            "key": "field_5c083de2422f9",
+            "label": "Call to Action Toggle",
+            "name": "cta_toggle",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "On",
+            "ui_off_text": "Off"
         },
         {
             "key": "field_5bd3226bf2285",
@@ -628,7 +750,7 @@
             }
         ]
     ],
-    "menu_order": 5,
+    "menu_order": 9,
     "position": "acf_after_title",
     "style": "seamless",
     "label_placement": "top",
@@ -638,5 +760,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1543499609
+    "modified": 1544044040
 }
