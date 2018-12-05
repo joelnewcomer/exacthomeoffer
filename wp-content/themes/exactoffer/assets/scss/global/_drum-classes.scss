@@ -83,6 +83,10 @@ blockquote {
 	padding-bottom: 40px;
 }
 
+.featured-container + .entry-content section:last-child {
+	padding-bottom: 0;
+}
+
 .grid-container.entry-content {
 	background: #fff;
 	padding-top: 40px;
