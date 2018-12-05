@@ -48,7 +48,7 @@ $featured = $rows[$featured_i];
 									</div>
 									<p><?php echo $testimonial; ?></p>
 									<p class="testimonial-name teal"><?php echo $name; ?> | <?php echo $state; ?></p>
-									<?php if ($row_count > 1) : ?>
+									<?php if ($row_count > 1 && !is_page_template('page-templates/landing-page.php')) : ?>
 										<a class="testimonial-more" href="<?php echo get_permalink($post_id); ?>">See More</a>
 									<?php endif; ?>
 								</div> <!-- testimonial-content -->
