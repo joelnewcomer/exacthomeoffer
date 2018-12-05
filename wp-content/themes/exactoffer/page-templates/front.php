@@ -54,7 +54,9 @@ get_header(); ?>
 		</div> <!-- home-featured -->
 	</div> <!-- featured-container -->
 	
-	<?php get_template_part('template-parts/content', 'columns'); ?>
+	<div class="entry-content">
+		<?php get_template_part('template-parts/content', 'columns'); ?>
+	</div>
 	
 	<?php if (get_field('benefits_toggle')) : ?>
 		<?php get_template_part('template-parts/benefits'); ?>
