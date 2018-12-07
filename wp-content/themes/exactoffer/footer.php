@@ -53,7 +53,7 @@
 						<div class="address">
 							<?php get_template_part('template-parts/locations'); ?>
 						</div> <!-- address -->
-						<p class="social-p"><?php _e( 'Follow Us:', 'drumroll' ); ?><?php get_template_part('template-parts/social'); ?></p>						
+						<p class="social-p"><?php _e( 'Follow Us:', 'drumroll' ); ?></p><?php get_template_part('template-parts/social'); ?>					
 					</div>
 					<div class="large-8 medium-8 cell hide-for-print hide-for-small">
 						<?php drumroll_footer_menu(); ?>
