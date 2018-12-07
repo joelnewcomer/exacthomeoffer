@@ -14,7 +14,7 @@
 						<div class="address">
 							<?php get_template_part('template-parts/locations'); ?>
 						</div> <!-- address -->					
-						<p class="social-p"><?php _e( 'Follow Us:', 'drumroll' ); ?><?php get_template_part('template-parts/social'); ?></p>
+						<p class="social-p"><?php _e( 'Follow Us:', 'drumroll' ); ?></p><?php get_template_part('template-parts/social'); ?>
 					</div> <!-- fs-menu-inner -->
 			  	</div>
 			</div>
