@@ -15,7 +15,7 @@
 		<?php endif; ?>
 		<p>
 			<?php if( $location['loc_email'] ): ?>
-				<a class="email" href="mailto:<?php echo $location['loc_email'];?>" class="email"><?php get_template_part('assets/images/email', 'icon.svg'); ?><?php echo $location['loc_email'];?></a><br />
+				<a class="email" href="mailto:<?php echo $location['loc_email'];?>"><?php get_template_part('assets/images/email', 'icon.svg'); ?><?php echo $location['loc_email'];?></a><br />
 			<?php endif; ?>		
 		</p>
 	<?php endforeach; ?>
