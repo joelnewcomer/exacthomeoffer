@@ -92,11 +92,11 @@ __webpack_require__(4);
 __webpack_require__(5); 
 __webpack_require__(6); // Remove if you use a full-screen menu.
 // require('./originals/paroller'); // Remove if you don't use parallax.
-__webpack_require__(7);
-__webpack_require__(8); // Remove if there is no blog.
-__webpack_require__(9);
+// require('./originals/preloader');
+__webpack_require__(7); // Remove if there is no blog.
+__webpack_require__(8);
 // require('./originals/datedropper.min'); // Remove if there are no forms with date fields.
-__webpack_require__(10);
+__webpack_require__(9);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
@@ -378,28 +378,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /* 7 */
 /***/ (function(module, exports) {
 
-/* Preloader
- * -------------------------------------------------- */
-var drumPreloader = function() {
-    jQuery( document ).ready(function() {
-        // will first fade out the loading animation
-        jQuery(".loading-inner").fadeOut("slow", function() {
-            // will fade out the whole DIV that covers the website.
-            jQuery("#preloader").delay(300).fadeOut("slow");
-        });
-    });
-};
-
-/* Initialize
- * ------------------------------------------------------ */
-(function drumInit() {
-    drumPreloader();
-})();
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
 /*
  Name: Reading Time
  Dependencies: jQuery
@@ -415,7 +393,7 @@ if(jQuery("#estimated-time").length != 0) {
 
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, exports) {
 
 /*!
@@ -438,7 +416,7 @@ if(jQuery("#masthead").length != 0) {
 }
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports) {
 
  /**
