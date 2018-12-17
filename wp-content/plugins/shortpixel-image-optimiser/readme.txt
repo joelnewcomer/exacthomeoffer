@@ -4,7 +4,7 @@ Tags: compressor, image, compression, optimize, image optimizer, image optimiser
 Requires at least: 3.2.0
 Tested up to: 5.0
 Requires PHP: 5.2
-Stable tag: 4.12.1
+Stable tag: 4.12.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,7 +17,7 @@ Speed up your website and boost your SEO by compressing old & new images and PDF
 Increase your website's SEO ranking, number of visitors and ultimately your sales by optimizing any image or PDF document on your website.
 ShortPixel is an easy to use, lightweight, install-and-forget-about-it <a href="https://shortpixel.com" target="_blank">image optimization</a> plugin that can compress all your past images and PDF documents with a single click. New images are automatically resized/rescaled and optimized on the fly, in the background.
 
-**Ready for a quick DEMO? Test <a href="https://addendio.com/try-plugin/?slug=shortpixel-image-optimiser" target="_blank">here</a> or <a href="http://poopy.life/create?url=/wp-admin/admin.php?page=sandbox" target="_blank">here</a> (no e-mail required).**
+**Ready for a quick DEMO? Test <a href="http://sandboxwordpress.com/" target="_blank">here</a> or <a href="http://poopy.life/create?url=/wp-admin/admin.php?page=sandbox" target="_blank">here</a> (no e-mail required).**
 
 Short Pixel uses minimal resources and works well with any shared, cloud, VPS or dedicated web hosting. It can optimize any image you have on your website even the images that aren't listed in Media Library like those in galleries like <a href="https://wordpress.org/plugins/nextgen-gallery/" target="_blank">NextGEN</a>, <a href="https://wordpress.org/plugins/modula-best-grid-gallery/" target="_blank">Modula</a> or added directly via FTP!
 
@@ -29,7 +29,7 @@ Make an instant <a href="http://shortpixel.com/image-compression-test" target="_
 
 **Why is ShortPixel the best choice when it comes to image optimization or PDF compression?**
 
-* popular plugin with over 80,000 active installations according to WordPress
+* popular plugin with over 100,000 active installations according to WordPress
 * compress JPG, PNG, GIF (still or animated) images and also PDF documents
 * option to automatically convert PNG to JPG if that will result in smaller images. Ideal for large images in PNG format.
 * no file size limit
@@ -240,6 +240,24 @@ The ShortPixel Image Optimiser plugin calls the following actions and filters:
 9. Check other optimized images status - themes or other plugins' images. (Media>Other Media)
 
 == Changelog ==
+
+= 4.12.2 =
+
+Release date:
+
+* Improved: The Webp options interface. Now the user can implement Webp images both via .htaccess and by altering the page code on the server before being sent to the browser.
+* Improved: The settings data handling interface in the Plugin deactivation dialogue. Now the option to delete or keep the user settings on plugin deletion is more clear.
+* Added: Option to download image with thumbnails in a single archive file, to speed-up the optimization.
+* Added: A "shortpixel_get_backup" filter, which receives the local path of the media image and returns the ShortPixel backup path, if a backup image exists
+* Added: The "Simple Image Sizes" plugin to the conflicting plugins list
+* Added: A new compatibility check for the "Jetpack" plugin, alerting the user about potential overlapping functionality
+* Added: A safety alert before switching to Code Altering mode (where IMG tgs get inserted into PICTURE tags, to better serve Webp images)
+* Added: Enhanced "Envira" plugin compatibility by adding more suffixes to be looked for: _tl, _tr, _bl, _br
+* Added: More customized FAQ suggestions in the HelpScout Beacon helper, to address each Plugin TAB separately
+* Fixed: The post-uninstall redirect when uninstalling a plugin from within the respective plugin's Settings page
+* Fixed: The credits display on the Statistics page
+* Fixed: Refreshing a plugin page now loads directly in the previously selected TAB
+* Fixed: Removed a stray "SP_CELL_MESSAGE" div from the interface
 
 = 4.12.1 =
 
