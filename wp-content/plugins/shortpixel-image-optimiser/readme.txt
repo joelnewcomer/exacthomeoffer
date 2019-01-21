@@ -4,7 +4,7 @@ Tags: compressor, image, compression, optimize, image optimizer, image optimiser
 Requires at least: 3.2.0
 Tested up to: 5.0
 Requires PHP: 5.2
-Stable tag: 4.12.2
+Stable tag: 4.12.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,7 +17,7 @@ Speed up your website and boost your SEO by compressing old & new images and PDF
 Increase your website's SEO ranking, number of visitors and ultimately your sales by optimizing any image or PDF document on your website.
 ShortPixel is an easy to use, lightweight, install-and-forget-about-it <a href="https://shortpixel.com" target="_blank">image optimization</a> plugin that can compress all your past images and PDF documents with a single click. New images are automatically resized/rescaled and optimized on the fly, in the background.
 
-**Ready for a quick DEMO? Test <a href="http://sandboxwordpress.com/" target="_blank">here</a> or <a href="http://poopy.life/create?url=/wp-admin/admin.php?page=sandbox" target="_blank">here</a> (no e-mail required).**
+**Ready for a quick DEMO? Test it <a href="http://poopy.life/create?url=/wp-admin/admin.php?page=sandbox" target="_blank">here</a>.**
 
 Short Pixel uses minimal resources and works well with any shared, cloud, VPS or dedicated web hosting. It can optimize any image you have on your website even the images that aren't listed in Media Library like those in galleries like <a href="https://wordpress.org/plugins/nextgen-gallery/" target="_blank">NextGEN</a>, <a href="https://wordpress.org/plugins/modula-best-grid-gallery/" target="_blank">Modula</a> or added directly via FTP!
 
@@ -76,7 +76,7 @@ Check out <a href="https://shortpixel.com/pricing" target="_blank">our prices</a
 
 [youtube https://www.youtube.com/watch?v=5EbX0Hsy6j4]
 
-Help us spread a the word by recommending ShortPixel to your friends and collect 100 additional image credits for each referred sign up. Make money by promoting a great plugin with our <a href="https://shortpixel.com/free-sign-up-affiliate" target="_blank">50/50 affiliate program</a>.
+Help us spread the word by recommending ShortPixel to your friends and collect **100 lifetime monthly additional image credits for each referred active user**. Make money by promoting a great plugin with our <a href="https://shortpixel.com/free-sign-up-affiliate" target="_blank">50/50 affiliate program</a>.
 
 **Get in touch!**
 
@@ -241,9 +241,32 @@ The ShortPixel Image Optimiser plugin calls the following actions and filters:
 
 == Changelog ==
 
+= 4.12.5 =
+
+Release date: 10th Ianuary 2019
+
+* change the JS name in order to circumveit cache problem on many WP installs
+* sorting the Media Library entries by ShortPixel optimization: also sort based on compression level
+* Fixed: case sensitive search for guid duplicates of image posts (needed for finding Polylang versions)
+* Fixed: the data-lazy-src/srcset detection for WebP
+* Improvements to the Deliver WebP options and especially messages with caveats
+* Load the ShortPixel CSS only on admin pages that need it
+
+= 4.12.4 =
+
+Release date: 27th December 2018
+
+* Fixed: shortpixel-thumbnails-regenerated action when not all the thumbnails were regenerated
+
+= 4.12.3 =
+
+Release date: 19th December 2018
+
+* Fixed: error in getting the lazy- attributes of <img> for WebP handling.
+
 = 4.12.2 =
 
-Release date:
+Release date: 13th December 2018
 
 * Improved: The Webp options interface. Now the user can implement Webp images both via .htaccess and by altering the page code on the server before being sent to the browser.
 * Improved: The settings data handling interface in the Plugin deactivation dialogue. Now the option to delete or keep the user settings on plugin deletion is more clear.

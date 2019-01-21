@@ -1,9 +1,7 @@
 <?php
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die( 'Damn it.! Dude you are looking for what?' );
-}
+defined( 'WPINC' ) or die( 'Damn it.! Dude you are looking for what?' );
 
 /**
  * The public-facing functionality of the plugin.
@@ -16,6 +14,25 @@ if ( ! defined( 'WPINC' ) ) {
  * @link       https://wordpress.org/plugins/lazy-load-for-comments
  */
 class LLC_Public {
+
+	/**
+	 * Update the comments link to our custom div.
+	 *
+	 * @param string $comments_link Comments link.
+	 * @param int    $post_id       Post ID.
+	 *
+	 * @since 1.0.4
+	 *
+	 * @return string
+	 */
+	public function comments_link( $comments_link, $post_id ) {
+		// If we are lazy loading, link to our div.
+		if ( $this->can_lazy_load() ) {
+			$comments_link = get_permalink( $post_id ) . '#llc_comments';
+		}
+
+		return $comments_link;
+	}
 
 	/**
 	 * Lazy load comments template file
@@ -31,11 +48,13 @@ class LLC_Public {
 	 * @return string template path.
 	 */
 	public function llc_template( $comment_template ) {
-
 		// Load default comment template if lazy load can not work.
 		if ( ! $this->can_lazy_load() ) {
 			return $comment_template;
 		}
+
+		// Enqueue the scripts.
+		wp_enqueue_script( LLC_NAME );
 
 		return LLC_PLUGIN_DIR . '/public/llc-comments.php';
 	}
@@ -43,7 +62,7 @@ class LLC_Public {
 	/**
 	 * Javascript to include lazy load script.
 	 *
-	 * @using wp_localize_script() To make strings in JS translatable.
+	 * @using  wp_localize_script() To make strings in JS translatable.
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -51,30 +70,23 @@ class LLC_Public {
 	 * @return void
 	 */
 	public function comments_script() {
-
-		// Do not load scripts to page if lazy load can not work.
-		if ( ! $this->can_lazy_load() ) {
-			return;
-		}
-
 		// Get the lazy load script according to user choice.
 		$file = ( get_option( 'lazy_load_comments', 1 ) == 2 ) ? 'llc_scroll' : 'llc_click';
 		// Minified or normal version?
 		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.js' : '.min.js';
-		// Enqueue the script file.
-		wp_enqueue_script(
+		// Register the script file.
+		wp_register_script(
 			LLC_NAME,
 			LLC_PATH . '/public/js/' . $file . $suffix,
 			array( 'jquery' ),
 			LLC_VERSION,
-			'all'
+			true
 		);
 
-		// Strings to translate in JS file.
-		$strings = array( 'loading_error' => esc_html__( 'Error occurred while loading comments. Please reload this page.', LLC_DOMAIN ) );
-
 		// Make strings in js translatable.
-		wp_localize_script( LLC_NAME, 'llcstrings', $strings );
+		wp_localize_script( LLC_NAME, 'llcstrings', array(
+			'loading_error' => esc_html__( 'Error occurred while loading comments. Please reload this page.', LLC_DOMAIN ),
+		) );
 	}
 
 	/**
@@ -89,21 +101,22 @@ class LLC_Public {
 	 * @return string html content
 	 */
 	public function comments_content() {
-
-		// Security check.
-		check_ajax_referer( 'llc-ajax-nonce', 'llc_ajax_nonce' );
+		// Security check (Removed to support caching).
+		// Instead of security check, we are sending get ajax request.
+		// https://konstantin.blog/2012/nonces-on-the-front-end-is-a-bad-idea/
+		//check_ajax_referer( 'llc-ajax-nonce', 'llc_ajax_nonce' );
 
 		// If post/page id not found in request, abort.
-		if ( empty( $_REQUEST['post'] ) ) {
+		if ( empty( $_GET['post'] ) ) {
 			die();
 		}
 		// Query through posts.
-		query_posts( array( 'p' => $_REQUEST['post'], 'post_type' => 'any' ) );
+		query_posts( array( 'p' => intval( $_GET['post'] ), 'post_type' => 'any' ) );
 		// Render comments template and remove our custom template.
 		if ( have_posts() ) {
 			the_post();
 			// Remove our custom comments template and load default template.
-			remove_filter( 'comments_template', array( $this, 'llc_template' ) );
+			remove_filter( 'comments_template', array( $this, 'llc_template' ), 100 );
 			comments_template();
 			exit();
 		}
@@ -136,7 +149,6 @@ class LLC_Public {
 	 * @return boolean If real user or not.
 	 */
 	private function is_real_user() {
-
 		// Is real user visiting?
 		$is_real = false;
 		// Get global variables for browsers.
@@ -169,13 +181,12 @@ class LLC_Public {
 	 * Check if user agent string matches bots, spiders or crawlers.
 	 * If user agent is not set, consider visitor as bot.
 	 *
-	 * @since 1.0.2
+	 * @since  1.0.2
 	 * @access private
 	 *
 	 * @return bool
 	 */
 	private function is_bot() {
-
 		// If user agent is not set, flag them as bot.
 		if ( ! isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
 			return true;
@@ -202,11 +213,22 @@ class LLC_Public {
 	 * @return boolean
 	 */
 	private function can_lazy_load() {
-
 		global $post;
 
 		// Can lazy load? (Default value).
 		$can_lazyload = true;
+
+		// Total comments.
+		$comments_count = (int) get_comments_number();
+
+		/**
+		 * Filter to load comments if we have less comments.
+		 *
+		 * @param int 1 Minimum no. of comments to lazy load.
+		 *
+		 * @since 1.0.5
+		 */
+		$minimum_count = apply_filters( 'llc_can_lazy_load_minimum_count', 1 );
 
 		if ( 0 == get_option( 'lazy_load_comments', 1 ) ) {
 			// If lazy loading is not enabled, abort.
@@ -214,8 +236,11 @@ class LLC_Public {
 		} elseif ( ! is_singular() ) {
 			// If not on singular page, abort.
 			$can_lazyload = false;
-		} elseif ( ! ( have_comments() || 'open' == $post->comment_status ) ) {
+		} elseif ( $comments_count === 0 && 'open' !== $post->comment_status ) {
 			// If comments are not available, abort.
+			$can_lazyload = false;
+		} elseif ( $comments_count < $minimum_count ) {
+			// If we have less/no comments.
 			$can_lazyload = false;
 		} elseif ( ! $this->is_real_user() ) {
 			// If the visitor is not real user, abort.
