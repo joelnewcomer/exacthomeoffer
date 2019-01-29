@@ -2335,13 +2335,15 @@ class WPShortPixel {
             if(file_exists(SHORTPIXEL_BACKUP_FOLDER)) {
                 
                 //extract all images from DB in an array. of course
+                // Simon: WHY?!!! commenting for now...
+                /*
                 $attachments = null;
                 $attachments = get_posts( array(
                     'numberposts' => -1,
                     'post_type' => 'attachment',
                     'post_mime_type' => 'image'
                 ));
-                
+                */
             
                 //delete the actual files on disk
                 $this->deleteDir(SHORTPIXEL_BACKUP_FOLDER);//call a recursive function to empty files and sub-dirs in backup dir
@@ -2570,13 +2572,22 @@ class WPShortPixel {
             insert_with_markers( get_home_path() . '.htaccess', 'ShortPixelWebp', '
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteCond %{HTTP_ACCEPT} image/webp
-  RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
-  RewriteRule (.+)\.(jpe?g|png)$ $1.webp [T=image/webp,E=accept:1]
-</IfModule>
+  # Does browser explicitly support webp?
+  RewriteCond %{HTTP_USER_AGENT} Chrome [OR]
+  # OR Is request from Page Speed
+  RewriteCond %{HTTP_USER_AGENT} "Google Page Speed Insights" [OR]
+  # OR does this browser explicitly support webp
+  RewriteCond %{HTTP_ACCEPT} image/webp [OR]
 
+  # AND does a webp image exist?
+  RewriteCond %{DOCUMENT_ROOT}/$1\.webp -f
+
+  # THEN send the webp image and set the env var webp
+  RewriteRule (.+)\.(?:jpe?g|png)$ $1.webp [NC,T=image/webp,E=webp,L]
+</IfModule>
 <IfModule mod_headers.c>
-  Header append Vary Accept env=REDIRECT_accept
+  # If REDIRECT_webp env var exists, append Accept to the Vary header
+  Header append Vary Accept env=REDIRECT_webp
 </IfModule>
 
 <IfModule mod_mime.c>
@@ -2884,7 +2895,7 @@ Header append Vary Accept env=REDIRECT_webp
             }
             $remainingImages = $quotaData['APICallsRemaining'];
             $remainingImages = ( $remainingImages < 0 ) ? 0 : number_format($remainingImages);
-            $totalCallsMade = array( 'plan'=>number_format( $quotaData['APICallsMadeNumeric'] ), 'oneTime'=>number_format( $quotaData['APICallsMadeOneTimeNumeric'] ) );
+            $totalCallsMade = array( 'plan' => $quotaData['APICallsMadeNumeric'] , 'oneTime' => $quotaData['APICallsMadeOneTimeNumeric'] );
 
             $resources = wp_remote_post($this->_settings->httpProto . "://shortpixel.com/resources-frag");
             if(is_wp_error( $resources )) {
@@ -3111,7 +3122,13 @@ Header append Vary Accept env=REDIRECT_webp
             $file = get_attached_file($id);                        
             $data = ShortPixelMetaFacade::sanitizeMeta(wp_get_attachment_metadata($id));
 
-            //if($extended) {var_dump(wp_get_attachment_url($id)); echo(json_encode(ShortPixelMetaFacade::getWPMLDuplicates($id))); echo('<br>BK: ' . apply_filters('shortpixel_get_backup', get_attached_file($id))); echo(json_encode($data));}
+            if($extended && isset($_POST['SHORTPIXEL_DEBUG'])) {
+                var_dump(wp_get_attachment_url($id));
+                echo('<br><br>' . json_encode(ShortPixelMetaFacade::getWPMLDuplicates($id)));
+                echo('<br><br>' . json_encode($data));
+                echo('<br><br>');
+            }
+
             $fileExtension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
             $invalidKey = !$this->_settings->verifiedKey;
             $quotaExceeded = $this->_settings->quotaExceeded;
@@ -3470,12 +3487,12 @@ Header append Vary Accept env=REDIRECT_webp
     static public function isProcessableSize($width, $height, $excludePattern) {
         $ranges = preg_split("/(x|×)/",$excludePattern);
         $widthBounds = explode("-", $ranges[0]);
+        if(!isset($widthBounds[1])) $widthBounds[1] = $widthBounds[0];
         $heightBounds = isset($ranges[1]) ? explode("-", $ranges[1]) : false;
-        if(   $width >= 0 + $widthBounds[0] 
-           && (!isset($widthBounds[1]) || isset($widthBounds[1]) && $width <= 0 + $widthBounds[1])
+        if(!isset($heightBounds[1])) $heightBounds[1] = $heightBounds[0];
+        if(   $width >= 0 + $widthBounds[0] && $width <= 0 + $widthBounds[1]
            && (   $heightBounds === false 
-               || ($height >= 0 + $heightBounds[0]
-                   && (!isset($heightBounds[1]) || isset($heightBounds[1]) && $height <= 0 + $heightBounds[1])))) {
+               || ($height >= 0 + $heightBounds[0] && $height <= 0 + $heightBounds[1]))) {
             return false;
         }
         return true;
