@@ -181,6 +181,9 @@ class WPShortPixel {
             $spMetaDao = new ShortPixelCustomMetaDao(new WpShortPixelDb(), $settings->excludePatterns);
             $spMetaDao->dropTables();
         }
+        if(WPShortPixelSettings::getOpt('deliverWebp') == 3) {
+            self::alterHtaccess(); //add the htaccess lines
+        }
         WPShortPixelSettings::onActivate();
     }
     
@@ -189,6 +192,7 @@ class WPShortPixel {
         ShortPixelQueue::resetBulk();
         ShortPixelQueue::resetPrio();
         WPShortPixelSettings::onDeactivate();
+        self::alterHtaccess(true);
         @unlink(SHORTPIXEL_BACKUP_FOLDER . "/shortpixel_log");
     }
 
@@ -530,7 +534,7 @@ class WPShortPixel {
                 'confirmBulkRestore' => __( "Are you sure you want to restore from backup all the images in your Media Library optimized with ShortPixel?", 'shortpixel-image-optimiser' ),
                 'confirmBulkCleanup' => __( "Are you sure you want to cleanup the ShortPixel metadata info for the images in your Media Library optimized with ShortPixel? This will make ShortPixel 'forget' that it optimized them and will optimize them again if you re-run the Bulk Optimization process.", 'shortpixel-image-optimiser' ),
                 'confirmBulkCleanupPending' => __( "Are you sure you want to cleanup the pending metadata?", 'shortpixel-image-optimiser' ),
-                'alertDeliverWebPAltered' => __( "Warning: Using this method alters the structure of the HTML code (IMG tags get included in PICTURE tags),\nwhich can lead to CSS/JS inconsistencies with the existing code.\n\nPlease test this functionality thoroughly before using it!", 'shortpixel-image-optimiser' ),
+                'alertDeliverWebPAltered' => __( "Warning: Using this method alters the structure of the rendered HTML code (IMG tags get included in PICTURE tags),\nwhich in some rare cases can lead to CSS/JS inconsistencies.\n\nPlease test this functionality thoroughly after activating!\n\nIf you notice any issue, just deactivate it and the HTML will will revert to the previous state.", 'shortpixel-image-optimiser' ),
                 'alertDeliverWebPUnaltered' => __('This option will serve both WebP and the original image using the same URL, based on the web browser capabilities, please make sure you\'re serving the images from your server and not using a CDN which caches the images.', 'shortpixel-image-optimiser' ),
                 );
         wp_localize_script( 'shortpixel' . $this->jsSuffix, '_spTr', $jsTranslation );
@@ -1267,7 +1271,11 @@ class WPShortPixel {
                         }
 
                         if(strlen($thumb) && $this->_settings->backupImages && $this->_settings->processThumbnails) {
-                            $backupUrl = SHORTPIXEL_UPLOADS_URL . "/" . SHORTPIXEL_BACKUP . "/";
+                            //$backupUrl = SHORTPIXEL_UPLOADS_URL . "/" . SHORTPIXEL_BACKUP . "/";
+                            // use the same method as in getComparerData (HelpScout case 771014296). Former method above.
+                            //$backupUrl = content_url() . "/" . SHORTPIXEL_UPLOADS_NAME . "/" . SHORTPIXEL_BACKUP . "/";
+                            //or even better:
+                            $backupUrl = SHORTPIXEL_BACKUP_URL . "/";
                             //$urlBkPath = $this->_apiInterface->returnSubDir(get_attached_file($ID));
                             $urlBkPath = ShortPixelMetaFacade::returnSubDir($meta->getPath(), ShortPixelMetaFacade::MEDIA_LIBRARY_TYPE);
                             $bkThumb = $backupUrl . $urlBkPath . $thumb;
@@ -1840,8 +1848,10 @@ class WPShortPixel {
                     @unlink($unlink);
                 }
                 //try also the .webp
-                $unlinkWebp = trailingslashit(dirname($unlink)) . wp_basename($unlink, '.' . pathinfo($unlink, PATHINFO_EXTENSION)) . '.webp';
+                $unlinkWebpSymlink = trailingslashit(dirname($unlink)) . wp_basename($unlink, '.' . pathinfo($unlink, PATHINFO_EXTENSION)) . '.webp';
+                $unlinkWebp = $unlink . '.webp';
                 WPShortPixel::log("PNG2JPG unlink $unlinkWebp");
+                @unlink($unlinkWebpSymlink);
                 @unlink($unlinkWebp);
             }
         } catch(Exception $e) {
@@ -2565,25 +2575,39 @@ class WPShortPixel {
         return $customFolders;
     }
 
-    protected function alterHtaccess( $clear = false ){
+    protected static function alterHtaccess( $clear = false ){
         if ( $clear ) {
             insert_with_markers( get_home_path() . '.htaccess', 'ShortPixelWebp', '');
         } else {
             insert_with_markers( get_home_path() . '.htaccess', 'ShortPixelWebp', '
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  ##### TRY FIRST the file appended with .webp (ex. test.jpg.webp) #####
   # Does browser explicitly support webp?
   RewriteCond %{HTTP_USER_AGENT} Chrome [OR]
   # OR Is request from Page Speed
   RewriteCond %{HTTP_USER_AGENT} "Google Page Speed Insights" [OR]
   # OR does this browser explicitly support webp
-  RewriteCond %{HTTP_ACCEPT} image/webp [OR]
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  # AND is the request a jpg or png?
+  RewriteCond %{REQUEST_URI} ^(.+)\.(?:jpe?g|png)$
+  # AND does a .ext.webp image exist?
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.webp -f
+  # THEN send the webp image and set the env var webp
+  RewriteRule ^(.+)$ $1.webp [NC,T=image/webp,E=webp,L]
 
-  # AND does a webp image exist?
-  RewriteCond %{DOCUMENT_ROOT}/$1\.webp -f
-
+  ##### IF NOT, try the file with replaced extension (test.webp) #####
+  RewriteCond %{HTTP_USER_AGENT} Chrome [OR]
+  RewriteCond %{HTTP_USER_AGENT} "Google Page Speed Insights" [OR]
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  # AND is the request a jpg or png? (also grab the basepath %1 to match in the next rule)
+  RewriteCond %{REQUEST_URI} ^(.+)\.(?:jpe?g|png)$
+  # AND does a .ext.webp image exist?
+  RewriteCond %{DOCUMENT_ROOT}/%1.webp -f
   # THEN send the webp image and set the env var webp
   RewriteRule (.+)\.(?:jpe?g|png)$ $1.webp [NC,T=image/webp,E=webp,L]
+
 </IfModule>
 <IfModule mod_headers.c>
   # If REDIRECT_webp env var exists, append Accept to the Vary header
@@ -2786,10 +2810,10 @@ Header append Vary Accept env=REDIRECT_webp
                             switch( $_POST['deliverWebpType'] ) {
                                 case 'deliverWebpUnaltered':
                                     $this->_settings->deliverWebp = 3;
-                                    if(!$isNginx) $this->alterHtaccess();
+                                    if(!$isNginx) self::alterHtaccess();
                                     break;
                                 case 'deliverWebpAltered':
-                                    $this->alterHtaccess(true);
+                                    self::alterHtaccess(true);
                                     if( isset( $_POST['deliverWebpAlteringType'] ) ){
                                         switch ($_POST['deliverWebpAlteringType']) {
                                             case 'deliverWebpAlteredWP':
@@ -2804,11 +2828,11 @@ Header append Vary Accept env=REDIRECT_webp
                             }
                         }
                     } else {
-                        if(!$isNginx) $this->alterHtaccess(true);
+                        if(!$isNginx) self::alterHtaccess(true);
                         $this->_settings->deliverWebp = 0;
                     }
                 } else {
-                    if(!$isNginx) $this->alterHtaccess(true);
+                    if(!$isNginx) self::alterHtaccess(true);
                     $this->_settings->deliverWebp = 0;
                 }
 
@@ -3122,7 +3146,7 @@ Header append Vary Accept env=REDIRECT_webp
             $file = get_attached_file($id);                        
             $data = ShortPixelMetaFacade::sanitizeMeta(wp_get_attachment_metadata($id));
 
-            if($extended && isset($_POST['SHORTPIXEL_DEBUG'])) {
+            if($extended && isset($_GET['SHORTPIXEL_DEBUG'])) {
                 var_dump(wp_get_attachment_url($id));
                 echo('<br><br>' . json_encode(ShortPixelMetaFacade::getWPMLDuplicates($id)));
                 echo('<br><br>' . json_encode($data));

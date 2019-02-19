@@ -1255,7 +1255,8 @@ class ShortPixelView {
                                         </p>
                                     <?php } ?>
                                     <p class="settings-info">
-                                        <?php _e('Each &lt;img&gt; will be replaced with a &lt;picture&gt; tag that will also provide the WebP image as a choice for browsers that support it. Also loads the picturefill.js for browsers that don\'t support the &lt;picture&gt; tag. You don\'t need to activate this if you\'re using the Cache Enabler plugin because your WebP images are already handled by this plugin. <strong>Please make a test before using this option</strong>, as if the styles that your theme is using rely on the position of your &lt;img&gt; tag, you might experience display problems.','shortpixel-image-optimiser');?>
+                                        <?php _e('Each &lt;img&gt; will be replaced with a &lt;picture&gt; tag that will also provide the WebP image as a choice for browsers that support it. Also loads the picturefill.js for browsers that don\'t support the &lt;picture&gt; tag. You don\'t need to activate this if you\'re using the Cache Enabler plugin because your WebP images are already handled by this plugin. <strong>Please make a test before using this option</strong>, as if the styles that your theme is using rely on the position of your &lt;img&gt; tag, you might experience display problems.','shortpixel-image-optimiser'); ?>
+                                        <strong><?php _e('You can revert anytime to the previous state by just deactivating the option.','shortpixel-image-optimiser'); ?></strong>
                                     </p>
                                     <ul class="deliverWebpAlteringTypes">
                                         <li>
