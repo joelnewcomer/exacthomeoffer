@@ -1,5 +1,5 @@
 <?php
-define('SCE_VERSION', '2.3.6');
+define('SCE_VERSION', '2.3.8');
 class Simple_Comment_Editing {
 	private static $instance = null;
 	private $comment_time = 0; //in minutes
@@ -974,7 +974,7 @@ class Simple_Comment_Editing {
 		if ( function_exists( 'mb_convert_encoding' ) ) {
 			$comment_content_to_return = mb_convert_encoding( $comment_content_to_return, ''. get_option( 'blog_charset' ) . '', mb_detect_encoding( $comment_content_to_return, "UTF-8, ISO-8859-1, ISO-8859-15", true ) );
 		}
-		return apply_filters( 'comment_text', apply_filters( 'get_comment_text', $comment_content_to_return, $comment ), $comment );
+		return apply_filters( 'comment_text', apply_filters( 'get_comment_text', $comment_content_to_return, $comment, array() ), $comment, array() );
 	}
 
 	/**
@@ -1198,4 +1198,12 @@ class Simple_Comment_Editing {
 add_action( 'plugins_loaded', 'sce_instantiate' );
 function sce_instantiate() {
 	Simple_Comment_Editing::get_instance();
+	if( is_admin() && apply_filters( 'sce_show_admin', true ) ) {
+		include Simple_Comment_Editing::get_instance()->get_plugin_dir( '/includes/class-sce-admin.php' );
+		new SCE_Plugin_Admin();
+	}
+	if( apply_filters( 'sce_show_admin', true ) ) {
+		include Simple_Comment_Editing::get_instance()->get_plugin_dir( '/includes/class-sce-output.php' );
+		new SCE_Plugin_Output();
+	}
 } //end sce_instantiate
