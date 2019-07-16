@@ -4,7 +4,7 @@ Tags: compressor, image, compression, optimize, image optimizer, image optimiser
 Requires at least: 3.2.0
 Tested up to: 5.2
 Requires PHP: 5.3
-Stable tag: 4.14.0
+Stable tag: 4.14.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -243,6 +243,16 @@ The ShortPixel Image Optimiser plugin calls the following actions and filters:
 
 == Changelog ==
 
+== 4.14.2 ==
+
+Release date: 1st July 2019
+* Add the possibility to define custom thumb infixes like for example -uat to also select thumbs like image-uat-100x100.jpg 
+
+== 4.14.1 ==
+
+Release date: 17th June 2019
+* Fix errors when DOMDocument not present
+
 == 4.14.0 ==
 
 Release date: 17th June 2019
@@ -259,6 +269,7 @@ Release date: 17th June 2019
 * Clear SP optimization cache in order to be able to optimize an image which initially had permissions error, after changing the permissions.
 * Fix being able to list the contents of ShortpixelBackups on some badly configured servers.
 * Fix error when inputting D'Artagnan in the AUTH pass field of settings.
+* Add the Quriobot for support.
 
 = 4.13.1 =
 
