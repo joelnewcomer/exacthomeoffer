@@ -454,11 +454,17 @@ class GFTwilio extends GFFeedAddOn {
 
 		}
 
+		$first_choice_label = array(
+			'label' => esc_html__( 'Select a Number', 'gravityformstwilio' ),
+			'value' => '',
+		);
+
 		// Prepare options by type.
 		if ( 'incoming_numbers' === $type ) {
 
 			// Initialize phone numbers array.
 			$phone_numbers = array(
+				$first_choice_label,
 				array(
 					'label'   => esc_html__( 'Twilio Phone Numbers', 'gravityformstwilio' ),
 					'choices' => array(),
@@ -473,7 +479,7 @@ class GFTwilio extends GFFeedAddOn {
 			foreach ( $twilio_numbers as $twilio_number ) {
 
 				// Add Twilio phone number as choice.
-				$phone_numbers[0]['choices'][] = array(
+				$phone_numbers[1]['choices'][] = array(
 					'label' => esc_html( $twilio_number->phoneNumber ),
 					'value' => esc_attr( $twilio_number->phoneNumber ),
 				);
@@ -484,6 +490,7 @@ class GFTwilio extends GFFeedAddOn {
 
 			// Initialize phone numbers array.
 			$phone_numbers = array(
+				$first_choice_label,
 				array(
 					'label'   => esc_html__( 'Phone Fields', 'gravityformstwilio' ),
 					'choices' => array(),
@@ -511,7 +518,7 @@ class GFTwilio extends GFFeedAddOn {
 				foreach ( $phone_fields as $phone_field ) {
 
 					// Add Phone field as choice.
-					$phone_numbers[0]['choices'][] = array(
+					$phone_numbers[1]['choices'][] = array(
 						'label' => esc_html( $phone_field->label ),
 						'value' => 'field_' . esc_attr( $phone_field->id ),
 					);
@@ -524,7 +531,7 @@ class GFTwilio extends GFFeedAddOn {
 			foreach ( $twilio_numbers as $twilio_number ) {
 
 				// Add Twilio phone number as choice.
-				$phone_numbers[1]['choices'][] = array(
+				$phone_numbers[2]['choices'][] = array(
 					'label' => esc_html( $twilio_number->phoneNumber ),
 					'value' => esc_attr( $twilio_number->phoneNumber ),
 				);
@@ -665,6 +672,20 @@ class GFTwilio extends GFFeedAddOn {
 
 	}
 
+	/**
+	 * Allow the feed to be duplicated.
+	 *
+	 * @since 2.7
+	 *
+	 * @param array|int $id The ID of the feed to be duplicated or the feed object when duplicating a form.
+	 *
+	 * @return bool
+	 */
+	public function can_duplicate_feed( $id ) {
+
+		return true;
+
+	}
 
 
 

@@ -1,3 +1,9 @@
+### 2.7 | 2020-05-06
+- Added translations for Hebrew, Hindi, Japanese, and Turkish.
+- Added support for feed duplication.
+- Fixed an issue with the From and Send To dropdowns in the feed settings not having default choices.
+
+
 ### 2.6 | 2019-08-07
 - Added security enhancements.
 - Fixed an issue with the shortened URL where long URLs with more than one parameter get truncated.

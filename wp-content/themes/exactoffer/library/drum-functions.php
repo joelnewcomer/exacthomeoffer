@@ -279,24 +279,6 @@ function my_theme_register_required_plugins() {
             'slug'      => 'kirki',
             'required'  => true,
         ),
-        // Require Email Login
-        array(
-            'name'      => 'Email Login',
-            'slug'      => 'wp-email-login',
-            'required'  => true,
-        ),
-        // Require Email Address Encoder
-        array(
-            'name'      => 'Email Address Encoder',
-            'slug'      => 'email-address-encoder',
-            'required'  => true,
-        ),
-        // Require Optimize Images Resizing
-        array(
-            'name'      => 'Optimize Images Resizing',
-            'slug'      => 'optimize-images-resizing',
-            'required'  => true,
-        ),
         // Require Safe SVG
         array(
             'name'      => 'Safe SVG',

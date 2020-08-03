@@ -27,7 +27,12 @@ if ( !function_exists( 'is_rest' ) ) {
 		// (#4)
 		$rest_url = wp_parse_url( trailingslashit( rest_url( ) ) );
 		$current_url = wp_parse_url( add_query_arg( array( ) ) );
-		return strpos( $current_url['path'], $rest_url['path'], 0 ) === 0;
+		if ( !$rest_url || !$current_url )
+			return false;
+		if ( !empty( $current_url['path'] ) && !empty( $rest_url['path'] ) ) {
+			return strpos( $current_url['path'], $rest_url['path'], 0 ) === 0;
+		}
+		return false;
 	}
 }
 

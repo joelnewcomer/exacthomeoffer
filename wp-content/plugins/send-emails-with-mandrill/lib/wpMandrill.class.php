@@ -18,9 +18,6 @@ class wpMandrill {
 
         add_action('admin_init', array(__CLASS__, 'adminInit'));
         add_action('admin_menu', array(__CLASS__, 'adminMenu'));
-        add_action('admin_notices', array(__CLASS__, 'adminNotices'));
-
-        add_filter('contextual_help', array(__CLASS__, 'showContextualHelp'), 10, 3);
 
         add_action('admin_print_footer_scripts', array(__CLASS__,'openContextualHelp'));
         add_action('wp_ajax_get_mandrill_stats', array(__CLASS__,'getAjaxStats'));
@@ -152,8 +149,9 @@ class wpMandrill {
             'wpmandrill',
             array(__CLASS__,'showOptionsPage')
         );
-
-        if( self::isConfigured() ) {
+        add_action( 'load-'.self::$settings, array(__CLASS__,'showContextualHelp'));
+	    
+        if( self::isConfigured() && apply_filters( 'wpmandrill_enable_reports', true ) ) {
             if (current_user_can('manage_options')) self::$report = add_dashboard_page(
                 __('Mandrill Reports', 'wpmandrill'),
                 __('Mandrill Reports', 'wpmandrill'),
@@ -196,22 +194,6 @@ class wpMandrill {
         if ( self::$conflict ) {
             echo '<div class="error"><p>'.__('Mandrill: wp_mail has been declared by another process or plugin, so you won\'t be able to use Mandrill until the problem is solved.', 'wpmandrill') . '</p></div>';
         }
-
-        $et_timezone = new DateTimeZone( 'America/New_York' );
-        $now = date_create( 'now', $et_timezone );
-        $until = date_create( '2020-01-12 00:00:00', $et_timezone );
-
-        if ( $now < $until ) {
-            echo '<div class="notice notice-info">' .
-                '<p>' . __(
-                    'On Saturday, January 11th from 1am - 7am EST, the Mandrill email service will be upgrading its infrastructure ' .
-                    'and all emails sent through their service will fail. The \'Send Emails with Mandrill\' plugin is currently configured ' .
-                    'to send mail through your normal WordPress server without any additional configuration. As a precaution, we have ' .
-                    'posted a blog detailing additional details actions you can take as precautions during this outage.<br /><br />' .
-                    'Read more here: <a href="https://www.millermedia.io/mandrill-outage-details-and-actions/" target="_blank" rel="noopener">Mandrill Outage Details and Actions</a>.',
-                'wpmandrill') . '</p>' .
-            '</div>';
-        }
     }
 
     static function showAdminEnqueueScripts($hook_suffix) {
@@ -224,35 +206,38 @@ class wpMandrill {
     /**
      * Generates source of contextual help panel.
      */
-    static function showContextualHelp($contextual_help, $screen_id, $screen) {
-        if ($screen_id == self::$settings) {
-            self::getConnected();
+    static function showContextualHelp() {
+        $screen = get_current_screen();
+        self::getConnected();
 
-            $ok = array();
-            $ok['account'] = ( !self::isConnected() )   ? ' class="missing"' : '';
-            $ok['email']   = ( $ok['account'] != '' || !self::getFromEmail() )        ? ' class="missing"' : '';
+        $ok = array();
+        $ok['account'] = ( !self::isConnected() )   ? ' class="missing"' : '';
+        $ok['email']   = ( $ok['account'] != '' || !self::getFromEmail() )        ? ' class="missing"' : '';
 
-            $requirements  = '';
-            if ($ok['account'] . $ok['email'] != '' ) {
-                $requirements = '<p>' . __('To use this plugin you will need:', 'wpmandrill') . '</p>'
-                    . '<ol>'
-                    . '<li'.$ok['account'].'>'. __('Your Mandrill account.', 'wpmandrill') . '</li>'
-                    . '<li'.$ok['email'].'>' . __('A valid sender email address.', 'wpmandrill') . '</li>'
-                    . '</ol>';
-            }
-
-            return $requirements
-            . '<p>' . __('Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation.', 'wpmandrill').'</p>'
-            . '<p>' . __('However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>.', 'wpmandrill').'</p>'
-            . '<p>' . __('This filter has the same structure as Mandrill\'s API call <a href="http://mandrillapp.com/api/docs/messages.html#method=send" target="_blank">/messages/send</a>, except that it can have one additional parameter when the email is based on a template. The parameter is called "<em>template</em>", which is an associative array of two elements (the first element, a string whose key is "<em>template_name</em>", and a second parameter whose key is "<em>template_content</em>". Its value is an array with the same structure of the parameter "<em>template_content</em>" in the call <a href="http://mandrillapp.com/api/docs/messages.html#method=send-template" target="_blank">/messages/send-template</a>.)', 'wpmandrill').'</p>'
-            . '<p>' . __('Note that if you\'re sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded.', 'wpmandrill').'</p>'
-            . '<p>' . __('Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities.', 'wpmandrill').'</p>'
-            . '<p>' . __('Confirm that any change you made to the payload is in line with the <a href="http://mandrillapp.com/api/docs/" target="_blank">Mandrill\'s API\'s documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href="http://help.mandrill.com/forums/20689696-smtp-integration" target="_blank">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href="http://www.mandrill.com/terms/" target="_blank">Mandrill\'s Terms of Use</a> and <a href="http://mandrill.com/privacy/" target="_blank">Privacy Policy</a>.', 'wpmandrill').'</p>'
-            . '<p>' . __('if you have any question about Mandrill or this plugin, visit the <a href="http://help.mandrill.com/" target="_blank">Mandrill\'s Support Center</a>.', 'wpmandrill').'</p>'
-                ;
+        $requirements  = '';
+        if ($ok['account'] . $ok['email'] != '' ) {
+            $requirements = '<p>' . __('To use this plugin you will need:', 'wpmandrill') . '</p>'
+                . '<ol>'
+                . '<li'.$ok['account'].'>'. __('Your Mandrill account.', 'wpmandrill') . '</li>'
+                . '<li'.$ok['email'].'>' . __('A valid sender email address.', 'wpmandrill') . '</li>'
+                . '</ol>';
         }
 
-        return $contextual_help;
+        $requirements = $requirements
+        . '<p>' . __('Once you have properly configured the settings, the plugin will take care of all the emails sent through your WordPress installation.', 'wpmandrill').'</p>'
+        . '<p>' . __('However, if you need to customize any part of the email before sending, you can do so by using the WordPress filter <strong>mandrill_payload</strong>.', 'wpmandrill').'</p>'
+        . '<p>' . __('This filter has the same structure as Mandrill\'s API call <a href="http://mandrillapp.com/api/docs/messages.html#method=send" target="_blank">/messages/send</a>, except that it can have one additional parameter when the email is based on a template. The parameter is called "<em>template</em>", which is an associative array of two elements (the first element, a string whose key is "<em>template_name</em>", and a second parameter whose key is "<em>template_content</em>". Its value is an array with the same structure of the parameter "<em>template_content</em>" in the call <a href="http://mandrillapp.com/api/docs/messages.html#method=send-template" target="_blank">/messages/send-template</a>.)', 'wpmandrill').'</p>'
+        . '<p>' . __('Note that if you\'re sending additional headers in your emails, the only valid headers are <em>From:</em>, <em>Reply-To:</em>, and <em>X-*:</em>. <em>Bcc:</em> is also valid, but Mandrill will send the blind carbon copy to only the first address, and the remaining will be silently discarded.', 'wpmandrill').'</p>'
+        . '<p>' . __('Also note that if any error occurs while sending the email, the plugin will try to send the message again using the native WordPress mailing capabilities.', 'wpmandrill').'</p>'
+        . '<p>' . __('Confirm that any change you made to the payload is in line with the <a href="http://mandrillapp.com/api/docs/" target="_blank">Mandrill\'s API\'s documentation</a>. Also, the <em>X-*:</em> headers, must be in line with the <a href="http://help.mandrill.com/forums/20689696-smtp-integration" target="_blank">SMTP API documentation</a>. By using this plugin, you agree that you and your website will adhere to <a href="http://www.mandrill.com/terms/" target="_blank">Mandrill\'s Terms of Use</a> and <a href="http://mandrill.com/privacy/" target="_blank">Privacy Policy</a>.', 'wpmandrill').'</p>'
+        . '<p>' . __('if you have any question about Mandrill or this plugin, visit the <a href="http://help.mandrill.com/" target="_blank">Mandrill\'s Support Center</a>.', 'wpmandrill').'</p>'
+            ;
+        
+	    $screen->add_help_tab( array(
+            'id'    => 'tab1',
+            'title' => __('Setup'),
+            'content'   => '<p>' . __( $requirements) . '</p>',
+	    ) );
     }
 
     /**
@@ -1030,7 +1015,7 @@ class wpMandrill {
         if (!current_user_can('manage_options')) return;
 
         self::getConnected();
-        if ( !self::isConnected() ) return;
+        if ( !self::isConnected() || !apply_filters( 'wpmandrill_enable_widgets', true ) ) return;
 
         $widget_id      = 'mandrill_widget';
 
